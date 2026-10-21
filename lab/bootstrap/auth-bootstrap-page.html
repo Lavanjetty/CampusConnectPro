@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Authentication Page (Bootstrap Cards) — Practical F.2 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Bootstrap</span> &gt; <span>Exercise F.2</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Responsive Authentication Page (Bootstrap Cards)</h1>
+      <p class="text-muted small mb-0">Responsive authentication page with separate Login and Registration Bootstrap cards.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-primary text-white fw-bold">
+          Student &amp; Faculty Login
+        </div>
+        <div class="card-body">
+          <form onsubmit="event.preventDefault(); alert('Bootstrap Card Login Validated');">
+            <div class="mb-3">
+              <label class="form-label">Username or Email</label>
+              <input type="text" class="form-control" required placeholder="name@campus.edu">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" required placeholder="••••••••">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="bs-rem">
+              <label class="form-check-label" for="bs-rem">Remember Me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-success text-white fw-bold">
+          New User Registration
+        </div>
+        <div class="card-body">
+          <form onsubmit="event.preventDefault(); alert('Bootstrap Card Registration Validated');">
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" required placeholder="Aarav Patel">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" required placeholder="student@campus.edu">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">User Role</label>
+              <select class="form-select">
+                <option>Undergraduate Student</option>
+                <option>Postgraduate Scholar</option>
+                <option>Faculty Member</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  
+</body>
+</html>

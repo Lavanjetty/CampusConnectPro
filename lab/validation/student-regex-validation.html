@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Regular Expression Validation — Practical C.2 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>JavaScript Validation</span> &gt; <span>Exercise C.2</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Student Registration Regular Expression Validation</h1>
+      <p class="text-muted small mb-0">Name regex (/^[A-Za-z\s]{3,50}$/), email regex, gender radio selection, and technical skills checkbox verification.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:600px; margin:0 auto; background:#fff; padding:2rem; border-radius:8px; border:1px solid #e2e8f0;">
+    <h3 class="h5 mb-3" style="color:#0f2b48;">RegEx Student Registration</h3>
+    <div id="c2-status" class="status-alert"></div>
+
+    <form id="c2-form" novalidate>
+      <div class="form-group">
+        <label for="student-name" class="form-label required">Student Name (Letters and spaces only, 3-50 chars)</label>
+        <input type="text" id="student-name" name="studentName" class="form-control" placeholder="Aarav Patel">
+        <div id="studentNameError" class="error-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="student-email" class="form-label required">Email ID</label>
+        <input type="email" id="student-email" name="studentEmail" class="form-control" placeholder="student@campus.edu">
+        <div id="studentEmailError" class="error-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label required">Gender</label>
+        <div class="d-flex gap-3">
+          <label><input type="radio" name="studentGender" value="Male"> Male</label>
+          <label><input type="radio" name="studentGender" value="Female"> Female</label>
+          <label><input type="radio" name="studentGender" value="Other"> Other</label>
+        </div>
+        <div id="studentGenderError" class="error-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label required">Technical Skills (HTML, CSS, JavaScript)</label>
+        <div class="d-flex gap-3">
+          <label><input type="checkbox" name="studentSkills" value="HTML"> HTML</label>
+          <label><input type="checkbox" name="studentSkills" value="CSS"> CSS</label>
+          <label><input type="checkbox" name="studentSkills" value="JavaScript"> JavaScript</label>
+        </div>
+        <div id="studentSkillsError" class="error-feedback"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2">Validate Student Registration</button>
+    </form>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  document.getElementById('c2-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    CampusValidation.validateStudentRegistration('c2-form', 'c2-status');
+  });
+  </script>
+</body>
+</html>

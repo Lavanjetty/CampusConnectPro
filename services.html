@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library &amp; Student Services — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 2x2 Colored Grid for Library Management */
+    .library-grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .library-grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .lib-block {
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 220px;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .lib-block:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .lib-block-books {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+    }
+    .lib-block-members {
+      background: linear-gradient(135deg, #059669, #047857);
+    }
+    .lib-block-issue {
+      background: linear-gradient(135deg, #d97706, #b45309);
+    }
+    .lib-block-digital {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    }
+    .lib-icon-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Smart Search Engine Box */
+    .search-engine-box {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      margin-bottom: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="services.html" class="nav-link active">Services &amp; Library</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="checkout.html" class="btn btn-outline btn-sm">Campus Store</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding">
+    <div class="text-center mb-5">
+      <span class="badge badge-teal mb-2">Central Information Resource Center</span>
+      <h1 class="display-6 fw-bold" style="color:var(--color-navy-950);">Library Management System &amp; Services</h1>
+      <p class="text-muted fs-5 mx-auto" style="max-width:780px;">
+        Empowering over 12,000 scholars with physical book archives, research cataloging, seamless circulation desks, and an AI-driven Smart Search Engine.
+      </p>
+    </div>
+
+    <!-- 4 Colored Blocks arranged in a 2x2 Grid -->
+    <h2 class="h4 mb-3 fw-bold" style="color:var(--color-navy-900);">Library Core Modules (2 &times; 2 Grid Layout)</h2>
+    <div class="library-grid-2x2">
+      <!-- Block 1: Books -->
+      <div class="lib-block lib-block-books" id="lib-card-books" role="button" tabindex="0" aria-label="Books module">
+        <div>
+          <div class="lib-icon-badge">📚</div>
+          <h3 class="h4 text-white mb-2">Books</h3>
+          <p class="text-white-50 small mb-0">
+            Catalog of over 120,000 print volumes, IEEE reference papers, monographs, and academic textbooks across all engineering branches.
+          </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-white-50">
+          <span class="small fw-bold">124,500 Titles Available</span>
+          <span class="badge bg-white text-primary">Browse Shelf &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Block 2: Members -->
+      <div class="lib-block lib-block-members" id="lib-card-members" role="button" tabindex="0" aria-label="Members module">
+        <div>
+          <div class="lib-icon-badge">👥</div>
+          <h3 class="h4 text-white mb-2">Members</h3>
+          <p class="text-white-50 small mb-0">
+            Automated RFID barcode identification, patron borrowing quota tracking, research scholar privileges, and faculty reserve desks.
+          </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-white-50">
+          <span class="small fw-bold">8,920 Active Patrons</span>
+          <span class="badge bg-white text-success">Member Roster &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Block 3: Issue Books -->
+      <div class="lib-block lib-block-issue" id="lib-card-issue" role="button" tabindex="0" aria-label="Issue Books desk">
+        <div>
+          <div class="lib-icon-badge">🔄</div>
+          <h3 class="h4 text-white mb-2">Issue Books</h3>
+          <p class="text-white-50 small mb-0">
+            Self-service checkout kiosks, automated due date reminders via SMS/email, instant renewal options, and no-overdue fine processing.
+          </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-white-50">
+          <span class="small fw-bold">Daily Circulation Desk</span>
+          <span class="badge bg-white text-warning">Issue / Return &rarr;</span>
+        </div>
+      </div>
+
+      <!-- Block 4: Digital Library -->
+      <div class="lib-block lib-block-digital" id="lib-card-digital" role="button" tabindex="0" aria-label="Digital Library repository">
+        <div>
+          <div class="lib-icon-badge">💻</div>
+          <h3 class="h4 text-white mb-2">Digital Library</h3>
+          <p class="text-white-50 small mb-0">
+            Online access to ACM Digital Library, SpringerLink, ScienceDirect, NPTEL video archives, and remote VPN institutional access.
+          </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top border-white-50">
+          <span class="small fw-bold">2.4M Electronic Papers</span>
+          <span class="badge bg-white text-purple">Cloud Gateway &rarr;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Feedback for Block Clicks -->
+    <div id="lib-module-feedback" class="status-alert alert-success mb-4" style="display:none;"></div>
+
+    <!-- Smart Search Engine Section -->
+    <div class="search-engine-box">
+      <div class="border-bottom pb-3 mb-4">
+        <span class="badge badge-teal mb-1">Interactive Catalog Filtering</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-950);">Smart Search Engine</h2>
+        <p class="text-muted small mb-0">
+          Demonstrate real-time dataset filtering using category dropdowns, price range bands, and keyword text search against sample academic items.
+        </p>
+      </div>
+
+      <!-- Search Controls -->
+      <form id="smart-search-form" class="row g-3 align-items-end mb-4">
+        <div class="col-md-5">
+          <label for="search-input" class="form-label fw-bold">Search Keywords / Title</label>
+          <input type="text" id="search-input" class="form-control" placeholder="Search by book name, author, topic...">
+        </div>
+
+        <div class="col-md-3">
+          <label for="category-dropdown" class="form-label fw-bold">Category</label>
+          <select id="category-dropdown" class="form-control">
+            <option value="all">All Categories</option>
+            <option value="Computer Science">Computer Science &amp; IT</option>
+            <option value="Electronics">Electronics &amp; Hardware</option>
+            <option value="Mathematics">Mathematics &amp; Theory</option>
+            <option value="Literature">General Literature</option>
+          </select>
+        </div>
+
+        <div class="col-md-2">
+          <label for="price-dropdown" class="form-label fw-bold">Price Range</label>
+          <select id="price-dropdown" class="form-control">
+            <option value="all">Any Price</option>
+            <option value="0-500">Under ₹500</option>
+            <option value="500-1000">₹500 – ₹1,000</option>
+            <option value="1000+">Above ₹1,000</option>
+          </select>
+        </div>
+
+        <div class="col-md-2 d-grid">
+          <button type="submit" id="btn-smart-search" class="btn btn-primary">
+            🔍 Search
+          </button>
+        </div>
+      </form>
+
+      <!-- Active Search Results Header -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="h6 text-muted mb-0">
+          Matching Catalog Results: <span id="results-count" class="badge badge-teal">4 Items</span>
+        </h3>
+        <button type="button" id="btn-reset-search" class="btn btn-sm btn-outline">Reset Filter</button>
+      </div>
+
+      <!-- Results Area -->
+      <div id="search-results-grid" class="grid-4"></div>
+
+      <!-- Empty Result Message -->
+      <div id="empty-results-msg" style="display:none; text-align:center; padding:3rem; background:#f8fafc; border-radius:var(--radius-md); border:1px dashed #cbd5e1;">
+        <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔍</div>
+        <h4 style="color:var(--color-navy-900);">No Matching Catalog Records Found</h4>
+        <p class="text-muted small">Try broadening your search term or selecting "All Categories" and "Any Price".</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Central Digital Library Services.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Portal Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Library 2x2 Block Interactive Behavior
+      const feedbackBox = document.getElementById('lib-module-feedback');
+      const blocks = [
+        { id: 'lib-card-books', name: 'Books Catalog Module', msg: 'Navigating to 124,500 physical and reserve book holdings.' },
+        { id: 'lib-card-members', name: 'Patron Membership Management', msg: 'RFID Member Profile: Aarav Patel (Quota: 4 of 6 books used).' },
+        { id: 'lib-card-issue', name: 'Circulation & Book Issue Desk', msg: 'Next book return due date: Nov 15, 2026. Zero fine accumulated.' },
+        { id: 'lib-card-digital', name: 'Digital Library Online Gateway', msg: 'Connected to IEEE Xplore, ScienceDirect, and ACM Digital Portal.' }
+      ];
+
+      blocks.forEach(b => {
+        const el = document.getElementById(b.id);
+        if (el) {
+          el.addEventListener('click', () => {
+            feedbackBox.className = 'status-alert alert-success show';
+            feedbackBox.innerHTML = `<strong>${b.name}:</strong> ${b.msg}`;
+            feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              el.click();
+            }
+          });
+        }
+      });
+
+      // 2. Smart Search Engine Demonstration
+      const sampleLibraryData = [
+        { id: 1, title: 'Modern Web Technology Pro', author: 'Dr. Thorne & Raman', category: 'Computer Science', price: 650, img: 'images/book-webtech.svg' },
+        { id: 2, title: 'Data Structures & Algorithms', author: 'N. Karumanchi', category: 'Computer Science', price: 820, img: 'images/book-dsa.svg' },
+        { id: 3, title: 'Artificial Intelligence: A Modern Lab', author: 'Russell & Norvig', category: 'Computer Science', price: 1450, img: 'images/book-ai.svg' },
+        { id: 4, title: 'Cloud Networks & Virtualization', author: 'P. Raman', category: 'Computer Science', price: 420, img: 'images/book-networks.svg' },
+        { id: 5, title: 'Microelectronic Circuits', author: 'Sedra & Smith', category: 'Electronics', price: 1100, img: 'images/book-ai.svg' },
+        { id: 6, title: 'Digital Logic & Computer Design', author: 'M. Mano', category: 'Electronics', price: 480, img: 'images/book-networks.svg' },
+        { id: 7, title: 'Discrete Mathematics & Applications', author: 'K. Rosen', category: 'Mathematics', price: 790, img: 'images/book-dsa.svg' },
+        { id: 8, title: 'Higher Engineering Mathematics', author: 'B. S. Grewal', category: 'Mathematics', price: 950, img: 'images/book-webtech.svg' },
+        { id: 9, title: 'The Art of Computer Programming Vol 1', author: 'Donald Knuth', category: 'Literature', price: 1850, img: 'images/book-ai.svg' },
+        { id: 10, title: 'Academic English & Research Writing', author: 'Cambridge Press', category: 'Literature', price: 350, img: 'images/book-webtech.svg' }
+      ];
+
+      const searchForm = document.getElementById('smart-search-form');
+      const searchInput = document.getElementById('search-input');
+      const catSelect = document.getElementById('category-dropdown');
+      const priceSelect = document.getElementById('price-dropdown');
+      const resultsContainer = document.getElementById('search-results-grid');
+      const countEl = document.getElementById('results-count');
+      const emptyEl = document.getElementById('empty-results-msg');
+      const resetBtn = document.getElementById('btn-reset-search');
+
+      function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        const category = catSelect.value;
+        const priceRange = priceSelect.value;
+
+        const filtered = sampleLibraryData.filter(item => {
+          // Category match
+          const matchCat = category === 'all' || item.category === category;
+
+          // Price range match
+          let matchPrice = true;
+          if (priceRange === '0-500') matchPrice = item.price <= 500;
+          else if (priceRange === '500-1000') matchPrice = item.price > 500 && item.price <= 1000;
+          else if (priceRange === '1000+') matchPrice = item.price > 1000;
+
+          // Query match
+          const matchQuery = query === '' ||
+            item.title.toLowerCase().includes(query) ||
+            item.author.toLowerCase().includes(query) ||
+            item.category.toLowerCase().includes(query);
+
+          return matchCat && matchPrice && matchQuery;
+        });
+
+        // Render results
+        resultsContainer.innerHTML = '';
+        if (filtered.length === 0) {
+          emptyEl.style.display = 'block';
+          countEl.textContent = '0 Items';
+        } else {
+          emptyEl.style.display = 'none';
+          countEl.textContent = `${filtered.length} Items`;
+
+          filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              <div style="height:140px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;background:#f8fafc;border-radius:6px;">
+                <img src="${item.img}" alt="${item.title}" style="max-height:130px;width:auto;box-shadow:0 4px 6px rgba(0,0,0,0.1);border-radius:4px;">
+              </div>
+              <span class="badge badge-teal" style="align-self:flex-start;margin-bottom:0.4rem;font-size:0.7rem;">${item.category}</span>
+              <h4 style="font-size:1rem;margin-bottom:0.25rem;color:var(--color-navy-900);">${item.title}</h4>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.75rem;">By ${item.author}</p>
+              <div class="card-footer" style="padding-top:0.75rem;">
+                <strong style="color:var(--color-teal-700);font-size:1.1rem;">₹${item.price}</strong>
+                <button type="button" class="btn btn-sm btn-outline" onclick="alert('Item reserved for demonstration pickup: ${item.title}')">Reserve</button>
+              </div>
+            `;
+            resultsContainer.appendChild(card);
+          });
+        }
+      }
+
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        performSearch();
+      });
+
+      searchInput.addEventListener('input', performSearch);
+      catSelect.addEventListener('change', performSearch);
+      priceSelect.addEventListener('change', performSearch);
+
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        catSelect.value = 'all';
+        priceSelect.value = 'all';
+        performSearch();
+      });
+
+      // Initial search rendering
+      performSearch();
+    });
+  </script>
+</body>
+</html>

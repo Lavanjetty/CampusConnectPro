@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .auth-container {
+      max-width: 650px;
+      margin: 3rem auto;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .auth-tabs {
+      display: flex;
+      background: var(--color-slate-100);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 1rem;
+      border: none;
+      background: transparent;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-slate-600);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .auth-tab-btn.active {
+      background: #ffffff;
+      color: var(--color-teal-600);
+      border-bottom: 3px solid var(--color-teal-600);
+    }
+    .auth-body {
+      padding: 2.25rem;
+    }
+    .auth-disclaimer {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      color: #92400e;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.825rem;
+      margin-bottom: 1.5rem;
+    }
+    .radio-pill-group {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    .radio-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="index.html" class="btn btn-outline btn-sm">&larr; Back to Campus</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="flex-grow:1; padding-bottom:3rem;">
+    <div class="auth-container">
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab-btn active" id="tab-btn-login" role="tab" aria-selected="true" aria-controls="panel-login">
+          🔐 Portal Login
+        </button>
+        <button type="button" class="auth-tab-btn" id="tab-btn-register" role="tab" aria-selected="false" aria-controls="panel-register">
+          📝 Create New Account
+        </button>
+      </div>
+
+      <div class="auth-body">
+        <div class="auth-disclaimer">
+          <strong>Academic Demonstration Notice:</strong> This client-side form demonstrates HTML5 input validation, regular expressions, and LocalStorage session persistence. Frontend-only checks do not provide secure cryptographic authentication; for production environments, connect to Firebase Auth, Supabase, or an enterprise OAuth backend.
+        </div>
+
+        <!-- Global Status Messages Container -->
+        <div id="auth-status-box" class="status-alert" role="status" aria-live="polite"></div>
+
+        <!-- Audio Instruction Help -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; background:#f8fafc; padding:0.6rem 1rem; border-radius:var(--radius-md); border:1px solid #e2e8f0;">
+          <span style="font-size:0.875rem; color:#475569;">🎧 Need audio accessibility instructions?</span>
+          <button type="button" id="btn-audio-instructions" class="btn btn-outline btn-sm" style="font-size:0.8rem; padding:0.25rem 0.65rem;">
+            🔊 Play Audio Guidance
+          </button>
+        </div>
+
+        <!-- Panel 1: Login -->
+        <div id="panel-login" role="tabpanel" aria-labelledby="tab-btn-login">
+          <form id="form-login" novalidate>
+            <!-- User Role Radio -->
+            <div class="form-group">
+              <label class="form-label required">Select Identity Role</label>
+              <div class="radio-pill-group">
+                <label class="radio-label">
+                  <input type="radio" name="loginRole" value="Student" checked> Student Portal
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="loginRole" value="Faculty"> Faculty &amp; Staff
+                </label>
+              </div>
+            </div>
+
+            <!-- Username or Email -->
+            <div class="form-group">
+              <label for="login-identifier" class="form-label required">Username or Email Address</label>
+              <input type="text" id="login-identifier" name="identifier" class="form-control" placeholder="e.g. aarav.patel@campus.edu or student_id" required autocomplete="username">
+              <div id="err-login-id" class="error-feedback">Please enter your username or registered email.</div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="login-password" class="form-label required">Password</label>
+              <input type="password" id="login-password" name="password" class="form-control" placeholder="Enter your secret password" required autocomplete="current-password">
+              <div id="err-login-pwd" class="error-feedback">Password must be at least 6 characters long.</div>
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+              <label style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.9rem; cursor:pointer;">
+                <input type="checkbox" id="login-remember" name="rememberMe"> Remember Me
+              </label>
+              <a href="#" id="link-forgot-password" style="font-size:0.9rem; color:var(--color-teal-600);">Forgot Password?</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display:flex; gap:1rem; margin-bottom:1.25rem;">
+              <button type="submit" class="btn btn-primary" style="flex:2;">Login to Campus</button>
+              <button type="button" id="btn-login-clear" class="btn btn-outline" style="flex:1;">Clear</button>
+            </div>
+
+            <div style="text-align:center; font-size:0.9rem; color:var(--text-muted);">
+              Don't have an account yet? <a href="#" id="link-switch-to-register">Create New Account</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Panel 2: Registration -->
+        <div id="panel-register" role="tabpanel" aria-labelledby="tab-btn-register" style="display:none;">
+          <form id="form-register" novalidate>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="reg-name" class="form-label required">Full Legal Name</label>
+              <input type="text" id="reg-name" name="fullName" class="form-control" placeholder="e.g. Aarav Patel" required autocomplete="name">
+              <div id="err-reg-name" class="error-feedback">Name must contain only alphabets and spaces (3-50 chars).</div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="reg-email" class="form-label required">Campus / Personal Email</label>
+              <input type="email" id="reg-email" name="email" class="form-control" placeholder="e.g. student@campus.edu" required autocomplete="email">
+              <div id="err-reg-email" class="error-feedback">Please enter a valid email format.</div>
+            </div>
+
+            <!-- Role Selection -->
+            <div class="form-group">
+              <label for="reg-role" class="form-label required">User Role</label>
+              <select id="reg-role" name="role" class="form-control" required>
+                <option value="">-- Choose User Role --</option>
+                <option value="Student">Undergraduate Student</option>
+                <option value="Postgraduate">Postgraduate Scholar</option>
+                <option value="Faculty">Faculty Member</option>
+                <option value="Staff">Administrative Staff</option>
+              </select>
+              <div id="err-reg-role" class="error-feedback">Please select an academic role.</div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label for="reg-password" class="form-label required">Create Password</label>
+              <input type="password" id="reg-password" name="newPassword" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+              <div id="err-reg-pwd" class="error-feedback">Password is required (min 6 characters).</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label for="reg-confirm-password" class="form-label required">Confirm Password</label>
+              <input type="password" id="reg-confirm-password" name="confirmPassword" class="form-control" placeholder="Re-type password exactly" required autocomplete="new-password">
+              <div id="err-reg-confirm" class="error-feedback">Passwords do not match.</div>
+            </div>
+
+            <!-- Terms Acceptance -->
+            <div class="form-group">
+              <label style="display:inline-flex; align-items:flex-start; gap:0.5rem; font-size:0.875rem; cursor:pointer;">
+                <input type="checkbox" id="reg-terms" name="terms" required style="margin-top:0.2rem;">
+                <span>I accept the CampusConnect Pro Honor Code, Academic Integrity Regulations, and Privacy Policy.</span>
+              </label>
+              <div id="err-reg-terms" class="error-feedback">You must accept the terms before creating an account.</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display:flex; gap:1rem; margin-bottom:1.25rem;">
+              <button type="submit" class="btn btn-primary" style="flex:2;">Register Account</button>
+              <button type="reset" id="btn-reg-reset" class="btn btn-outline" style="flex:1;">Reset</button>
+            </div>
+
+            <div style="text-align:center; font-size:0.9rem; color:var(--text-muted);">
+              Already have an account? <a href="#" id="link-switch-to-login">Sign In Here</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Authentication &amp; Identity Gateway.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Portal Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/media-helper.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabLogin = document.getElementById('tab-btn-login');
+      const tabRegister = document.getElementById('tab-btn-register');
+      const panelLogin = document.getElementById('panel-login');
+      const panelRegister = document.getElementById('panel-register');
+      const statusBox = document.getElementById('auth-status-box');
+
+      function switchTab(showLogin) {
+        tabLogin.classList.toggle('active', showLogin);
+        tabLogin.setAttribute('aria-selected', showLogin);
+        panelLogin.style.display = showLogin ? 'block' : 'none';
+
+        tabRegister.classList.toggle('active', !showLogin);
+        tabRegister.setAttribute('aria-selected', !showLogin);
+        panelRegister.style.display = !showLogin ? 'block' : 'none';
+
+        statusBox.className = 'status-alert';
+        statusBox.style.display = 'none';
+      }
+
+      tabLogin.addEventListener('click', () => switchTab(true));
+      tabRegister.addEventListener('click', () => switchTab(false));
+      document.getElementById('link-switch-to-register').addEventListener('click', (e) => { e.preventDefault(); switchTab(false); });
+      document.getElementById('link-switch-to-login').addEventListener('click', (e) => { e.preventDefault(); switchTab(true); });
+
+      // Audio Instructions Button
+      document.getElementById('btn-audio-instructions').addEventListener('click', () => {
+        CampusMedia.speakInstruction('Welcome to the CampusConnect Pro authentication portal. Select Student or Faculty, enter your username or registered email and password, or switch to the Registration tab to create a new academic account.');
+      });
+
+      // Forgot Password demo
+      document.getElementById('link-forgot-password').addEventListener('click', (e) => {
+        e.preventDefault();
+        statusBox.className = 'status-alert alert-success show';
+        statusBox.innerHTML = '<strong>Password Reset Instruction:</strong> A password reset token demo has been logged to your demonstration email inbox.';
+      });
+
+      // Clear Login
+      document.getElementById('btn-login-clear').addEventListener('click', () => {
+        document.getElementById('form-login').reset();
+        document.querySelectorAll('#panel-login .error-feedback').forEach(el => el.classList.remove('show'));
+        document.querySelectorAll('#panel-login .form-control').forEach(el => el.classList.remove('is-invalid'));
+        statusBox.style.display = 'none';
+      });
+
+      // Login Submission & Validation
+      const formLogin = document.getElementById('form-login');
+      formLogin.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const idInput = document.getElementById('login-identifier');
+        const pwdInput = document.getElementById('login-password');
+        const role = formLogin.querySelector('input[name="loginRole"]:checked')?.value || 'Student';
+
+        let valid = true;
+
+        if (!idInput.value.trim()) {
+          CampusValidation.showError(idInput, document.getElementById('err-login-id'), 'Username or Email is required.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(idInput, document.getElementById('err-login-id'));
+        }
+
+        if (!pwdInput.value || pwdInput.value.length < 6) {
+          CampusValidation.showError(pwdInput, document.getElementById('err-login-pwd'), 'Password must be at least 6 characters.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(pwdInput, document.getElementById('err-login-pwd'));
+        }
+
+        if (valid) {
+          const userObj = {
+            name: idInput.value.includes('@') ? idInput.value.split('@')[0] : idInput.value.trim(),
+            role: role,
+            email: idInput.value.includes('@') ? idInput.value.trim() : `${idInput.value.trim()}@campus.edu`,
+            loginTime: new Date().toLocaleTimeString()
+          };
+          window.CampusAuth.login(userObj);
+
+          statusBox.className = 'status-alert alert-success show';
+          statusBox.innerHTML = `<strong>Login Successful!</strong> Authenticated as <strong>${role} (${userObj.name})</strong>. Redirecting to your dashboard...`;
+
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1200);
+        } else {
+          statusBox.className = 'status-alert alert-danger show';
+          statusBox.innerHTML = '<strong>Validation Error:</strong> Please fix the errors highlighted below before proceeding.';
+        }
+      });
+
+      // Registration Submission & Validation
+      const formRegister = document.getElementById('form-register');
+      formRegister.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('reg-name');
+        const emailInput = document.getElementById('reg-email');
+        const roleInput = document.getElementById('reg-role');
+        const pwdInput = document.getElementById('reg-password');
+        const confirmInput = document.getElementById('reg-confirm-password');
+        const termsInput = document.getElementById('reg-terms');
+
+        let valid = true;
+
+        if (!nameInput.value.trim() || !CampusValidation.patterns.name.test(nameInput.value.trim())) {
+          CampusValidation.showError(nameInput, document.getElementById('err-reg-name'), 'Valid full name required (3-50 letters).');
+          valid = false;
+        } else {
+          CampusValidation.clearError(nameInput, document.getElementById('err-reg-name'));
+        }
+
+        if (!emailInput.value.trim() || !CampusValidation.patterns.email.test(emailInput.value.trim())) {
+          CampusValidation.showError(emailInput, document.getElementById('err-reg-email'), 'Valid email format required.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(emailInput, document.getElementById('err-reg-email'));
+        }
+
+        if (!roleInput.value) {
+          CampusValidation.showError(roleInput, document.getElementById('err-reg-role'), 'Please select a role.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(roleInput, document.getElementById('err-reg-role'));
+        }
+
+        if (!pwdInput.value || pwdInput.value.length < 6) {
+          CampusValidation.showError(pwdInput, document.getElementById('err-reg-pwd'), 'Password required (min 6 characters).');
+          valid = false;
+        } else {
+          CampusValidation.clearError(pwdInput, document.getElementById('err-reg-pwd'));
+        }
+
+        if (confirmInput.value !== pwdInput.value) {
+          CampusValidation.showError(confirmInput, document.getElementById('err-reg-confirm'), 'Passwords do not match.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(confirmInput, document.getElementById('err-reg-confirm'));
+        }
+
+        if (!termsInput.checked) {
+          document.getElementById('err-reg-terms').classList.add('show');
+          valid = false;
+        } else {
+          document.getElementById('err-reg-terms').classList.remove('show');
+        }
+
+        if (valid) {
+          const userObj = {
+            name: nameInput.value.trim(),
+            role: roleInput.value,
+            email: emailInput.value.trim(),
+            registeredAt: new Date().toLocaleString()
+          };
+          window.CampusAuth.login(userObj);
+
+          statusBox.className = 'status-alert alert-success show';
+          statusBox.innerHTML = `<strong>Registration Successful!</strong> Account created for <strong>${userObj.name}</strong> as ${userObj.role}. Transferring to student dashboard...`;
+
+          setTimeout(() => {
+            window.location.href = 'dashboard.html';
+          }, 1200);
+        } else {
+          statusBox.className = 'status-alert alert-danger show';
+          statusBox.innerHTML = '<strong>Registration Error:</strong> Please fill in all required fields accurately.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

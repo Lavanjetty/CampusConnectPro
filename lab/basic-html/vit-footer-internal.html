@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIT Footer with Internal Style Tag - Practical A.17</title>
+  <style>
+    /* Strictly Internal Style Tag, Zero Inline CSS */
+    .vit-footer-container {
+      background-color: #0c4a6e;
+      color: #e0f2fe;
+      padding: 30px 20px;
+      font-family: Arial, sans-serif;
+      border-radius: 8px;
+    }
+    .vit-footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .vit-footer-left {
+      flex: 2;
+    }
+    .vit-footer-right {
+      flex: 1;
+      text-align: right;
+    }
+    .vit-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .vit-contact {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .vit-links a {
+      color: #7dd3fc;
+      text-decoration: none;
+      margin-right: 12px;
+      font-size: 13px;
+    }
+    .vit-links a:hover {
+      text-decoration: underline;
+    }
+    .vit-copy {
+      border-top: 1px solid #0369a1;
+      margin-top: 20px;
+      padding-top: 15px;
+      text-align: center;
+      font-size: 12px;
+      color: #bae6fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="vit-footer-container">
+    <div class="vit-footer-content">
+      <div class="vit-footer-left">
+        <div class="vit-title">VIT Health Care Center</div>
+        <div class="vit-contact">
+          <div>Technology Avenue, Vellore, Tamil Nadu 632014</div>
+          <div>Emergency: 108 | Support: support@vithealthcare.com</div>
+        </div>
+        <div class="vit-links">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="vit-footer-right">
+        <div>Accredited 24/7 Clinical Unit</div>
+      </div>
+    </div>
+    <div class="vit-copy">
+      Copyright &copy; 2026 VIT Health Care Center. All Rights Reserved.
+    </div>
+  </div>
+</body>
+</html>

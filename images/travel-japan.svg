@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="japSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="50%" stop-color="#fecdd3" />
+      <stop offset="100%" stop-color="#e0e7ff" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#japSky)" />
+  <!-- Red Sun -->
+  <circle cx="300" cy="160" r="70" fill="#e11d48" opacity="0.85" />
+  <!-- Mount Fuji -->
+  <polygon points="120,340 300,120 480,340" fill="#334155" />
+  <!-- Snow Cap -->
+  <polygon points="255,175 300,120 345,175 325,190 300,180 275,190" fill="#ffffff" />
+  <!-- Japanese Pagoda Silhouette -->
+  <g fill="#1e293b">
+    <rect x="80" y="220" width="70" height="120" />
+    <path d="M60,240 L170,240 L150,220 L80,220 Z" />
+    <path d="M65,275 L165,275 L145,260 L85,260 Z" />
+    <path d="M70,310 L160,310 L140,295 L90,295 Z" />
+  </g>
+  <!-- Cherry Blossom Branch -->
+  <path d="M450,40 Q480,100 560,90" stroke="#78350f" stroke-width="5" fill="none" />
+  <circle cx="470" cy="70" r="10" fill="#fb7185" />
+  <circle cx="505" cy="85" r="12" fill="#fda4af" />
+  <circle cx="540" cy="80" r="11" fill="#f43f5e" />
+  <rect x="0" y="340" width="600" height="60" fill="#047857" />
+  <text x="300" y="380" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="22" fill="#ffffff" text-anchor="middle">JAPAN • TOKYO &amp; MT. FUJI</text>
+</svg>

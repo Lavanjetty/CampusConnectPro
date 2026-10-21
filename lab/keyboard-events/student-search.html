@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Search Keyboard Tracker (Key Pressed, Enter, Escape) — Practical E.1 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Keyboard Events</span> &gt; <span>Exercise E.1</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Student Search Keyboard Tracker (Key Pressed, Enter, Escape)</h1>
+      <p class="text-muted small mb-0">Shows the key pressed, Enter displays “Searching for student…”, Escape clears the input and message.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:550px; margin:0 auto; background:#fff; padding:2rem; border-radius:8px; border:1px solid #cbd5e1;">
+    <h3 class="h5 mb-3" style="color:#0f2b48;">Student Directory Search</h3>
+
+    <div class="form-group">
+      <label for="search-student-input" class="form-label fw-bold">Student Name or ID</label>
+      <input type="text" id="search-student-input" class="form-control" placeholder="Type letters (Press Enter to search, Esc to clear)...">
+    </div>
+
+    <!-- Live telemetry boxes -->
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:1rem; margin-top:1.25rem;">
+      <div style="font-size:0.85rem; color:#64748b; margin-bottom:0.4rem;">
+        Key Pressed: <span id="key-pressed-badge" class="badge badge-teal" style="font-size:0.9rem;">None</span>
+      </div>
+      <div id="search-status-display" style="font-size:1.05rem; font-weight:bold; color:#0f2b48; min-height:26px;">
+        Type in the field above...
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const input = document.getElementById('search-student-input');
+  const keyBadge = document.getElementById('key-pressed-badge');
+  const status = document.getElementById('search-status-display');
+
+  input.addEventListener('keydown', (e) => {
+    keyBadge.textContent = e.key === ' ' ? 'Space' : e.key;
+
+    // Enter displays "Searching for student…"
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const val = input.value.trim();
+      status.textContent = 'Searching for student… ' + (val ? '(' + val + ')' : '');
+      status.style.color = '#0d9488';
+    }
+    // Escape clears the input and message
+    else if (e.key === 'Escape') {
+      e.preventDefault();
+      input.value = '';
+      status.textContent = 'Search input cleared (Escape pressed).';
+      status.style.color = '#dc2626';
+      keyBadge.textContent = 'Escape';
+    } else {
+      status.textContent = 'Typing: ' + input.value + e.key;
+      status.style.color = '#0f2b48';
+    }
+  });
+  </script>
+</body>
+</html>

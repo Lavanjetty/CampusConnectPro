@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone — Campus Esports &amp; Gaming Hub</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Fixed Top Gaming Navigation */
+    .gaming-fixed-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(9, 5, 20, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #ec4899;
+      z-index: 2000;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(236, 72, 153, 0.25);
+    }
+    .gaming-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .gaming-nav-link {
+      color: #cbd5e1;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: all var(--transition-fast);
+      text-decoration: none;
+    }
+    .gaming-nav-link:hover, .gaming-nav-link.active {
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+      text-decoration: none;
+    }
+
+    /* 70vh Hero Banner */
+    .gaming-hero-banner {
+      height: 70vh;
+      min-height: 480px;
+      margin-top: 65px; /* Offset fixed header */
+      position: relative;
+      background: radial-gradient(circle at center, rgba(30, 17, 69, 0.8) 0%, rgba(9, 5, 20, 0.98) 100%), url('images/gaming-hero.svg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding: 2rem;
+      overflow: hidden;
+      border-bottom: 3px solid #7c3aed;
+    }
+    .gaming-hero-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(236, 72, 153, 0.3);
+      filter: blur(100px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .gaming-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+    .gaming-title {
+      font-family: 'Impact', 'Segoe UI Black', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(236, 72, 153, 0.8), 0 0 50px rgba(124, 58, 237, 0.5);
+    }
+    .gaming-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: #38bdf8;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Cyber Glow Buttons */
+    .btn-cyber-primary {
+      background: linear-gradient(135deg, #ec4899, #7c3aed);
+      color: #fff;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: 1px solid #f472b6;
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-cyber-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 25px rgba(236, 72, 153, 1), 0 0 40px rgba(124, 58, 237, 0.8);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-cyber-outline {
+      background: rgba(15, 23, 42, 0.6);
+      color: #38bdf8;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: 2px solid #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-cyber-outline:hover {
+      background: #38bdf8;
+      color: #090514;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 1);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* Game Card Hover Effects */
+    .game-card {
+      background: #130a2a;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .game-card:hover {
+      border-color: #ec4899;
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.5);
+    }
+  </style>
+</head>
+<body style="background-color: #090514; color: #e2e8f0; font-family: 'Segoe UI', sans-serif;">
+
+  <!-- Fixed Top Navigation -->
+  <nav class="gaming-fixed-nav">
+    <a href="gaming.html" class="d-flex align-items-center">
+      <img src="images/gaming-logo.svg" alt="GameZone Esports Logo" height="42">
+    </a>
+
+    <ul class="gaming-nav-links d-none d-md-flex">
+      <li><a href="#hero" class="gaming-nav-link active">Home</a></li>
+      <li><a href="#games-catalog" class="gaming-nav-link">Games</a></li>
+      <li><a href="#tournaments" class="gaming-nav-link">Tournaments</a></li>
+      <li><a href="#gaming-news" class="gaming-nav-link">News</a></li>
+      <li><a href="#gaming-contact" class="gaming-nav-link">Contact</a></li>
+    </ul>
+
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="btn btn-sm btn-outline-white d-none d-sm-inline-flex">&larr; Campus Home</a>
+      <button type="button" class="btn-cyber-primary btn-sm" onclick="alert('Launching GameZone Esports Matchmaking Lobby 2026!')">
+        ⚡ Play Now
+      </button>
+    </div>
+  </nav>
+
+  <!-- Gaming Banner (approx 70% viewport height) -->
+  <header id="hero" class="gaming-hero-banner">
+    <div class="gaming-hero-glow"></div>
+    <div class="gaming-hero-content">
+      <div class="badge bg-danger text-white mb-3 px-3 py-2 text-uppercase fw-bold" style="letter-spacing:2px;">
+        ★ 2026 Inter-College Esports Championship ★
+      </div>
+      <!-- Heading: “Level Up Your Gaming Experience” -->
+      <h1 class="gaming-title">Level Up Your Gaming Experience</h1>
+      <!-- Subheading: “Join exciting tournaments and explore the latest games.” -->
+      <p class="gaming-subtitle">
+        Join exciting tournaments and explore the latest games.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#games-catalog" class="btn-cyber-primary">
+          🎮 Explore Games
+        </a>
+        <a href="#tournaments" class="btn-cyber-outline">
+          🏆 View Tournaments
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Games Showcase Grid -->
+  <main class="container py-5" id="games-catalog">
+    <div class="text-center mb-5">
+      <span style="color:#ec4899; font-weight:800; letter-spacing:2px; text-transform:uppercase;">Battle Arenas &bull; Collegiate Roster</span>
+      <h2 style="font-family:'Impact', sans-serif; font-size:2.5rem; color:#fff; letter-spacing:1px; margin-top:0.25rem;">
+        FEATURED ESPORTS TITLES
+      </h2>
+      <p style="color:#94a3b8; max-width:650px; margin:0 auto;">
+        Compete across tactical shooters, cyber RPGs, and hyper racing simulations with campus-wide leaderboards.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- Game 1 -->
+      <div class="col-md-4">
+        <div class="game-card">
+          <img src="images/game-cyber.svg" alt="Cyber Protocol 2088" style="width:100%; height:190px; object-fit:cover;">
+          <div class="p-3">
+            <span class="badge" style="background:#7c3aed; color:#fff; margin-bottom:0.5rem;">Cyberpunk RPG</span>
+            <h3 class="h5 fw-bold text-white mb-2">Cyber Protocol 2088</h3>
+            <p class="small text-muted mb-3">
+              Fast-paced dystopian neon hacking shooter with procedural multiplayer dungeons and collegiate team raids.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span style="color:#38bdf8; font-weight:bold; font-size:0.85rem;">Prize Pool: ₹75,000</span>
+              <button type="button" class="btn btn-sm btn-outline-info" onclick="alert('Joined Cyber Protocol Bracket!')">Enter Fest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 2 -->
+      <div class="col-md-4">
+        <div class="game-card">
+          <img src="images/game-valiant.svg" alt="Valiant Strike Tactical" style="width:100%; height:190px; object-fit:cover;">
+          <div class="p-3">
+            <span class="badge" style="background:#0284c7; color:#fff; margin-bottom:0.5rem;">Tactical FPS</span>
+            <h3 class="h5 fw-bold text-white mb-2">Valiant Strike Tactical</h3>
+            <p class="small text-muted mb-3">
+              5v5 hero shooter emphasizing precision gunplay, map control, and tactical team coordination.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span style="color:#38bdf8; font-weight:bold; font-size:0.85rem;">Prize Pool: ₹1,00,000</span>
+              <button type="button" class="btn btn-sm btn-outline-info" onclick="alert('Joined Valiant Strike Bracket!')">Enter Fest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game 3 -->
+      <div class="col-md-4">
+        <div class="game-card">
+          <img src="images/game-speed.svg" alt="Velocity Overdrive" style="width:100%; height:190px; object-fit:cover;">
+          <div class="p-3">
+            <span class="badge" style="background:#dc2626; color:#fff; margin-bottom:0.5rem;">Sim Racing</span>
+            <h3 class="h5 fw-bold text-white mb-2">Velocity Overdrive</h3>
+            <p class="small text-muted mb-3">
+              Hyper-realistic physics engine and collegiate Grand Prix track simulation powered by WebGL.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span style="color:#38bdf8; font-weight:bold; font-size:0.85rem;">Prize Pool: ₹50,000</span>
+              <button type="button" class="btn btn-sm btn-outline-info" onclick="alert('Joined Velocity Overdrive Bracket!')">Enter Fest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tournaments Schedule Section -->
+    <section id="tournaments" class="p-4 p-md-5 rounded mb-5" style="background:#110a26; border:1px solid #7c3aed;">
+      <h2 style="font-family:'Impact', sans-serif; font-size:2rem; color:#38bdf8; margin-bottom:1rem;">
+        🏆 UPCOMING ESPORTS TOURNAMENTS
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-dark table-hover mb-0" style="background:transparent;">
+          <thead>
+            <tr style="border-bottom:2px solid #ec4899;">
+              <th>Tournament Name</th>
+              <th>Game Title</th>
+              <th>Date</th>
+              <th>Format</th>
+              <th>Prize Pool</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CampusConnect Inter-Hall Cup</strong></td>
+              <td>Valiant Strike Tactical</td>
+              <td>Nov 18, 2026</td>
+              <td>5v5 Double Elimination</td>
+              <td>₹50,000</td>
+              <td><span class="badge bg-success">Registration Open</span></td>
+            </tr>
+            <tr>
+              <td><strong>Cyber Neon Night Royale</strong></td>
+              <td>Cyber Protocol 2088</td>
+              <td>Nov 22, 2026</td>
+              <td>Trios Battle Royale</td>
+              <td>₹75,000</td>
+              <td><span class="badge bg-warning text-dark">Filling Fast</span></td>
+            </tr>
+            <tr>
+              <td><strong>All-India Collegiate Speed Champions</strong></td>
+              <td>Velocity Overdrive</td>
+              <td>Dec 02, 2026</td>
+              <td>Time Trial Grand Prix</td>
+              <td>₹1,00,000</td>
+              <td><span class="badge bg-info text-dark">Upcoming</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- News & Contact Anchor -->
+    <div class="row g-4" id="gaming-news">
+      <div class="col-md-6">
+        <div class="p-4 rounded h-100" style="background:#130a2a; border:1px solid rgba(255,255,255,0.1);">
+          <h3 class="h5 fw-bold text-white mb-3">📰 GameZone News Bulletin</h3>
+          <p class="small text-muted mb-2">&bull; Nov 10: New 144Hz Esports Gaming Stations installed at Block B Lab.</p>
+          <p class="small text-muted mb-2">&bull; Nov 05: VIT Campus team qualifies for National Collegiate League Semi-Finals.</p>
+          <p class="small text-muted mb-0">&bull; Oct 28: Fiber-optic low latency gaming VLAN activated across campus dorms.</p>
+        </div>
+      </div>
+      <div class="col-md-6" id="gaming-contact">
+        <div class="p-4 rounded h-100" style="background:#130a2a; border:1px solid rgba(255,255,255,0.1);">
+          <h3 class="h5 fw-bold text-white mb-3">🎮 Esports Arena Coordination</h3>
+          <p class="small text-muted mb-2">📍 Student Center, Esports Arena, 3rd Floor</p>
+          <p class="small text-muted mb-2">✉️ Email: <a href="mailto:esports@campusconnect.edu" style="color:#ec4899;">esports@campusconnect.edu</a></p>
+          <p class="small text-muted mb-0">💬 Discord: <strong>discord.gg/CampusConnectEsports</strong></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Gaming Footer -->
+  <footer style="background:#05020c; border-top:1px solid #7c3aed; padding:2rem 0; text-align:center; color:#94a3b8; font-size:0.875rem;">
+    <div class="container">
+      <p style="margin-bottom:0.5rem;">&copy; 2026 GameZone — Campus Esports Championship &bull; CampusConnect Pro.</p>
+      <div><a href="index.html" style="color:#38bdf8;">Return to Academic Portal Home</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .math-formula-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="sidebar-toggle-btn" id="emp-sidebar-toggle">☰ Menu</button>
+        <a href="index.html" class="brand-logo">
+          <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Main Portal</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="dashboard.html" class="nav-link">Student Portal</a></li>
+          <li><a href="employees.html" class="nav-link active">Employee Portal</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="index.html" class="btn btn-outline btn-sm">&larr; Back to Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-wrapper">
+    <!-- Vertical Sidebar with Home, Employee Directory, Payroll, Leave Requests, Reports -->
+    <aside class="dashboard-sidebar" id="emp-sidebar" aria-label="Employee Management Navigation">
+      <div class="sidebar-brand">
+        <div style="width:36px; height:36px; border-radius:8px; background:#0ea5e9; display:flex; align-items:center; justify-content:center; font-weight:bold; color:#fff;">HR</div>
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Faculty HRMS</div>
+          <div style="font-size:0.75rem; color:var(--color-slate-400);">Staff Administration</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="sidebar-section-title">Navigation</li>
+        <li class="sidebar-item">
+          <a href="index.html" class="sidebar-link">
+            <span>🏠</span> Home
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="employees.html" class="sidebar-link active">
+            <span>👥</span> Employee Directory
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#payroll" class="sidebar-link" onclick="alert('Payroll Module (Demonstration): Salary status processed.')">
+            <span>💳</span> Payroll
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#leave" class="sidebar-link" onclick="alert('Leave Requests Module (Demonstration): 12 Casual Leaves Remaining.')">
+            <span>📝</span> Leave Requests
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#reports" class="sidebar-link" onclick="alert('Reports Module (Demonstration): Annual Performance Appraisal Summary.')">
+            <span>📊</span> Reports
+          </a>
+        </li>
+
+        <li class="sidebar-section-title">Academic Services</li>
+        <li class="sidebar-item">
+          <a href="departments.html" class="sidebar-link">
+            <span>🏢</span> Computer Science Dept
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="science.html" class="sidebar-link">
+            <span>🔬</span> Science &amp; Technology Article
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lab/index.html" class="sidebar-link">
+            <span>⚡</span> Practical Lab Hub
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="auth.html" class="btn btn-outline-white btn-sm" style="width:100%; text-decoration:none;">
+          🚪 Staff Logout
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-content">
+      <!-- Employee Management System Title & Dashboard Welcome Message -->
+      <div class="dashboard-header-bar">
+        <div class="dashboard-user-greeting">
+          <span class="badge badge-teal mb-1">Human Resources &amp; Faculty Operations</span>
+          <h1 style="color:var(--color-navy-950);">Employee Management System</h1>
+          <p style="color:var(--text-muted); font-size:1.05rem;">
+            Welcome to the Faculty Administration Dashboard, <strong>Dr. Aris Thorne</strong> 👋
+          </p>
+        </div>
+        <div>
+          <span class="badge badge-blue fs-6 p-2">Senior Faculty &bull; ID: EMP-CSE-0104</span>
+        </div>
+      </div>
+
+      <!-- Employee ID Card with photograph, employee name, ID, designation, and company -->
+      <div class="row g-4 mb-4">
+        <div class="col-lg-5">
+          <div class="id-card-wrapper" style="border: 2px solid #0284c7;">
+            <div class="id-card-header">
+              <div>
+                <div style="font-size:0.75rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-teal-400); font-weight:700;">CAMPUSCONNECT PRO</div>
+                <div style="font-size:0.95rem; font-weight:700;">FACULTY IDENTIFICATION CARD</div>
+              </div>
+              <div class="id-card-chip"></div>
+            </div>
+
+            <div class="id-card-body">
+              <div class="id-card-avatar" style="border-color:#38bdf8;">
+                <img src="images/avatar-faculty1.svg" alt="Dr. Aris Thorne Photograph" width="80" height="80">
+              </div>
+              <div class="id-card-details">
+                <h3 style="color:#ffffff; font-size:1.25rem; margin-bottom:0.25rem;">Dr. Aris Thorne</h3>
+                <p><strong>Employee ID:</strong> EMP-CSE-0104</p>
+                <p><strong>Designation:</strong> Professor &amp; Head of Department</p>
+                <p><strong>Company / Institution:</strong> CampusConnect Pro Institute</p>
+                <p><strong>Department:</strong> Computer Science &amp; Engineering</p>
+              </div>
+            </div>
+
+            <div style="margin-top:1.25rem; padding-top:0.75rem; border-top:1px dashed rgba(255,255,255,0.25); display:flex; justify-content:space-between; font-size:0.75rem; color:var(--color-slate-300);">
+              <span>Staff Category: Permanent Faculty</span>
+              <span>Blood Group: B+ve</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Employee Profile with Professional Summary & Highlighted Performance Rating -->
+        <div class="col-lg-7">
+          <div class="card h-100 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h2 class="h5 fw-bold mb-0" style="color:var(--color-navy-900);">Employee Professional Summary</h2>
+              <!-- Highlighted performance rating -->
+              <span class="badge" style="background:#fef3c7; color:#b45309; font-size:0.95rem; font-weight:800; border:1px solid #fcd34d; padding:0.4rem 0.8rem;">
+                ★ Highlighted Performance Rating: 4.96 / 5.0 (Outstanding Tier 1)
+              </span>
+            </div>
+
+            <p style="color:var(--text-muted); line-height:1.7; font-size:0.95rem; margin-bottom:1rem;">
+              <strong>Dr. Aris Thorne</strong> is a distinguished computer scientist, educational administrator, and chair of the Department of Computer Science. With over 22 years of high-impact pedagogical experience and postdoctoral fellowship at MIT CSAIL, Dr. Thorne leads university initiatives in scalable web technology architectures, distributed ledger systems, and automated testing engines.
+            </p>
+
+            <div class="row g-2 small text-muted mb-3">
+              <div class="col-sm-6"><strong>Teaching Experience:</strong> 22+ Years</div>
+              <div class="col-sm-6"><strong>Indexed Publications:</strong> 64 Papers (IEEE/ACM)</div>
+              <div class="col-sm-6"><strong>Funded Projects:</strong> 6 National Research Grants</div>
+              <div class="col-sm-6"><strong>Patents Granted:</strong> 4 International Patents</div>
+            </div>
+
+            <!-- Mathematical expression E = mc² and Chemical formula CO₂ -->
+            <div class="math-formula-box">
+              <h3 class="h6 fw-bold mb-2" style="color:var(--color-navy-900);">
+                Scientific Notation &amp; Research Domain Formulations
+              </h3>
+              <p class="small text-muted mb-1">
+                Faculty research papers frequently reference quantum energy conservation and green cloud data-center emissions:
+              </p>
+              <ul class="mb-0 small" style="line-height:1.8;">
+                <li>
+                  Einstein's Mass-Energy Equivalence: <strong style="color:#0f766e; font-size:1.1rem;">E = mc<sup>2</sup></strong>
+                </li>
+                <li>
+                  Green Computing Carbon Footprint Metric: Atmospheric Carbon Dioxide <strong style="color:#0284c7; font-size:1.1rem;">CO<sub>2</sub></strong> reduction index.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="card p-3">
+        <h3 class="h6 fw-bold mb-2" style="color:var(--color-navy-900);">Employee Quick Actions</h3>
+        <div class="d-flex gap-2 flex-wrap">
+          <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstration: Salary Slip PDF generated for October 2026.')">Download Payslip</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="alert('Demonstration: Leave application submitted to Dean.')">Apply for Sabbatical</button>
+          <a href="departments.html" class="btn btn-outline btn-sm">View Department Directory</a>
+          <a href="science.html" class="btn btn-outline btn-sm">Science &amp; Tech Article &rarr;</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Employee Management System.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Home Portal</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('emp-sidebar-toggle')?.addEventListener('click', () => {
+      document.getElementById('emp-sidebar')?.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

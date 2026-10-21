@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Management — CityCare &amp; VIT Health Care Center</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- ==========================================================================
+       Internal CSS Demonstration Tag
+       ========================================================================== -->
+  <style>
+    /* Internal CSS Demonstration Styles */
+    .hospital-demo-box {
+      border: 2px solid #0284c7;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background-color: #f0f9ff;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.1);
+    }
+    .header-demo-title {
+      color: #0369a1;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-bottom: 1px solid #bae6fd;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .emergency-pill {
+      background-color: #dc2626;
+      color: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      animation: pulseAlert 2s infinite;
+    }
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    /* VIT Health Care Center Internal CSS Footer */
+    .vit-healthcare-footer {
+      background-color: #0c4a6e;
+      color: #e0f2fe;
+      padding: 3rem 1.5rem 1.5rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 4px solid #0284c7;
+    }
+    .vit-footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .vit-footer-col {
+      flex: 1;
+      min-width: 240px;
+    }
+    .vit-footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    .vit-footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    .vit-footer-links a {
+      color: #bae6fd;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .vit-footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .vit-footer-logo-desktop-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+    @media (max-width: 768px) {
+      .vit-footer-logo-desktop-right {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Main Portal</a></li>
+          <li><a href="hospital.html" class="nav-link active">Hospital Center</a></li>
+          <li><a href="registration.html" class="nav-link">Registration</a></li>
+          <li><a href="services.html" class="nav-link">Library</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <span class="emergency-pill">🚨 Emergency: 108</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding">
+    <div class="text-center mb-5">
+      <span class="badge badge-blue mb-2">Clinical Management Systems</span>
+      <h1 class="display-6 fw-bold" style="color:var(--color-navy-950);">Hospital Management &amp; Header Showcase</h1>
+      <p class="text-muted fs-5 mx-auto" style="max-width:800px;">
+        Demonstrating distinct dual navigation headers (Header A and Header B), doctor scheduling, HTML5 appointment controls, and an explicit comparison of <strong>Inline CSS vs. Internal CSS</strong>.
+      </p>
+    </div>
+
+    <!-- ==========================================================================
+         Header A Demonstration
+         Location: Vellore, Tamil Nadu | Dept Dropdown | Search | Welcome Patient |
+         My Profile | Book Appointment | My Appointments | Emergency 108
+         ========================================================================== -->
+    <div class="hospital-demo-box">
+      <div class="header-demo-title">
+        Header Demonstration A: Clinical Operations Portal (Branch: Vellore, Tamil Nadu)
+      </div>
+
+      <div style="background:#ffffff; border:1px solid #cbd5e1; border-radius:8px; padding:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.04);">
+        <!-- Top row of Header A -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pb-2 mb-2 border-bottom">
+          <div class="d-flex align-items-center gap-3">
+            <img src="images/hospital-logo.svg" alt="CityCare Hospital Logo" height="42">
+            <span class="badge bg-primary text-white" style="font-size:0.8rem;">
+              📍 Branch: Vellore, Tamil Nadu
+            </span>
+          </div>
+
+          <div class="d-flex align-items-center gap-2">
+            <span style="font-size:0.9rem; font-weight:600; color:#0369a1;">Welcome, Patient</span>
+            <span class="text-muted">|</span>
+            <a href="#my-profile" class="btn btn-sm btn-outline" style="font-size:0.8rem; padding:0.25rem 0.65rem;">My Profile</a>
+            <a href="#my-appointments" class="btn btn-sm btn-outline" style="font-size:0.8rem; padding:0.25rem 0.65rem;">My Appointments</a>
+            <span class="emergency-pill" style="font-size:0.75rem;">Emergency: 108</span>
+          </div>
+        </div>
+
+        <!-- Search & Department Bar of Header A -->
+        <div class="d-flex align-items-center flex-wrap gap-2">
+          <div style="min-width:200px;">
+            <select id="headerA-dept" class="form-control" style="font-size:0.875rem;">
+              <option value="">-- Choose Department --</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Orthopedics">Orthopedics</option>
+              <option value="General Medicine">General Medicine</option>
+              <option value="Pediatrics">Pediatrics</option>
+            </select>
+          </div>
+          <div class="flex-grow-1 d-flex gap-2" style="min-width:240px;">
+            <input type="search" id="headerA-search" class="form-control" placeholder="Search doctor by name, specialty..." style="font-size:0.875rem;">
+            <button type="button" id="headerA-search-btn" class="btn btn-primary btn-sm">Search</button>
+          </div>
+          <a href="#book-appointment-form" class="btn btn-success btn-sm">
+            📅 Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         Header B Demonstration
+         CityCare Hospital – Healthcare Management System
+         Logo, Horizontal Home, Departments, Doctors, Appointments, Contact + Book Appointment
+         ========================================================================== -->
+    <div class="hospital-demo-box" style="background:#f8fafc; border-color:#0d9488;">
+      <div class="header-demo-title" style="color:#0f766e; border-bottom-color:#99f6e4;">
+        Header Demonstration B: Healthcare Management System (Horizontal Navigation)
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-white rounded border shadow-sm p-2 px-3">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <img src="images/hospital-logo.svg" alt="CityCare Hospital Logo" height="38">
+          <div class="d-none d-sm-block">
+            <div style="font-size:1.05rem; font-weight:800; color:#0369a1; line-height:1.1;">CityCare Hospital</div>
+            <div style="font-size:0.75rem; color:#64748b; letter-spacing:0.5px;">Healthcare Management System</div>
+          </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerB-nav" aria-controls="headerB-nav" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="headerB-nav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold" style="font-size:0.925rem;">
+            <li class="nav-item"><a class="nav-link active text-primary" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#departments-list">Departments</a></li>
+            <li class="nav-item"><a class="nav-link" href="#doctors-catalog">Doctors</a></li>
+            <li class="nav-item"><a class="nav-link" href="#book-appointment-form">Appointments</a></li>
+            <li class="nav-item"><a class="nav-link" href="#hospital-contact">Contact</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <a href="#book-appointment-form" class="btn btn-primary btn-sm px-3">
+              Book Appointment
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ==========================================================================
+         Inline CSS vs Internal CSS Demonstration Callout
+         ========================================================================== -->
+    <div class="card p-4 mb-5" style="border: 1px dashed #0284c7; background:#ffffff;">
+      <h3 class="h5 fw-bold mb-3" style="color:#0369a1;">CSS Technology Demonstration: Inline CSS vs. Internal CSS</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div style="background-color: #ecfeff; border: 2px solid #06b6d4; border-radius: 8px; padding: 1.25rem; font-family: sans-serif; color: #0e7490;">
+            <h4 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem; color: #0891b2;">Inline CSS Demonstration Block</h4>
+            <p style="font-size: 0.875rem; line-height: 1.6; margin-bottom: 0.75rem;">
+              This container is styled using <strong>style="..." attributes directly on HTML tags</strong>. It demonstrates font size, margins, border colors, background colors, and radius applied at the element level.
+            </p>
+            <span style="display: inline-block; background-color: #0891b2; color: #ffffff; padding: 0.25rem 0.65rem; border-radius: 4px; font-weight: 700; font-size: 0.75rem;">
+              Inline CSS Active
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="hospital-demo-box" style="margin-bottom:0;">
+            <h4 style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem; color: #0369a1;">Internal CSS Demonstration Block</h4>
+            <p style="font-size: 0.875rem; line-height: 1.6; margin-bottom: 0.75rem;">
+              This container is styled using class rules defined in the document's <code>&lt;style&gt;</code> block in the <code>&lt;head&gt;</code> section. It enables centralized selector overrides and responsive media queries.
+            </p>
+            <span class="badge bg-primary text-white">Internal &lt;style&gt; Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patient Appointment Booking Form with HTML5 Controls -->
+    <section id="book-appointment-form" class="card p-4 p-md-5 shadow-sm mb-5" style="border-radius:var(--radius-lg);">
+      <div class="border-bottom pb-3 mb-4">
+        <span class="badge badge-teal mb-1">Clinic Consultation Scheduling</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-900);">Book Patient Clinical Appointment</h2>
+        <p class="text-muted small mb-0">Select your preferred medical specialist, date, time, and consultation color preferences.</p>
+      </div>
+
+      <div id="hosp-form-alert" class="status-alert" role="alert"></div>
+
+      <form id="hospital-appointment-form" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="hosp-pat-name" class="form-label required">Patient Full Name</label>
+            <input type="text" id="hosp-pat-name" class="form-control" placeholder="e.g. Aarav Patel" required>
+            <div id="err-hosp-name" class="error-feedback">Patient Name is required.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="hosp-pat-contact" class="form-label required">Emergency Contact (tel)</label>
+            <input type="tel" id="hosp-pat-contact" class="form-control" placeholder="10-digit number" required>
+            <div id="err-hosp-tel" class="error-feedback">10-digit mobile number required.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="hosp-doctor-search" class="form-label required">Select / Search Doctor (search)</label>
+            <input type="search" id="hosp-doctor-search" class="form-control" placeholder="Type doctor name or specialty..." required value="Dr. Aris Thorne (Chief Medical Officer)">
+            <div id="err-hosp-doc" class="error-feedback">Doctor selection is required.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="hosp-dept-select" class="form-label required">Medical Department</label>
+            <select id="hosp-dept-select" class="form-control" required>
+              <option value="General Medicine">General Medicine &amp; Health Checkup</option>
+              <option value="Cardiology">Cardiology &amp; Vascular Lab</option>
+              <option value="Orthopedics">Orthopedics &amp; Sports Injury</option>
+              <option value="Neurology">Neurology &amp; Brain Health</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="hosp-datetime" class="form-label required">Appointment Date &amp; Time (datetime-local)</label>
+            <input type="datetime-local" id="hosp-datetime" class="form-control" value="2026-11-15T09:30" required>
+            <div id="err-hosp-dt" class="error-feedback">Please select appointment date and time.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="hosp-color-theme" class="form-label">Consultation Color Theme (color)</label>
+            <input type="color" id="hosp-color-theme" class="form-control form-control-color w-100" value="#0284c7">
+          </div>
+
+          <div class="col-12 d-flex gap-3 mt-3">
+            <button type="submit" class="btn btn-primary px-4">Confirm Clinic Appointment</button>
+            <button type="reset" class="btn btn-outline px-4">Clear Form</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Hospital Footer with requested details:
+       - VIT Health Care Center
+       - Quick links
+       - Facebook, Instagram, LinkedIn
+       - support@vithealthcare.com
+       - Copyright © 2026 VIT Health Care Center. All Rights Reserved.
+       - Logo aligned on the right on desktop and responsively repositioned on mobile
+       ========================================================================== -->
+  <footer class="vit-healthcare-footer" id="hospital-contact">
+    <div class="vit-footer-inner">
+      <!-- Col 1: Center Information -->
+      <div class="vit-footer-col">
+        <h4 style="color:#ffffff; font-size:1.25rem; font-weight:800; margin-bottom:0.75rem;">
+          VIT Health Care Center
+        </h4>
+        <p style="font-size:0.9rem; color:#bae6fd; line-height:1.6; margin-bottom:1rem;">
+          Providing 24/7 outpatient clinical services, trauma stabilization, multi-specialty care, and ambulance dispatch for students, faculty, and local residents.
+        </p>
+        <p style="font-size:0.9rem; margin-bottom:0.4rem;">
+          📍 Technology Avenue, Vellore, Tamil Nadu 632014
+        </p>
+        <p style="font-size:0.9rem; margin-bottom:0.4rem;">
+          ✉️ <a href="mailto:support@vithealthcare.com" style="color:#ffffff; font-weight:600;">support@vithealthcare.com</a>
+        </p>
+        <p style="font-size:0.9rem;">
+          🚨 Campus Emergency Line: <strong style="color:#f87171;">108</strong> / +91 (0416) 220-2111
+        </p>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="vit-footer-col">
+        <h5 style="color:#ffffff; font-weight:700; margin-bottom:1rem;">Hospital Quick Links</h5>
+        <ul class="vit-footer-links">
+          <li><a href="#book-appointment-form">Book Doctor Appointment</a></li>
+          <li><a href="registration.html#patient-registration">Patient Registration Form</a></li>
+          <li><a href="#my-profile">Patient Health Portal</a></li>
+          <li><a href="#emergency-care">24/7 Trauma Services</a></li>
+          <li><a href="index.html">CampusConnect Pro Main Portal</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Social Links -->
+      <div class="vit-footer-col">
+        <h5 style="color:#ffffff; font-weight:700; margin-bottom:1rem;">Connect With Us</h5>
+        <ul class="vit-footer-links">
+          <li>
+            <a href="https://facebook.com" target="_blank" rel="noopener">
+              🌐 Facebook &bull; /VITHealthCare
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener">
+              📷 Instagram &bull; @VITHealthCareOfficial
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">
+              💼 LinkedIn &bull; VIT Health Care Center
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Logo Aligned Right on Desktop, Responsively Repositioned on Mobile -->
+      <div class="vit-footer-col vit-footer-logo-desktop-right">
+        <div style="background:#ffffff; border-radius:8px; padding:0.75rem; display:inline-block; margin-bottom:0.75rem;">
+          <img src="images/hospital-logo.svg" alt="VIT Health Care Center Logo" height="48">
+        </div>
+        <div style="font-size:0.8rem; color:#bae6fd;">
+          Accredited ISO 9001:2026 Clinical Unit
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1280px; margin:2rem auto 0 auto; padding-top:1.5rem; border-top:1px solid rgba(186,230,253,0.2); font-size:0.85rem; color:#bae6fd; text-align:center;">
+      Copyright &copy; 2026 VIT Health Care Center. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header A Search demo
+      document.getElementById('headerA-search-btn')?.addEventListener('click', () => {
+        const query = document.getElementById('headerA-search').value.trim();
+        const dept = document.getElementById('headerA-dept').value;
+        alert(`Header A Doctor Search Filter: Query="${query || 'All'}", Department="${dept || 'All'}"`);
+      });
+
+      // Hospital Appointment Form Submission
+      const form = document.getElementById('hospital-appointment-form');
+      const alertBox = document.getElementById('hosp-form-alert');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('hosp-pat-name').value.trim();
+        const tel = document.getElementById('hosp-pat-contact').value.trim();
+        const doc = document.getElementById('hosp-doctor-search').value.trim();
+        const dt = document.getElementById('hosp-datetime').value;
+        const dept = document.getElementById('hosp-dept-select').value;
+
+        if (!name || !tel || !doc || !dt) {
+          alertBox.className = 'status-alert alert-danger show';
+          alertBox.innerHTML = '<strong>Error:</strong> Please fill in all required clinical fields.';
+          return;
+        }
+
+        alertBox.className = 'status-alert alert-success show';
+        alertBox.innerHTML = `
+          <h4 style="color:#065f46; margin-bottom:0.5rem;">Appointment Booked at VIT Health Care Center!</h4>
+          <p>Confirmation for <strong>${name}</strong> with <strong>${doc}</strong> (${dept}).</p>
+          <div style="font-size:0.875rem;">
+            <strong>Scheduled Time:</strong> ${dt.replace('T', ' at ')} &bull; Reference Code: <code>VHC-2026-APPT</code>
+          </div>
+        `;
+        alertBox.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Travel Bucket List — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 4 Vertically Arranged Destination Divs */
+    .destination-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .destination-item-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      transition: all var(--transition-normal);
+    }
+    .destination-item-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-teal-500);
+    }
+    .destination-img-wrap {
+      width: 280px;
+      height: 190px;
+      flex-shrink: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+    .destination-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-normal);
+    }
+    .destination-item-card:hover .destination-img-wrap img {
+      transform: scale(1.06);
+    }
+    @media (max-width: 768px) {
+      .destination-item-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .destination-img-wrap {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="gallery.html" class="nav-link">Campus Gallery</a></li>
+          <li><a href="travel.html" class="nav-link active">Travel Bucket List</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="gallery.html" class="btn btn-outline btn-sm">Interactive Gallery &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding" style="max-width:960px;">
+    <!-- Title: My Travel Bucket List -->
+    <div class="text-center mb-5">
+      <span class="badge badge-teal mb-2">Student Global Exploration Portfolio</span>
+      <h1 class="display-5 fw-bold" style="color:var(--color-navy-950);">My Travel Bucket List</h1>
+      <!-- Traveler Name -->
+      <p class="fs-5 text-muted">
+        Curated by Traveler: <strong style="color:var(--color-teal-700);" id="traveler-display-name">Aarav Patel (Computer Science Scholar)</strong>
+      </p>
+    </div>
+
+    <!-- Nested Unordered List Section:
+         Countries to Visit: Japan, Switzerland, Canada.
+         Activities: Hiking, Scuba Diving, Photography.
+    -->
+    <div class="card p-4 p-md-5 mb-5 shadow-sm" style="border-radius:var(--radius-lg); line-height:1.9;">
+      <h2 class="h4 fw-bold mb-3" style="color:var(--color-navy-900); border-bottom:2px solid var(--color-slate-100); padding-bottom:0.5rem;">
+        🌍 International Exploration Itinerary
+      </h2>
+      <p class="text-muted small mb-3">
+        The official travel objectives articulated via a clean semantic nested unordered list:
+      </p>
+
+      <!-- Nested Unordered List -->
+      <ul style="font-size:1.1rem; color:var(--color-navy-900); padding-left:2rem;">
+        <li>
+          <strong>Countries to Visit</strong>
+          <ul style="padding-left:2rem; list-style-type:circle;">
+            <li>Japan — Mount Fuji, Tokyo Technology Quarter, and Kyoto Heritage Gardens</li>
+            <li>Switzerland — The Swiss Alps, Interlaken Alpine Peaks, and Geneva Science Labs</li>
+            <li>Canada — Banff National Park, Lake Louise, and Vancouver Pacific Coastlines</li>
+          </ul>
+        </li>
+
+        <li style="margin-top:1rem;">
+          <strong>Activities</strong>
+          <ul style="padding-left:2rem; list-style-type:circle;">
+            <li>Hiking — High-altitude trail trekking through alpine mountain pathways</li>
+            <li>Scuba Diving — Underwater marine sanctuary exploration and coral reef monitoring</li>
+            <li>Photography — Landscape composition, cultural architecture, and night sky astro-imaging</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Travel Destinations Section: Four Vertically Arranged Destination Divs -->
+    <section>
+      <div class="border-bottom pb-2 mb-4">
+        <span class="badge badge-blue mb-1">Featured Itineraries</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-950);">Travel Destinations</h2>
+        <p class="text-muted small mb-0">Four vertically arranged destination showcases with photograph, destination heading, and description.</p>
+      </div>
+
+      <div class="destination-vertical-list">
+        <!-- Destination Div 1: Japan -->
+        <div class="destination-item-card">
+          <div class="destination-img-wrap">
+            <img src="images/travel-japan.svg" alt="Tokyo and Mount Fuji Japan">
+          </div>
+          <div>
+            <span class="badge badge-teal mb-1">Destination 01 &bull; East Asia</span>
+            <h3 class="h4 fw-bold mb-2" style="color:var(--color-navy-900);">1. Tokyo &amp; Mount Fuji, Japan</h3>
+            <p class="text-muted small mb-2" style="line-height:1.7;">
+              Japan presents an extraordinary synthesis of futuristic artificial intelligence research centers and timeless cultural monuments. Visitors explore the snow-capped peak of Mount Fuji, sacred shrines surrounded by blooming cherry blossoms, and the hyper-connected high-speed Shinkansen railway network.
+            </p>
+            <div class="small fw-semibold" style="color:var(--color-teal-600);">Highlights: Shinjuku Robotics, Mt. Fuji 5th Station Trekking, Pagoda Heritage</div>
+          </div>
+        </div>
+
+        <!-- Destination Div 2: Switzerland -->
+        <div class="destination-item-card">
+          <div class="destination-img-wrap">
+            <img src="images/travel-switzerland.svg" alt="The Swiss Alps Switzerland">
+          </div>
+          <div>
+            <span class="badge badge-blue mb-1">Destination 02 &bull; Central Europe</span>
+            <h3 class="h4 fw-bold mb-2" style="color:var(--color-navy-900);">2. The Alps &amp; Geneva, Switzerland</h3>
+            <p class="text-muted small mb-2" style="line-height:1.7;">
+              Renowned for panoramic alpine vistas, pristine glacial lakes, and traditional wooden chalets nestled in verdant mountain valleys. Scholars participate in environmental sensor logging while hiking scenic trails overlooking the iconic Matterhorn and visiting the international physics corridors of CERN.
+            </p>
+            <div class="small fw-semibold" style="color:#0284c7;">Highlights: Alpine Hiking Trails, CERN Particle Collider, Scenic Glacier Express</div>
+          </div>
+        </div>
+
+        <!-- Destination Div 3: Canada -->
+        <div class="destination-item-card">
+          <div class="destination-img-wrap">
+            <img src="images/travel-canada.svg" alt="Banff National Park Canada">
+          </div>
+          <div>
+            <span class="badge badge-amber mb-1">Destination 03 &bull; North America</span>
+            <h3 class="h4 fw-bold mb-2" style="color:var(--color-navy-900);">3. Banff National Park &amp; Rockies, Canada</h3>
+            <p class="text-muted small mb-2" style="line-height:1.7;">
+              Banff encompasses some of the planet’s most pristine wilderness sanctuaries, characterized by emerald glacial waters, towering pine forests, and dramatic Rocky Mountain peaks. The destination offers world-class canoe expeditions, wildlife photography encounters, and undisturbed dark sky astronomical viewing.
+            </p>
+            <div class="small fw-semibold" style="color:#d97706;">Highlights: Emerald Glacial Canoe Routes, Rocky Mountain Wildlife, Banff Dark Sky Park</div>
+          </div>
+        </div>
+
+        <!-- Destination Div 4: Paris France -->
+        <div class="destination-item-card">
+          <div class="destination-img-wrap">
+            <img src="images/travel-paris.svg" alt="Paris and the River Seine France">
+          </div>
+          <div>
+            <span class="badge badge-purple mb-1">Destination 04 &bull; Western Europe</span>
+            <h3 class="h4 fw-bold mb-2" style="color:var(--color-navy-900);">4. Paris &amp; the Seine Boulevard, France</h3>
+            <p class="text-muted small mb-2" style="line-height:1.7;">
+              Paris provides an unmatched cultural and architectural landscape defined by the iconic Eiffel Tower, timeless boulevards, and world-renowned museums. It serves as an epicenter for European technology summits, computational art exhibitions, and open-air riverside architectural photography.
+            </p>
+            <div class="small fw-semibold" style="color:#7c3aed;">Highlights: Architectural Drone Captures, Seine River Cruises, European AI Forums</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Name Customization Tool -->
+    <div class="card p-3 mt-5 bg-light" style="border:1px dashed #cbd5e1;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span class="small text-muted">Want to personalize the traveler name placeholder?</span>
+        <div class="d-flex gap-2">
+          <input type="text" id="traveler-name-input" class="form-control form-control-sm" placeholder="Enter custom name..." style="width:200px;">
+          <button type="button" id="btn-update-name" class="btn btn-sm btn-primary">Update Name</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer displaying “Created by Your Name”, with an easily editable name placeholder -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>
+          Created by <span id="footer-author-placeholder" style="color:#38bdf8; font-weight:bold; text-decoration:underline;">Your Name</span> &bull; Web Technology Laboratory 2026.
+        </div>
+        <div>
+          <a href="index.html" style="color:var(--color-teal-400);">Back to Campus Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nameInput = document.getElementById('traveler-name-input');
+      const updateBtn = document.getElementById('btn-update-name');
+      const footerAuthor = document.getElementById('footer-author-placeholder');
+      const travelerDisplay = document.getElementById('traveler-display-name');
+
+      // Check if user is logged in
+      const user = window.CampusAuth?.getUser();
+      if (user && user.name) {
+        footerAuthor.textContent = user.name;
+        travelerDisplay.textContent = `${user.name} (CampusConnect Pro)`;
+      }
+
+      updateBtn?.addEventListener('click', () => {
+        const val = nameInput.value.trim();
+        if (val) {
+          footerAuthor.textContent = val;
+          travelerDisplay.textContent = `${val} (Traveler)`;
+          alert(`Traveler name updated to: ${val}`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

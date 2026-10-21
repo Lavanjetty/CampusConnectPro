@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Color Box (Click & Mouse-Over) — Practical D.1 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Mouse Events</span> &gt; <span>Exercise D.1</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Interactive Color Box (Click & Mouse-Over)</h1>
+      <p class="text-muted small mb-0">A colored box that changes background color on click and displays “Mouse is over the box” on mouse-over.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="text-align:center; padding:1.5rem 0;">
+    <div id="interactive-box" style="width:240px; height:240px; margin:0 auto; background-color:#0d9488; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-weight:bold; font-size:18px; cursor:pointer; box-shadow:0 10px 15px rgba(0,0,0,0.1); transition:background-color 0.3s ease, transform 0.2s ease;">
+      Click Me!
+    </div>
+
+    <!-- Mouse over message display -->
+    <div id="box-status" style="margin-top:1.5rem; font-size:18px; font-weight:bold; color:#0f2b48; min-height:28px;">
+      Hover over the box to test mouse events.
+    </div>
+
+    <div class="mt-3">
+      <button type="button" id="btn-reset-box" class="btn btn-outline btn-sm">Reset Box</button>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const box = document.getElementById('interactive-box');
+  const status = document.getElementById('box-status');
+  const colors = ['#0d9488', '#0284c7', '#7c3aed', '#ec4899', '#f59e0b', '#10b981', '#dc2626'];
+  let colorIndex = 0;
+
+  // Mouse Over: display "Mouse is over the box"
+  box.addEventListener('mouseover', () => {
+    status.textContent = 'Mouse is over the box';
+    status.style.color = '#0d9488';
+    box.style.transform = 'scale(1.05)';
+  });
+
+  // Mouse Out: restore original hint
+  box.addEventListener('mouseout', () => {
+    status.textContent = 'Mouse left the box.';
+    status.style.color = '#64748b';
+    box.style.transform = 'scale(1)';
+  });
+
+  // Click: changes background color
+  box.addEventListener('click', () => {
+    colorIndex = (colorIndex + 1) % colors.length;
+    box.style.backgroundColor = colors[colorIndex];
+    status.textContent = 'Box color changed to ' + colors[colorIndex] + ' on click!';
+    status.style.color = colors[colorIndex];
+  });
+
+  document.getElementById('btn-reset-box').addEventListener('click', () => {
+    colorIndex = 0;
+    box.style.backgroundColor = colors[0];
+    status.textContent = 'Hover over the box to test mouse events.';
+    status.style.color = '#0f2b48';
+  });
+  </script>
+</body>
+</html>

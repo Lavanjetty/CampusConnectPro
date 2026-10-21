@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Product Card (Hover Reveal & View Details) — Practical D.2 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Mouse Events</span> &gt; <span>Exercise D.2</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Interactive Product Card (Hover Reveal & View Details)</h1>
+      <p class="text-muted small mb-0">Changes image appearance on mouse-over, reveals extra information, restores on mouse-leave, and displays price/availability on View Details.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="display:flex; justify-content:center; padding:1.5rem 0;">
+    <div id="product-card" style="width:340px; background:#fff; border:1px solid #cbd5e1; border-radius:12px; padding:1.5rem; box-shadow:0 4px 6px rgba(0,0,0,0.05); transition:all 0.3s ease;">
+      <!-- Product Image -->
+      <div style="overflow:hidden; border-radius:8px; height:180px; background:#f8fafc; display:flex; align-items:center; justify-content:center;">
+        <img id="product-img" src="../../images/product-laptop.svg" alt="Laptop" style="max-height:160px; transition:transform 0.3s ease, filter 0.3s ease;">
+      </div>
+
+      <h3 style="font-size:1.15rem; margin:1rem 0 0.5rem 0; color:#0f2b48;">Campus Developer Pro Ultrabook</h3>
+      
+      <!-- Extra info revealed on mouseover -->
+      <div id="product-extra-info" style="display:none; background:#ecfdf5; border:1px solid #a7f3d0; padding:0.6rem; border-radius:6px; font-size:0.85rem; color:#065f46; margin-bottom:0.75rem;">
+        ⚡ <strong>Special Specs:</strong> 32GB RAM, 1TB NVMe SSD, M3 Pro Chip, 18hr Battery.
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem;">
+        <span style="font-size:1.25rem; font-weight:800; color:#0f2b48;">₹95,000</span>
+        <button type="button" id="btn-view-details" class="btn btn-primary btn-sm">View Details</button>
+      </div>
+
+      <!-- Details output container -->
+      <div id="details-output" style="display:none; margin-top:1rem; padding-top:0.75rem; border-top:1px dashed #cbd5e1; font-size:0.875rem;">
+        <strong>Price:</strong> ₹95,000 (Incl. of all taxes)<br>
+        <strong>Availability:</strong> <span style="color:#16a34a; font-weight:bold;">In Stock (12 Units at Campus Store)</span>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const card = document.getElementById('product-card');
+  const img = document.getElementById('product-img');
+  const extraInfo = document.getElementById('product-extra-info');
+  const viewBtn = document.getElementById('btn-view-details');
+  const detailsOut = document.getElementById('details-output');
+
+  // Mouse-over: changes image appearance, reveals extra information
+  card.addEventListener('mouseover', () => {
+    img.style.transform = 'scale(1.1)';
+    img.style.filter = 'drop-shadow(0 8px 12px rgba(13,148,136,0.3))';
+    extraInfo.style.display = 'block';
+    card.style.borderColor = '#0d9488';
+    card.style.boxShadow = '0 12px 20px rgba(0,0,0,0.1)';
+  });
+
+  // Mouse-leave: restores original appearance
+  card.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1)';
+    img.style.filter = 'none';
+    extraInfo.style.display = 'none';
+    card.style.borderColor = '#cbd5e1';
+    card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+  });
+
+  // View Details: displays price and availability
+  viewBtn.addEventListener('click', () => {
+    const isVisible = detailsOut.style.display === 'block';
+    detailsOut.style.display = isVisible ? 'none' : 'block';
+    viewBtn.textContent = isVisible ? 'View Details' : 'Hide Details';
+  });
+  </script>
+</body>
+</html>

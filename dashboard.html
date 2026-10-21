@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-main">
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <button type="button" class="sidebar-toggle-btn" id="sidebar-toggle" aria-label="Toggle Dashboard Sidebar">
+          ☰ Menu
+        </button>
+        <a href="index.html" class="brand-logo">
+          <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Main Portal</a></li>
+          <li><a href="departments.html" class="nav-link">Faculty</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="services.html" class="nav-link">Library</a></li>
+          <li><a href="lab/index.html" class="nav-link">Lab (38 Demos)</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <span class="badge badge-teal" id="user-badge-header">Student Active</span>
+        <button type="button" id="btn-quick-logout" class="btn btn-outline btn-sm">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Layout -->
+  <div class="dashboard-wrapper">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Sidebar Navigation">
+      <div class="sidebar-brand">
+        <div style="width:36px; height:36px; border-radius:8px; background:var(--color-teal-600); display:flex; align-items:center; justify-content:center; font-weight:bold;">CCP</div>
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Academic Hub</div>
+          <div style="font-size:0.75rem; color:var(--color-slate-400);">Semester 5 &bull; 2026</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="sidebar-section-title">Core Navigation</li>
+        <li class="sidebar-item">
+          <a href="index.html" class="sidebar-link">
+            <span>🏠</span> Home Portal
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="departments.html" class="sidebar-link">
+            <span>👥</span> Student / Faculty Directory
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="employees.html" class="sidebar-link">
+            <span>👔</span> Employee Directory
+          </a>
+        </li>
+
+        <li class="sidebar-section-title">Demonstration Modules</li>
+        <li class="sidebar-item">
+          <a href="#payroll-modal" class="sidebar-link demo-trigger" data-module="Payroll Demo">
+            <span>💳</span> Payroll Demo <span class="demo-tag">DEMO</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#leave-modal" class="sidebar-link demo-trigger" data-module="Leave Requests">
+            <span>📝</span> Leave Requests <span class="demo-tag">DEMO</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="#reports-modal" class="sidebar-link demo-trigger" data-module="Academic Reports">
+            <span>📊</span> Reports <span class="demo-tag">DEMO</span>
+          </a>
+        </li>
+
+        <li class="sidebar-section-title">Academic Services</li>
+        <li class="sidebar-item">
+          <a href="registration.html" class="sidebar-link">
+            <span>📖</span> Courses &amp; Registration
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="events.html" class="sidebar-link">
+            <span>🎪</span> Events &amp; Symposium
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="services.html" class="sidebar-link">
+            <span>📚</span> Digital Library
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a href="lab/index.html" class="sidebar-link">
+            <span>🔬</span> Web Tech Practical Lab
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <button type="button" id="btn-sidebar-logout" class="btn btn-outline-white btn-sm" style="width:100%;">
+          🚪 Sign Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="dashboard-content">
+      <!-- Welcome Header -->
+      <div class="dashboard-header-bar">
+        <div class="dashboard-user-greeting">
+          <h1>Welcome, <span id="dash-student-name" style="color:var(--color-teal-600);">Aarav Patel</span> 👋</h1>
+          <p>B.Tech Computer Science &amp; Engineering &bull; Roll: 23BCE1042 &bull; Current CGPA: 9.34</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <a href="registration.html" class="btn btn-primary btn-sm">+ Enroll In Course</a>
+          <a href="events.html" class="btn btn-outline btn-sm">Symposium Registration</a>
+        </div>
+      </div>
+
+      <!-- Demo Modules Disclaimer Banner -->
+      <div class="demo-banner">
+        <span>⚠️</span>
+        <div>
+          <strong>Demonstration Environment Notice:</strong> Payroll records, semester performance reports, and leave approval workflows displayed in this dashboard are simulated demonstration modules with mock client-side state.
+        </div>
+      </div>
+
+      <!-- Top Row: Student Profile & Official ID Card -->
+      <div class="grid-2" style="margin-bottom:2rem; align-items:stretch;">
+        <!-- ID Card Component -->
+        <div class="id-card-wrapper">
+          <div class="id-card-header">
+            <div>
+              <div style="font-size:0.75rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--color-teal-400); font-weight:700;">CAMPUSCONNECT PRO</div>
+              <div style="font-size:0.95rem; font-weight:700;">OFFICIAL STUDENT IDENTITY CARD</div>
+            </div>
+            <div class="id-card-chip"></div>
+          </div>
+          <div class="id-card-body">
+            <div class="id-card-avatar">
+              <img src="images/avatar-student.svg" alt="Aarav Patel Student Portrait" width="80" height="80">
+            </div>
+            <div class="id-card-details">
+              <h3 id="idcard-name">Aarav Patel</h3>
+              <p><strong>ID:</strong> CCP-2023-BCE1042</p>
+              <p><strong>Dept:</strong> Computer Science &amp; Engg</p>
+              <p><strong>Batch:</strong> 2023 – 2027 &bull; Blood: O+ve</p>
+              <p><strong>Status:</strong> <span style="color:#4ade80; font-weight:bold;">Active Scholar</span></p>
+            </div>
+          </div>
+          <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px dashed rgba(255,255,255,0.2); display:flex; justify-content:space-between; font-size:0.75rem; color:var(--color-slate-400);">
+            <span>Expires: June 2027</span>
+            <span>Vellore Institute Campus</span>
+          </div>
+        </div>
+
+        <!-- Academic Overview Stats Card -->
+        <div class="card" style="justify-content:space-between;">
+          <div>
+            <span class="badge badge-teal" style="margin-bottom:0.75rem;">Semester 5 Overview</span>
+            <h3 style="margin-bottom:0.75rem;">Academic Progress Summary</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">
+              Enrolled in 6 theory courses, 3 laboratory practicals, and 1 capstone project. Attendance record currently stands at 96.4%.
+            </p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem;">
+            <div style="background:var(--color-slate-100); padding:0.75rem; border-radius:var(--radius-md);">
+              <div style="font-size:0.8rem; color:var(--color-slate-500);">Credits Earned</div>
+              <div style="font-size:1.4rem; font-weight:800; color:var(--color-navy-900);">92 / 160</div>
+            </div>
+            <div style="background:var(--color-slate-100); padding:0.75rem; border-radius:var(--radius-md);">
+              <div style="font-size:0.8rem; color:var(--color-slate-500);">Web Tech Lab Grade</div>
+              <div style="font-size:1.4rem; font-weight:800; color:var(--color-teal-600);">A+ (100%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats Counter Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon teal">📚</div>
+          <div>
+            <div class="stat-value">6</div>
+            <div class="stat-label">Enrolled Courses</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue">🔬</div>
+          <div>
+            <div class="stat-value">38</div>
+            <div class="stat-label">Completed Lab Practicals</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber">🎪</div>
+          <div>
+            <div class="stat-value">2</div>
+            <div class="stat-label">Upcoming Events</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple">📖</div>
+          <div>
+            <div class="stat-value">3</div>
+            <div class="stat-label">Issued Library Books</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications & Upcoming Events Details -->
+      <div class="grid-2" style="margin-bottom:2rem;">
+        <!-- Notifications & Announcements -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <h3 class="card-title">📢 Campus Announcements</h3>
+            <span class="badge badge-blue">Live Feed</span>
+          </div>
+          <ul style="list-style:none; padding:0;">
+            <li style="padding:0.75rem 0; border-bottom:1px solid var(--border-light);">
+              <div style="font-weight:600; font-size:0.95rem; color:var(--color-navy-900);">
+                National Technical Symposium 2026 Registrations Open
+              </div>
+              <div style="font-size:0.8rem; color:var(--color-slate-500);">
+                Submissions open for Paper Presentations, Hackathons, and Web Dev Challenge.
+              </div>
+            </li>
+            <li style="padding:0.75rem 0; border-bottom:1px solid var(--border-light);">
+              <div style="font-weight:600; font-size:0.95rem; color:var(--color-navy-900);">
+                Web Technology Lab Practicals Mid-Term Review
+              </div>
+              <div style="font-size:0.8rem; color:var(--color-slate-500);">
+                Complete all 38 exercises in HTML, CSS, JavaScript, and Bootstrap modules.
+              </div>
+            </li>
+            <li style="padding:0.75rem 0;">
+              <div style="font-weight:600; font-size:0.95rem; color:var(--color-navy-900);">
+                Health Center Blood Donation &amp; Checkup Drive
+              </div>
+              <div style="font-size:0.8rem; color:var(--color-slate-500);">
+                CityCare Hospital team arriving at Campus Health Center on Friday.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Upcoming Event Details -->
+        <div class="card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <h3 class="card-title">🎪 Upcoming Event Highlights</h3>
+            <span class="badge badge-amber">Nov 2026</span>
+          </div>
+          <div style="background:#f8fafc; border-radius:var(--radius-md); padding:1rem; border:1px solid var(--border-light); margin-bottom:1rem;">
+            <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--color-navy-900);">
+              <span>TechSymposium 2026: Quantum Leap</span>
+              <span style="color:var(--color-teal-600);">Nov 14, 2026</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin:0.5rem 0;">
+              Keynote addresses, project expos, and real-time coding marathons at the Central Auditorium.
+            </p>
+            <a href="events.html" class="btn btn-outline btn-sm">Review Event &amp; Register &rarr;</a>
+          </div>
+
+          <div style="background:#f8fafc; border-radius:var(--radius-md); padding:1rem; border:1px solid var(--border-light);">
+            <div style="display:flex; justify-content:space-between; font-weight:700; color:var(--color-navy-900);">
+              <span>Campus Esports Battle Royale</span>
+              <span style="color:#8b5cf6;">Nov 20, 2026</span>
+            </div>
+            <p style="font-size:0.875rem; color:var(--text-muted); margin:0.5rem 0;">
+              Inter-departmental gaming tournament featuring Valorant, Cyber Protocol, and Overdrive.
+            </p>
+            <a href="gaming.html" class="btn btn-outline btn-sm">Visit Esports Arena &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions Grid -->
+      <div class="card">
+        <h3 class="card-title" style="margin-bottom:1rem;">⚡ Quick Actions</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+          <a href="lab/index.html" class="btn btn-primary btn-sm">Launch Web Tech Lab</a>
+          <a href="services.html" class="btn btn-outline btn-sm">Search Library Catalog</a>
+          <a href="registration.html" class="btn btn-outline btn-sm">Course Registration</a>
+          <a href="hospital.html" class="btn btn-outline btn-sm">Health Care Appointment</a>
+          <a href="checkout.html" class="btn btn-outline btn-sm">Campus Merchandise Store</a>
+          <a href="gallery.html" class="btn btn-outline btn-sm">Campus Photo Tour</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Demo Modal for Payroll, Leave, Reports -->
+  <div id="demo-modal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,0.6); z-index:2000; align-items:center; justify-content:center; padding:1rem;">
+    <div style="background:#fff; border-radius:var(--radius-lg); max-width:550px; width:100%; padding:2rem; box-shadow:var(--shadow-xl); border:1px solid var(--border-light);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h3 id="demo-modal-title" style="color:var(--color-navy-900); font-size:1.25rem;">Demonstration Module</h3>
+        <button type="button" id="demo-modal-close" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+      </div>
+      <div id="demo-modal-body" style="font-size:0.95rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.5rem;">
+        This module is currently operating in <strong>demonstration simulation mode</strong>.
+      </div>
+      <div style="text-align:right;">
+        <button type="button" id="demo-modal-ok" class="btn btn-primary btn-sm">Close Demo Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Student Experience Dashboard.</div>
+        <div>Demonstration Environment Active &bull; <a href="index.html" style="color:var(--color-teal-400);">Back to Portal</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar toggle for mobile
+      const toggle = document.getElementById('sidebar-toggle');
+      const sidebar = document.getElementById('dashboard-sidebar');
+      if (toggle && sidebar) {
+        toggle.addEventListener('click', () => {
+          sidebar.classList.toggle('show');
+        });
+      }
+
+      // Check user session
+      const user = window.CampusAuth.getUser();
+      if (user) {
+        const nameEl = document.getElementById('dash-student-name');
+        const idcardName = document.getElementById('idcard-name');
+        const headerBadge = document.getElementById('user-badge-header');
+        if (nameEl) nameEl.textContent = user.name;
+        if (idcardName) idcardName.textContent = user.name;
+        if (headerBadge) headerBadge.textContent = `${user.role || 'Student'} Active`;
+      }
+
+      // Quick logout
+      const handleLogout = () => {
+        window.CampusAuth.logout();
+      };
+      document.getElementById('btn-quick-logout')?.addEventListener('click', handleLogout);
+      document.getElementById('btn-sidebar-logout')?.addEventListener('click', handleLogout);
+
+      // Demo triggers
+      const modal = document.getElementById('demo-modal');
+      const modalTitle = document.getElementById('demo-modal-title');
+      const modalBody = document.getElementById('demo-modal-body');
+      const closeBtn = document.getElementById('demo-modal-close');
+      const okBtn = document.getElementById('demo-modal-ok');
+
+      document.querySelectorAll('.demo-trigger').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modName = link.getAttribute('data-module');
+          modalTitle.textContent = `${modName} (Simulation Notice)`;
+
+          if (modName === 'Payroll Demo') {
+            modalBody.innerHTML = `
+              <p><strong>Demonstration Module:</strong> Academic Stipend &amp; Student Research Payroll.</p>
+              <div style="background:#f1f5f9; padding:0.75rem; border-radius:6px; margin:0.75rem 0;">
+                <div><strong>Research Fellowship ID:</strong> RF-2026-992</div>
+                <div><strong>Monthly Stipend:</strong> ₹25,000 (Simulated Demo Credit)</div>
+                <div><strong>Payment Disbursement:</strong> 1st of every month</div>
+                <div><strong>Tax Deductions:</strong> Demonstrational NIL</div>
+              </div>
+              <p style="font-size:0.85rem; color:#b45309;"><em>Payroll records are demonstrative placeholders for lab evaluation.</em></p>
+            `;
+          } else if (modName === 'Leave Requests') {
+            modalBody.innerHTML = `
+              <p><strong>Demonstration Module:</strong> Student Hostel &amp; Academic Leave Portal.</p>
+              <div style="background:#f1f5f9; padding:0.75rem; border-radius:6px; margin:0.75rem 0;">
+                <div><strong>Pending Requests:</strong> 1 (Technical Symposium Hackathon Duty)</div>
+                <div><strong>Approved Leaves:</strong> 2 days (October Academic Break)</div>
+                <div><strong>Warden Status:</strong> Demonstration Pre-Approved</div>
+              </div>
+              <p style="font-size:0.85rem; color:#b45309;"><em>No persistent leave approval database is attached to this demo.</em></p>
+            `;
+          } else if (modName === 'Academic Reports') {
+            modalBody.innerHTML = `
+              <p><strong>Demonstration Module:</strong> Semester Examination &amp; Grade Transcript.</p>
+              <div style="background:#f1f5f9; padding:0.75rem; border-radius:6px; margin:0.75rem 0;">
+                <div><strong>Transcript Status:</strong> Official Digitally Verified Copy</div>
+                <div><strong>Cumulative GPA:</strong> 9.34 / 10.0</div>
+                <div><strong>Web Tech Lab:</strong> 100/100 (Full Marks)</div>
+              </div>
+              <p style="font-size:0.85rem; color:#b45309;"><em>Marked as demonstration module per specification requirements.</em></p>
+            `;
+          }
+          modal.style.display = 'flex';
+        });
+      });
+
+      const hideModal = () => { modal.style.display = 'none'; };
+      closeBtn?.addEventListener('click', hideModal);
+      okBtn?.addEventListener('click', hideModal);
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) hideModal();
+      });
+    });
+  </script>
+</body>
+</html>

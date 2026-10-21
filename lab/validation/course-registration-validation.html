@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration Validation (RegEx, Dropdown, Multi-select) — Practical C.3 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>JavaScript Validation</span> &gt; <span>Exercise C.3</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Course Registration Validation (RegEx, Dropdown, Multi-select)</h1>
+      <p class="text-muted small mb-0">Validates student name via regex, academic department dropdown (CSE, IT, ECE, EEE), and multi-select programming languages.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:600px; margin:0 auto; background:#fff; padding:2rem; border-radius:8px; border:1px solid #e2e8f0;">
+    <h3 class="h5 mb-3" style="color:#0f2b48;">Course Registration Validator</h3>
+    <div id="c3-display"></div>
+
+    <form id="c3-form" novalidate>
+      <div class="form-group">
+        <label class="form-label required">Student Name (RegEx)</label>
+        <input type="text" name="courseStudentName" class="form-control" placeholder="Priya Raman">
+        <div id="courseNameError" class="error-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label required">Department Dropdown</label>
+        <select name="department" class="form-control">
+          <option value="">-- Choose Department --</option>
+          <option value="CSE">CSE</option>
+          <option value="IT">IT</option>
+          <option value="ECE">ECE</option>
+          <option value="EEE">EEE</option>
+        </select>
+        <div id="courseDeptError" class="error-feedback"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label required">Multiple-Select Programming Languages</label>
+        <select name="programmingLanguages" multiple class="form-control" style="height:110px;">
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="C++">C++</option>
+        </select>
+        <div id="courseLangError" class="error-feedback"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-2">Validate &amp; Display Details</button>
+    </form>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  document.getElementById('c3-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    CampusValidation.validateCourseRegistration('c3-form', 'c3-display');
+  });
+  </script>
+</body>
+</html>

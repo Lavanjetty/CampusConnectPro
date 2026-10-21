@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Events 2026 — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .event-media-card {
+      background: #0f172a;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      color: #fff;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+    }
+    .video-canvas-box {
+      width: 100%;
+      height: 320px;
+      background: #020617;
+      border-radius: var(--radius-md);
+      display: block;
+      border: 1px solid #1e293b;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bootstrap Navigation Demonstration -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--color-navy-950);">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.svg" alt="CampusConnect Pro" style="filter: brightness(0) invert(1);" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#eventsNavbar" aria-controls="eventsNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="eventsNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="events.html">Events 2026</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Campus Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="departments.html">Departments</a></li>
+          <li class="nav-item"><a class="nav-link" href="lab/index.html">Practical Lab</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="#register-section" class="btn btn-primary btn-sm">Symposium Registration</a>
+          <a href="dashboard.html" class="btn btn-outline-white btn-sm">Student Portal</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container section-padding">
+    <!-- Main College Events 2026 Heading -->
+    <div class="text-center mb-5">
+      <span class="badge badge-teal mb-2">Annual Academic Festivities</span>
+      <h1 class="display-5 fw-bold" style="color:var(--color-navy-950);">College Events 2026</h1>
+      <p class="text-muted fs-5 mx-auto" style="max-width:750px;">
+        Join groundbreaking technical symposiums, research exhibitions, gaming tournaments, and cultural summits celebrating student talent and engineering excellence.
+      </p>
+    </div>
+
+    <!-- Welcome Audio Message Player Demonstration -->
+    <div class="card mb-4" style="background:linear-gradient(135deg, #f0fdfa, #e0f2fe); border:1px solid #99f6e4;">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div class="d-flex align-items-center gap-3">
+          <div style="font-size:2.2rem;">🎙️</div>
+          <div>
+            <h3 class="h5 mb-1" style="color:var(--color-navy-900);">Dean's Official Welcome Audio Message</h3>
+            <p class="mb-0 text-muted small">
+              Listen to the welcome address for the National Technical Symposium 2026 delegates (HTML5 &lt;audio&gt; control).
+            </p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <audio id="dean-audio" controls preload="metadata">
+            <source src="media/symposium-welcome.wav" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+          <button type="button" id="btn-play-welcome-audio" class="btn btn-primary btn-sm">
+            🔊 Play Welcome Chime
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming Event Cards Grid -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="images/campus-auditorium.svg" class="card-img-top" alt="National Technical Symposium" style="height:190px; object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge badge-teal mb-2 align-self-start">Nov 14, 2026 &bull; Flagship</span>
+            <h3 class="h5 card-title">National Technical Symposium 2026</h3>
+            <p class="card-text text-muted small flex-grow-1">
+              Flagship engineering gathering featuring Paper Presentations, AI Hackathons, Full-Stack Web Development contests, and keynote talks from Silicon Valley leaders.
+            </p>
+            <a href="#register-section" class="btn btn-primary btn-sm mt-2">Register Now &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="images/gaming-hero.svg" class="card-img-top" alt="Inter-College Gaming Championship" style="height:190px; object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge badge-purple mb-2 align-self-start">Nov 20, 2026 &bull; Esports</span>
+            <h3 class="h5 card-title">Inter-College Gaming Fest</h3>
+            <p class="card-text text-muted small flex-grow-1">
+              Esports competition across Cyber Protocol, Valiant Strike, and Velocity Overdrive with cash prizes totaling ₹2,00,000 for collegiate winners.
+            </p>
+            <a href="gaming.html" class="btn btn-outline btn-sm mt-2">Visit GameZone Arena &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="images/campus-tech-park.svg" class="card-img-top" alt="Innovation & Project Expo" style="height:190px; object-fit:cover;">
+          <div class="card-body d-flex flex-column">
+            <span class="badge badge-blue mb-2 align-self-start">Dec 05, 2026 &bull; Research</span>
+            <h3 class="h5 card-title">Annual Innovation &amp; Project Expo</h3>
+            <p class="card-text text-muted small flex-grow-1">
+              Demonstration of senior year capstone engineering projects, IoT automated systems, and patent-pending inventions to industry venture capitalists.
+            </p>
+            <a href="departments.html" class="btn btn-outline btn-sm mt-2">Explore Projects &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Symposium Promotional Video -->
+    <div class="event-media-card">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+        <div>
+          <h2 class="h4 mb-1 text-white">🎬 Technical Symposium Promotional Video</h2>
+          <p class="text-slate-300 small mb-0">High-definition interactive video broadcast preview (HTML5 Video &amp; Canvas Fallback)</p>
+        </div>
+        <button type="button" id="btn-toggle-video" class="btn btn-primary btn-sm">▶ Play Promo Video</button>
+      </div>
+
+      <div class="position-relative">
+        <canvas id="promo-video-canvas" class="video-canvas-box" width="960" height="320" aria-label="Symposium Promotional Video"></canvas>
+      </div>
+    </div>
+
+    <!-- Technical Symposium Registration Form Section -->
+    <section id="register-section" class="card p-4 p-md-5 shadow-sm" style="background:#fff; border-radius:var(--radius-lg);">
+      <div class="text-center mb-4">
+        <span class="badge badge-teal mb-2">Participant Enrollment</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-900);">Technical Symposium Registration 2026</h2>
+        <p class="text-muted small">Please fill out all credentials accurately. A confirmation ticket will be generated upon valid submission.</p>
+      </div>
+
+      <!-- Confirmation Message Container -->
+      <div id="symposium-confirm-box" class="status-alert" role="alert"></div>
+
+      <form id="symposium-form" novalidate>
+        <div class="row g-3">
+          <!-- Full Name -->
+          <div class="col-md-6">
+            <label for="symp-name" class="form-label required">Student Full Name</label>
+            <input type="text" id="symp-name" name="studentName" class="form-control" placeholder="e.g. Aarav Patel" required>
+            <div id="err-symp-name" class="error-feedback">Name must contain only alphabets and spaces (3-50 chars).</div>
+          </div>
+
+          <!-- Contact Email -->
+          <div class="col-md-6">
+            <label for="symp-email" class="form-label required">Contact Email Address</label>
+            <input type="email" id="symp-email" name="contactEmail" class="form-control" placeholder="e.g. aarav@campus.edu" required>
+            <div id="err-symp-email" class="error-feedback">Please enter a valid email format.</div>
+          </div>
+
+          <!-- Contact Phone -->
+          <div class="col-md-6">
+            <label for="symp-phone" class="form-label required">Contact Mobile Number</label>
+            <input type="tel" id="symp-phone" name="contactPhone" class="form-control" placeholder="10-digit mobile number" required>
+            <div id="err-symp-phone" class="error-feedback">Please provide a valid 10-digit mobile number.</div>
+          </div>
+
+          <!-- Event Date -->
+          <div class="col-md-6">
+            <label for="symp-date" class="form-label required">Event Attendance Date</label>
+            <input type="date" id="symp-date" name="eventDate" class="form-control" value="2026-11-14" min="2026-11-14" max="2026-11-16" required>
+            <div id="err-symp-date" class="error-feedback">Please select an event date.</div>
+          </div>
+
+          <!-- Academic Department -->
+          <div class="col-md-6">
+            <label for="symp-dept" class="form-label required">Academic Department</label>
+            <select id="symp-dept" name="department" class="form-control" required>
+              <option value="">-- Choose Department --</option>
+              <option value="Computer Science & Engineering">Computer Science &amp; Engineering (CSE)</option>
+              <option value="Information Technology">Information Technology (IT)</option>
+              <option value="Electronics & Communication">Electronics &amp; Communication (ECE)</option>
+              <option value="Electrical & Electronics">Electrical &amp; Electronics (EEE)</option>
+              <option value="Data Science & AI">Data Science &amp; AI (DSAI)</option>
+            </select>
+            <div id="err-symp-dept" class="error-feedback">Please select your academic department.</div>
+          </div>
+
+          <!-- Gender Radio Buttons -->
+          <div class="col-md-6">
+            <label class="form-label required">Gender Identity</label>
+            <div class="d-flex gap-4 mt-2">
+              <label class="radio-label">
+                <input type="radio" name="sympGender" value="Male"> Male
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="sympGender" value="Female"> Female
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="sympGender" value="Other"> Other / Prefer not to say
+              </label>
+            </div>
+            <div id="err-symp-gender" class="error-feedback">Please select your gender.</div>
+          </div>
+
+          <!-- Technical Skills Checkboxes -->
+          <div class="col-12">
+            <label class="form-label required">Technical Skills &amp; Event Tracks (Select at least one)</label>
+            <div class="row g-2 mt-1">
+              <div class="col-sm-4 col-md-3">
+                <label class="d-flex align-items-center gap-2">
+                  <input type="checkbox" name="sympSkills" value="HTML5 & CSS3"> HTML5 &amp; CSS3
+                </label>
+              </div>
+              <div class="col-sm-4 col-md-3">
+                <label class="d-flex align-items-center gap-2">
+                  <input type="checkbox" name="sympSkills" value="Vanilla JavaScript"> Vanilla JavaScript
+                </label>
+              </div>
+              <div class="col-sm-4 col-md-3">
+                <label class="d-flex align-items-center gap-2">
+                  <input type="checkbox" name="sympSkills" value="Python / AI"> Python / AI
+                </label>
+              </div>
+              <div class="col-sm-4 col-md-3">
+                <label class="d-flex align-items-center gap-2">
+                  <input type="checkbox" name="sympSkills" value="Bootstrap & UI Frameworks"> Bootstrap &amp; UI
+                </label>
+              </div>
+            </div>
+            <div id="err-symp-skills" class="error-feedback">Please check at least one technical skill track.</div>
+          </div>
+
+          <!-- Student ID Card File Upload -->
+          <div class="col-md-12">
+            <label for="symp-file" class="form-label required">Upload Student ID Card / Proof (PDF, PNG, JPG)</label>
+            <input type="file" id="symp-file" name="studentIdFile" class="form-control" accept=".pdf,.png,.jpg,.jpeg" required>
+            <div id="err-symp-file" class="error-feedback">Please attach your college ID proof.</div>
+            <div class="form-text">Demonstration file upload: Client-side validation only. Max file size: 5MB.</div>
+          </div>
+
+          <!-- Submit and Reset Buttons -->
+          <div class="col-12 d-flex gap-3 mt-4">
+            <button type="submit" class="btn btn-primary px-4">Submit Symposium Registration</button>
+            <button type="reset" id="btn-symp-reset" class="btn btn-outline px-4">Reset Form</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 College Events &amp; National Symposium Committee.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Home Portal</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/media-helper.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup Video simulator
+      CampusMedia.setupVideoFallback('promo-video-canvas', 'btn-toggle-video');
+
+      // Setup audio welcome chime button
+      document.getElementById('btn-play-welcome-audio')?.addEventListener('click', () => {
+        CampusMedia.playWelcomeAudio('dean-audio');
+      });
+
+      const form = document.getElementById('symposium-form');
+      const confirmBox = document.getElementById('symposium-confirm-box');
+      const resetBtn = document.getElementById('btn-symp-reset');
+
+      resetBtn?.addEventListener('click', () => {
+        confirmBox.className = 'status-alert';
+        confirmBox.style.display = 'none';
+        form.querySelectorAll('.error-feedback').forEach(el => el.classList.remove('show'));
+        form.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('symp-name');
+        const emailInput = document.getElementById('symp-email');
+        const phoneInput = document.getElementById('symp-phone');
+        const dateInput = document.getElementById('symp-date');
+        const deptSelect = document.getElementById('symp-dept');
+        const fileInput = document.getElementById('symp-file');
+        const genderRadios = form.querySelectorAll('input[name="sympGender"]:checked');
+        const skillChecks = form.querySelectorAll('input[name="sympSkills"]:checked');
+
+        let valid = true;
+
+        // Name
+        if (!nameInput.value.trim() || !CampusValidation.patterns.name.test(nameInput.value.trim())) {
+          CampusValidation.showError(nameInput, document.getElementById('err-symp-name'), 'Valid full name required (3-50 letters).');
+          valid = false;
+        } else {
+          CampusValidation.clearError(nameInput, document.getElementById('err-symp-name'));
+        }
+
+        // Email
+        if (!emailInput.value.trim() || !CampusValidation.patterns.email.test(emailInput.value.trim())) {
+          CampusValidation.showError(emailInput, document.getElementById('err-symp-email'), 'Valid email address required.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(emailInput, document.getElementById('err-symp-email'));
+        }
+
+        // Phone
+        if (!phoneInput.value.trim() || !CampusValidation.patterns.phone.test(phoneInput.value.trim())) {
+          CampusValidation.showError(phoneInput, document.getElementById('err-symp-phone'), 'Valid 10-digit mobile number required.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(phoneInput, document.getElementById('err-symp-phone'));
+        }
+
+        // Date
+        if (!dateInput.value) {
+          CampusValidation.showError(dateInput, document.getElementById('err-symp-date'), 'Event date is required.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(dateInput, document.getElementById('err-symp-date'));
+        }
+
+        // Department
+        if (!deptSelect.value) {
+          CampusValidation.showError(deptSelect, document.getElementById('err-symp-dept'), 'Please select a department.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(deptSelect, document.getElementById('err-symp-dept'));
+        }
+
+        // Gender
+        if (genderRadios.length === 0) {
+          CampusValidation.showError(null, document.getElementById('err-symp-gender'), 'Please select your gender.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(null, document.getElementById('err-symp-gender'));
+        }
+
+        // Skills
+        if (skillChecks.length === 0) {
+          CampusValidation.showError(null, document.getElementById('err-symp-skills'), 'Please choose at least one technical track.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(null, document.getElementById('err-symp-skills'));
+        }
+
+        // File upload
+        if (!fileInput.files || fileInput.files.length === 0) {
+          CampusValidation.showError(fileInput, document.getElementById('err-symp-file'), 'Please upload your student ID proof.');
+          valid = false;
+        } else {
+          CampusValidation.clearError(fileInput, document.getElementById('err-symp-file'));
+        }
+
+        if (valid) {
+          const ticketNumber = 'SYM-2026-' + Math.floor(1000 + Math.random() * 9000);
+          const skillsList = Array.from(skillChecks).map(c => c.value).join(', ');
+          const fileName = fileInput.files[0]?.name || 'student_id.pdf';
+
+          confirmBox.className = 'status-alert alert-success show';
+          confirmBox.innerHTML = `
+            <h4 style="color:#065f46; margin-bottom:0.5rem;">🎉 Symposium Registration Confirmed!</h4>
+            <p style="margin-bottom:0.5rem;">Thank you, <strong>${nameInput.value.trim()}</strong>. Your registration for the National Technical Symposium 2026 has been successfully recorded.</p>
+            <div style="background:#fff; padding:1rem; border-radius:6px; border:1px solid #a7f3d0; margin-top:0.75rem; font-size:0.9rem;">
+              <div><strong>Pass Number:</strong> ${ticketNumber}</div>
+              <div><strong>Department:</strong> ${deptSelect.value}</div>
+              <div><strong>Attendance Date:</strong> ${dateInput.value}</div>
+              <div><strong>Enrolled Tracks:</strong> ${skillsList}</div>
+              <div><strong>Attached ID:</strong> ${fileName}</div>
+            </div>
+          `;
+          confirmBox.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          confirmBox.className = 'status-alert alert-danger show';
+          confirmBox.innerHTML = '<strong>Validation Error:</strong> Please fix the highlighted fields before submitting.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

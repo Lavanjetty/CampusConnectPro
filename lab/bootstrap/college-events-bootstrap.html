@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Events 2026 — Bootstrap Demonstration</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+  <!-- Bootstrap Navigation: Home, Events, Gallery, Contact -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-info" href="../../index.html">CampusConnect Events</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#labFNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="labFNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../events.html">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../departments.html#contact">Contact</a></li>
+        </ul>
+        <a href="#events-list" class="btn btn-outline-info btn-sm">View Events</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <!-- Heading: “College Events 2026” -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold" style="color:var(--color-navy-950);">College Events 2026</h1>
+      <p class="text-muted fs-5">Annual Academic and Cultural Festival</p>
+      <!-- View Events button -->
+      <a href="../../events.html" class="btn btn-primary btn-lg mt-2">View Events</a>
+    </div>
+
+    <div class="row g-4" id="events-list">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-primary">Technical Symposium</h5>
+            <p class="card-text text-muted small">Keynotes, paper presentations, and algorithmic coding challenges.</p>
+            <a href="../../events.html" class="btn btn-sm btn-outline-primary">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-success">Innovation Expo</h5>
+            <p class="card-text text-muted small">Exhibition of senior year automated capstone projects and inventions.</p>
+            <a href="../../events.html" class="btn btn-sm btn-outline-success">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Gaming Championship</h5>
+            <p class="card-text text-muted small">Inter-departmental esports tournaments with live streaming.</p>
+            <a href="../../gaming.html" class="btn btn-sm btn-outline-warning">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer: “© 2026 College Events” -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      &copy; 2026 College Events
+    </div>
+  </footer>
+
+  <script src="../../vendor/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

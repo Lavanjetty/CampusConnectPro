@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Technology Practical Lab — CampusConnect Pro</title>
+  <link rel="stylesheet" href="../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/lab.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../index.html" class="brand-logo">
+        <img src="../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-link">Main Portal</a></li>
+          <li><a href="../departments.html" class="nav-link">Departments</a></li>
+          <li><a href="../dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="../events.html" class="nav-link">Events</a></li>
+          <li><a href="../services.html" class="nav-link">Library</a></li>
+          <li><a href="index.html" class="nav-link active">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Campus</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="lab-banner">
+    <div class="container text-center">
+      <span class="badge bg-light text-dark fw-bold mb-2">Web Technology Lab Curriculum 2026</span>
+      <h1 class="display-5 fw-bold mb-3">Interactive Web Technology Practical Lab</h1>
+      <p class="fs-5 mx-auto text-light opacity-90" style="max-width:800px;">
+        38 independent, categorized syllabus demonstrations covering HTML5, CSS3 variations, forms, multimedia, regex validation, mouse &amp; keyboard interactions, and Bootstrap 5.
+      </p>
+    </div>
+  </section>
+
+  <main class="container mb-5">
+    <!-- Filter and Search Bar -->
+    <div class="lab-filter-bar">
+      <div class="lab-search-input-wrap">
+        <span class="lab-search-icon">🔍</span>
+        <input type="text" id="lab-search-input" placeholder="Search exercises by title, topic, tags (e.g. regex, table, mouse, audio)...">
+      </div>
+
+      <div class="category-pills">
+        <button type="button" class="pill-btn active" data-filter="all">All Exercises</button>
+        <button type="button" class="pill-btn" data-filter="basic-html">HTML &amp; Layouts (17)</button>
+        <button type="button" class="pill-btn" data-filter="forms">Forms &amp; Media (7)</button>
+        <button type="button" class="pill-btn" data-filter="validation">Validation &amp; RegEx (5)</button>
+        <button type="button" class="pill-btn" data-filter="mouse-events">Mouse Events (6)</button>
+        <button type="button" class="pill-btn" data-filter="keyboard-events">Keyboard Events (6)</button>
+        <button type="button" class="pill-btn" data-filter="bootstrap">Bootstrap 5 (4)</button>
+      </div>
+    </div>
+
+    <!-- Live Counter -->
+    <div class="d-flex justify-content-between align-items-center my-4">
+      <span id="lab-count-badge" class="badge badge-teal fs-6">38 Exercises Found</span>
+      <span class="text-muted small">Every exercise operates independently with zero external interference.</span>
+    </div>
+
+    <!-- Empty State -->
+    <div id="lab-empty-state" style="display:none; text-align:center; padding:3rem; background:#fff; border-radius:12px; border:1px dashed #cbd5e1;">
+      <div style="font-size:2.5rem; margin-bottom:0.5rem;">🔍</div>
+      <h3 style="color:#0f2b48;">No Matching Lab Exercises</h3>
+      <p class="text-muted small">Try modifying your keyword query or selecting "All Exercises".</p>
+    </div>
+
+    <!-- Catalog Cards Grid -->
+    <div class="grid-3" id="lab-cards-container">
+      <!-- ====================================================================
+           LAB A: BASIC HTML & LAYOUTS (17)
+           ==================================================================== -->
+      <!-- A.1 -->
+      <div class="lab-card" data-category="basic-html" data-tags="headings paragraphs bold italic underline mark sub sup">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.1</span>
+        <h3 class="lab-card-title">HTML Headings &amp; Text Formatting</h3>
+        <p class="lab-card-desc">Headings h1-h6, paragraphs, bold, strong, italic, emphasis, mark, CO₂ subscript, and a³ + b³ superscript.</p>
+        <div class="lab-meta">
+          <a href="basic-html/headings-formatting.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Text Tags</span>
+        </div>
+      </div>
+
+      <!-- A.2 -->
+      <div class="lab-card" data-category="basic-html" data-tags="nested lists unordered countries activities">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.2</span>
+        <h3 class="lab-card-title">Nested Unordered Lists</h3>
+        <p class="lab-card-desc">Multi-tier nested unordered list demonstrating Countries to Visit (Japan, Switzerland, Canada) and Activities.</p>
+        <div class="lab-meta">
+          <a href="basic-html/nested-lists.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Lists</span>
+        </div>
+      </div>
+
+      <!-- A.3 -->
+      <div class="lab-card" data-category="basic-html" data-tags="employee profile text formatting e=mc2 co2">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.3</span>
+        <h3 class="lab-card-title">Employee Profile with Text Formatting</h3>
+        <p class="lab-card-desc">Employee profile demonstrating text formatting tags, highlighted rating, E = mc², and CO₂ formulas.</p>
+        <div class="lab-meta">
+          <a href="basic-html/employee-profile.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Profile</span>
+        </div>
+      </div>
+
+      <!-- A.4 -->
+      <div class="lab-card" data-category="basic-html" data-tags="travel cards vertical destinations image">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.4</span>
+        <h3 class="lab-card-title">Four Vertical Travel Destination Cards</h3>
+        <p class="lab-card-desc">Four vertically arranged destination divs each with photograph, heading, and 2-3 line descriptions.</p>
+        <div class="lab-meta">
+          <a href="basic-html/travel-cards.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">Cards</span>
+        </div>
+      </div>
+
+      <!-- A.5 -->
+      <div class="lab-card" data-category="basic-html" data-tags="employee id card border padding width centered">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.5</span>
+        <h3 class="lab-card-title">Employee ID Card Structure</h3>
+        <p class="lab-card-desc">Employee ID card designed with border, padding, width, and centered photo, name, and designation content.</p>
+        <div class="lab-meta">
+          <a href="basic-html/employee-id-card.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">ID Card</span>
+        </div>
+      </div>
+
+      <!-- A.6 -->
+      <div class="lab-card" data-category="basic-html" data-tags="department horizontal div navigation anchor links">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.6</span>
+        <h3 class="lab-card-title">Department Div-Based Navigation</h3>
+        <p class="lab-card-desc">Horizontal div-based menu using actual anchor elements linking directly to separate department pages.</p>
+        <div class="lab-meta">
+          <a href="basic-html/department-nav.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Navigation</span>
+        </div>
+      </div>
+
+      <!-- A.7 -->
+      <div class="lab-card" data-category="basic-html" data-tags="table website layout header navigation content sidebar footer">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.7</span>
+        <h3 class="lab-card-title">Table-Based Website Layout</h3>
+        <p class="lab-card-desc">Full webpage layout structured using HTML table with header, navigation, content, sidebar, and footer.</p>
+        <div class="lab-meta">
+          <a href="basic-html/table-layout.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Tables</span>
+        </div>
+      </div>
+
+      <!-- A.8 -->
+      <div class="lab-card" data-category="basic-html" data-tags="employee dashboard sidebar content area">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.8</span>
+        <h3 class="lab-card-title">Employee Dashboard Layout</h3>
+        <p class="lab-card-desc">Dashboard layout with vertical left sidebar navigation and right content area.</p>
+        <div class="lab-meta">
+          <a href="basic-html/employee-dashboard-layout.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Dashboard</span>
+        </div>
+      </div>
+
+      <!-- A.9 -->
+      <div class="lab-card" data-category="basic-html" data-tags="layout1 no css only div header left menu content footer">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.9</span>
+        <h3 class="lab-card-title">layout1.html (Strict Div Only, No CSS)</h3>
+        <p class="lab-card-desc">HEADER, LEFT MENU, CONTENT, FOOTER using strictly div elements without any CSS styles.</p>
+        <div class="lab-meta">
+          <a href="basic-html/layout1.html" class="btn btn-primary btn-sm" target="_blank">View layout1.html &rarr;</a>
+          <span class="badge badge-amber">No CSS</span>
+        </div>
+      </div>
+
+      <!-- A.10 -->
+      <div class="lab-card" data-category="basic-html" data-tags="div no css separate layout">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.10</span>
+        <h3 class="lab-card-title">Separate Div-Only Layout (No CSS)</h3>
+        <p class="lab-card-desc">Pure semantic div structure demonstrating raw document flow without styling constraints.</p>
+        <div class="lab-meta">
+          <a href="basic-html/div-no-css.html" class="btn btn-primary btn-sm" target="_blank">View div-no-css.html &rarr;</a>
+          <span class="badge badge-amber">No CSS</span>
+        </div>
+      </div>
+
+      <!-- A.11 -->
+      <div class="lab-card" data-category="basic-html" data-tags="table conventional structure header navigation content sidebar footer">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.11</span>
+        <h3 class="lab-card-title">Conventional Table-Based Layout</h3>
+        <p class="lab-card-desc">Traditional table arrangement matching standard header/navigation/content/sidebar/footer divisions.</p>
+        <div class="lab-meta">
+          <a href="basic-html/table-conventional.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Tables</span>
+        </div>
+      </div>
+
+      <!-- A.12 -->
+      <div class="lab-card" data-category="basic-html" data-tags="hospital header inline css vellore department emergency">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.12</span>
+        <h3 class="lab-card-title">Hospital Header (Inline CSS)</h3>
+        <p class="lab-card-desc">Hospital header with logo, location Vellore, department dropdown, search, and Emergency 108 using inline CSS.</p>
+        <div class="lab-meta">
+          <a href="basic-html/hospital-header-inline.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Inline CSS</span>
+        </div>
+      </div>
+
+      <!-- A.13 -->
+      <div class="lab-card" data-category="basic-html" data-tags="hospital header horizontal navigation appointment button">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.13</span>
+        <h3 class="lab-card-title">Hospital Header Horizontal Nav</h3>
+        <p class="lab-card-desc">CityCare Hospital header featuring horizontal links and Book Appointment action button.</p>
+        <div class="lab-meta">
+          <a href="basic-html/hospital-header-nav.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Header B</span>
+        </div>
+      </div>
+
+      <!-- A.14 -->
+      <div class="lab-card" data-category="basic-html" data-tags="search header dynamic category price dropdown">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.14</span>
+        <h3 class="lab-card-title">Dynamic Search Engine Header</h3>
+        <p class="lab-card-desc">Search engine bar with search input, category dropdown, and price range filters.</p>
+        <div class="lab-meta">
+          <a href="basic-html/search-header.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Search</span>
+        </div>
+      </div>
+
+      <!-- A.15 -->
+      <div class="lab-card" data-category="basic-html" data-tags="company profile inline css hr separators">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.15</span>
+        <h3 class="lab-card-title">Company Profile (Inline CSS &amp; HR)</h3>
+        <p class="lab-card-desc">Centered profile article with logo, overview, products, and hr dividers styled via inline CSS.</p>
+        <div class="lab-meta">
+          <a href="basic-html/company-profile-inline.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Inline CSS</span>
+        </div>
+      </div>
+
+      <!-- A.16 -->
+      <div class="lab-card" data-category="basic-html" data-tags="library grid 2x2 colored blocks inline css books members">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.16</span>
+        <h3 class="lab-card-title">Library 2&times;2 Grid (Inline CSS)</h3>
+        <p class="lab-card-desc">Four colored blocks arranged in a 2&times;2 grid: Books, Members, Issue Books, Digital Library.</p>
+        <div class="lab-meta">
+          <a href="basic-html/library-grid-inline.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">2x2 Grid</span>
+        </div>
+      </div>
+
+      <!-- A.17 -->
+      <div class="lab-card" data-category="basic-html" data-tags="vit footer internal style tag no inline css">
+        <span class="lab-card-category">Basic HTML &bull; Ex A.17</span>
+        <h3 class="lab-card-title">VIT Health Care Footer (Internal CSS)</h3>
+        <p class="lab-card-desc">VIT Health Care Center footer using divs and internal style tag without any inline CSS.</p>
+        <div class="lab-meta">
+          <a href="basic-html/vit-footer-internal.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Internal CSS</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           LAB B: HTML5 FORMS AND MULTIMEDIA (7)
+           ==================================================================== -->
+      <!-- B.1 -->
+      <div class="lab-card" data-category="forms" data-tags="student login audio guidance remember radio clear">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.1</span>
+        <h3 class="lab-card-title">Student Login with Audio Guidance</h3>
+        <p class="lab-card-desc">Username/email, password, Remember Me, radio buttons, Forgot Password, Create Account, Login, and audio.</p>
+        <div class="lab-meta">
+          <a href="forms/student-login-form.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Audio</span>
+        </div>
+      </div>
+
+      <!-- B.2 -->
+      <div class="lab-card" data-category="forms" data-tags="symposium registration video promo audio welcome file upload">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.2</span>
+        <h3 class="lab-card-title">Symposium Registration with Video</h3>
+        <p class="lab-card-desc">National Technical Symposium registration with promotional video preview, audio chime, and ID upload.</p>
+        <div class="lab-meta">
+          <a href="forms/symposium-registration.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Video &amp; Audio</span>
+        </div>
+      </div>
+
+      <!-- B.3 -->
+      <div class="lab-card" data-category="forms" data-tags="patient registration 18 input types text email tel date time color file range">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.3</span>
+        <h3 class="lab-card-title">18 HTML5 Input Types Patient Form</h3>
+        <p class="lab-card-desc">Showcase of every requested HTML5 input control type with semantic validation constraints.</p>
+        <div class="lab-meta">
+          <a href="forms/patient-registration.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">18 Controls</span>
+        </div>
+      </div>
+
+      <!-- B.4 -->
+      <div class="lab-card" data-category="forms" data-tags="shopping cart checkout customer payment summary">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.4</span>
+        <h3 class="lab-card-title">Shopping Cart Checkout</h3>
+        <p class="lab-card-desc">Customer details, dynamic payment method toggling, and live cart summary calculations.</p>
+        <div class="lab-meta">
+          <a href="forms/shopping-checkout.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">Checkout</span>
+        </div>
+      </div>
+
+      <!-- B.5 -->
+      <div class="lab-card" data-category="forms" data-tags="authentication bootstrap cards login registration">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.5</span>
+        <h3 class="lab-card-title">Authentication with Bootstrap Classes</h3>
+        <p class="lab-card-desc">Login and Registration cards utilizing official Bootstrap 5 component and grid classes.</p>
+        <div class="lab-meta">
+          <a href="forms/auth-bootstrap.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Bootstrap</span>
+        </div>
+      </div>
+
+      <!-- B.6 -->
+      <div class="lab-card" data-category="forms" data-tags="bootstrap external stylesheet local vendor">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.6</span>
+        <h3 class="lab-card-title">External Bootstrap Stylesheet Demo</h3>
+        <p class="lab-card-desc">Verification of locally hosted Bootstrap CSS bundle without third-party CDN reliance.</p>
+        <div class="lab-meta">
+          <a href="forms/bootstrap-external.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Local CSS</span>
+        </div>
+      </div>
+
+      <!-- B.7 -->
+      <div class="lab-card" data-category="forms" data-tags="image button input type file upload demonstration">
+        <span class="lab-card-category">Forms &amp; Media &bull; Ex B.7</span>
+        <h3 class="lab-card-title">Image Input Button &amp; File Upload</h3>
+        <p class="lab-card-desc">Demonstrates graphical &lt;input type="image"&gt; submit button and client-side file attachment inspection.</p>
+        <div class="lab-meta">
+          <a href="forms/image-button-upload.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Input Types</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           LAB C: JAVASCRIPT VALIDATION (5)
+           ==================================================================== -->
+      <!-- C.1 -->
+      <div class="lab-card" data-category="validation" data-tags="login validation red error output div">
+        <span class="lab-card-category">Validation &bull; Ex C.1</span>
+        <h3 class="lab-card-title">Login Validation with Red Errors</h3>
+        <p class="lab-card-desc">Validation displaying prominent red error text adjacent to empty inputs and results in an output div.</p>
+        <div class="lab-meta">
+          <a href="validation/login-validation.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-danger">Red Errors</span>
+        </div>
+      </div>
+
+      <!-- C.2 -->
+      <div class="lab-card" data-category="validation" data-tags="student regex name email gender skills">
+        <span class="lab-card-category">Validation &bull; Ex C.2</span>
+        <h3 class="lab-card-title">Student RegEx Validation</h3>
+        <p class="lab-card-desc">Name and email regex validation, gender radio checks, and skill selections (HTML, CSS, JavaScript).</p>
+        <div class="lab-meta">
+          <a href="validation/student-regex-validation.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">RegEx</span>
+        </div>
+      </div>
+
+      <!-- C.3 -->
+      <div class="lab-card" data-category="validation" data-tags="course registration regex department multi-select languages">
+        <span class="lab-card-category">Validation &bull; Ex C.3</span>
+        <h3 class="lab-card-title">Course Registration Validator</h3>
+        <p class="lab-card-desc">Name regex, department dropdown (CSE, IT, ECE, EEE), multi-select programming languages, and summary display.</p>
+        <div class="lab-meta">
+          <a href="validation/course-registration-validation.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Multi-Select</span>
+        </div>
+      </div>
+
+      <!-- C.4 -->
+      <div class="lab-card" data-category="validation" data-tags="patient form validation medical check">
+        <span class="lab-card-category">Validation &bull; Ex C.4</span>
+        <h3 class="lab-card-title">Patient Form Validation Suite</h3>
+        <p class="lab-card-desc">Comprehensive client-side validation across clinical patient registration attributes.</p>
+        <div class="lab-meta">
+          <a href="validation/patient-form-validation.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Clinical</span>
+        </div>
+      </div>
+
+      <!-- C.5 -->
+      <div class="lab-card" data-category="validation" data-tags="checkout validation total calculations">
+        <span class="lab-card-category">Validation &bull; Ex C.5</span>
+        <h3 class="lab-card-title">Checkout Arithmetic Validation</h3>
+        <p class="lab-card-desc">Validates customer address, conditional card/UPI fields, and dynamically calculates cart total amount.</p>
+        <div class="lab-meta">
+          <a href="validation/checkout-validation.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">Calculations</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           LAB D: MOUSE EVENTS (6)
+           ==================================================================== -->
+      <!-- D.1 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="colored box click mouseover mouse is over the box">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.1</span>
+        <h3 class="lab-card-title">Interactive Color Box</h3>
+        <p class="lab-card-desc">Box that changes background color on click and displays “Mouse is over the box” on hover.</p>
+        <div class="lab-meta">
+          <a href="mouse-events/color-box.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Click &amp; Hover</span>
+        </div>
+      </div>
+
+      <!-- D.2 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="product card hover reveal extra info mouseleave view details">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.2</span>
+        <h3 class="lab-card-title">Product Card Hover Effects</h3>
+        <p class="lab-card-desc">Scales image on mouseover, reveals extra specs, restores on mouseleave, and displays price/stock on View Details.</p>
+        <div class="lab-meta">
+          <a href="mouse-events/product-card-hover.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Hover Reveal</span>
+        </div>
+      </div>
+
+      <!-- D.3 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="traffic signal red stop yellow ready green go">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.3</span>
+        <h3 class="lab-card-title">Interactive Traffic Signal</h3>
+        <p class="lab-card-desc">Interactive traffic light with glowing bulbs: Red = STOP, Yellow = READY, Green = GO.</p>
+        <div class="lab-meta">
+          <a href="mouse-events/traffic-signal.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">Traffic Lights</span>
+        </div>
+      </div>
+
+      <!-- D.4 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="weather panels sunny perfect day cloudy rainy carry umbrella">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.4</span>
+        <h3 class="lab-card-title">Interactive Weather Panels</h3>
+        <p class="lab-card-desc">Sunny = "Perfect Day!", Cloudy = "Cloudy Weather", Rainy = "Carry an Umbrella!".</p>
+        <div class="lab-meta">
+          <a href="mouse-events/weather-panels.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Weather</span>
+        </div>
+      </div>
+
+      <!-- D.5 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="text change button welcome to vit mouseover mouseleave">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.5</span>
+        <h3 class="lab-card-title">Welcome Text Swap Button</h3>
+        <p class="lab-card-desc">Button that changes page text to “Welcome to VIT!” on mouse-over and restores original text on mouse-leave.</p>
+        <div class="lab-meta">
+          <a href="mouse-events/text-change-button.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Text Swap</span>
+        </div>
+      </div>
+
+      <!-- D.6 -->
+      <div class="lab-card" data-category="mouse-events" data-tags="gaming banner buttons hover effects play now explore">
+        <span class="lab-card-category">Mouse Events &bull; Ex D.6</span>
+        <h3 class="lab-card-title">Gaming Banner Action Buttons</h3>
+        <p class="lab-card-desc">Neon hover effects, glow transitions, and synthesized audio chimes on gaming action buttons.</p>
+        <div class="lab-meta">
+          <a href="mouse-events/gaming-buttons.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Neon Glow</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           LAB E: KEYBOARD EVENTS (6)
+           ==================================================================== -->
+      <!-- E.1 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="student search key pressed enter escape clear">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.1</span>
+        <h3 class="lab-card-title">Student Search Keyboard Tracker</h3>
+        <p class="lab-card-desc">Shows key pressed, Enter displays “Searching for student…”, and Escape clears input and message.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/student-search.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Key Tracker</span>
+        </div>
+      </div>
+
+      <!-- E.2 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="atm pin numeric started submitted warning non-numeric enter">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.2</span>
+        <h3 class="lab-card-title">ATM PIN Keyboard Controller</h3>
+        <p class="lab-card-desc">Accepts numeric keys, shows “PIN Entry Started”, Enter submits, and rejects non-numeric input with warnings.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/atm-pin.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">ATM PIN</span>
+        </div>
+      </div>
+
+      <!-- E.3 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="product search typed text background typing enter searching">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.3</span>
+        <h3 class="lab-card-title">Product Search Input Dynamics</h3>
+        <p class="lab-card-desc">Displays typed text live, dynamically alters input background color while typing, and Enter triggers search.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/product-search.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Input Dynamics</span>
+        </div>
+      </div>
+
+      <!-- E.4 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="online exam select highlight click enter submit answer mouseover">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.4</span>
+        <h3 class="lab-card-title">Online Exam Keyboard Submission</h3>
+        <p class="lab-card-desc">Click highlights choice, Enter submits answer, and Submit button glows on mouse-over.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/online-exam.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Online Exam</span>
+        </div>
+      </div>
+
+      <!-- E.5 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="campus gallery arrow keys right left enter image selected">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.5</span>
+        <h3 class="lab-card-title">Campus Gallery Keyboard Navigation</h3>
+        <p class="lab-card-desc">Right Arrow next, Left Arrow previous, Enter displays “Image Selected”. Safely scoped for text inputs.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/campus-gallery-keys.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Arrow Keys</span>
+        </div>
+      </div>
+
+      <!-- E.6 -->
+      <div class="lab-card" data-category="keyboard-events" data-tags="travel gallery n next p previous spacebar destination name">
+        <span class="lab-card-category">Keyboard Events &bull; Ex E.6</span>
+        <h3 class="lab-card-title">Travel Gallery Keys (N, P, Spacebar)</h3>
+        <p class="lab-card-desc">Key N advances to next destination, Key P returns to previous, and Spacebar announces destination name.</p>
+        <div class="lab-meta">
+          <a href="keyboard-events/travel-gallery-keys.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-amber">N, P, Space</span>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           LAB F: BOOTSTRAP (4)
+           ==================================================================== -->
+      <!-- F.1 -->
+      <div class="lab-card" data-category="bootstrap" data-tags="college events bootstrap 2026 home events gallery contact view events footer">
+        <span class="lab-card-category">Bootstrap &bull; Ex F.1</span>
+        <h3 class="lab-card-title">College Events 2026 Webpage</h3>
+        <p class="lab-card-desc">Navbar with Home, Events, Gallery, Contact, View Events action button, and footer “© 2026 College Events”.</p>
+        <div class="lab-meta">
+          <a href="bootstrap/college-events-bootstrap.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">College Events</span>
+        </div>
+      </div>
+
+      <!-- F.2 -->
+      <div class="lab-card" data-category="bootstrap" data-tags="auth bootstrap responsive cards login registration">
+        <span class="lab-card-category">Bootstrap &bull; Ex F.2</span>
+        <h3 class="lab-card-title">Responsive Authentication Cards</h3>
+        <p class="lab-card-desc">Bootstrap 5 responsive authentication grid with Login and Registration cards side-by-side.</p>
+        <div class="lab-meta">
+          <a href="bootstrap/auth-bootstrap-page.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-blue">Auth Cards</span>
+        </div>
+      </div>
+
+      <!-- F.3 -->
+      <div class="lab-card" data-category="bootstrap" data-tags="bootstrap grid navigation responsive breakpoints">
+        <span class="lab-card-category">Bootstrap &bull; Ex F.3</span>
+        <h3 class="lab-card-title">Bootstrap 5 Navigation &amp; Grid</h3>
+        <p class="lab-card-desc">12-column responsive grid breakpoints (col-12, col-md-6, col-lg-3) and collapsible responsive navigation.</p>
+        <div class="lab-meta">
+          <a href="bootstrap/grid-navigation-demo.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-purple">Grid System</span>
+        </div>
+      </div>
+
+      <!-- F.4 -->
+      <div class="lab-card" data-category="bootstrap" data-tags="local bootstrap css bundle offline ready">
+        <span class="lab-card-category">Bootstrap &bull; Ex F.4</span>
+        <h3 class="lab-card-title">Local Bootstrap 5 CSS Usage</h3>
+        <p class="lab-card-desc">Demonstration of downloaded local Bootstrap stylesheet without external CDN dependence.</p>
+        <div class="lab-meta">
+          <a href="bootstrap/local-bootstrap-demo.html" class="btn btn-primary btn-sm">Launch Practical &rarr;</a>
+          <span class="badge badge-teal">Local Vendor</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Web Technology Syllabus Practical Laboratory.</div>
+        <div><a href="../index.html" style="color:var(--color-teal-400);">Back to Main Portal Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/lab-runner.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Validation with Red Errors & Output Div — Practical C.1 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>JavaScript Validation</span> &gt; <span>Exercise C.1</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Login Validation with Red Errors & Output Div</h1>
+      <p class="text-muted small mb-0">Enforces validation with red error messages appearing adjacent to empty fields and results displayed in a dedicated output div.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:480px; margin:0 auto; background:#fff; padding:2rem; border-radius:8px; border:1px solid #e2e8f0;">
+    <h3 class="h5 mb-3" style="color:#0f2b48;">Login Field-by-Field Validation</h3>
+    
+    <!-- Output Div -->
+    <div id="c1-output-div" class="status-alert" role="status"></div>
+
+    <form id="c1-form" novalidate>
+      <div class="form-group">
+        <label for="c1-user" class="form-label required">Username</label>
+        <input type="text" id="c1-user" class="form-control" placeholder="Enter username">
+        <div id="c1-user-err" class="error-feedback" style="color:#dc2626; font-size:13px; font-weight:600; margin-top:4px;">
+          Username cannot be blank.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="c1-pwd" class="form-label required">Password</label>
+        <input type="password" id="c1-pwd" class="form-control" placeholder="Enter password">
+        <div id="c1-pwd-err" class="error-feedback" style="color:#dc2626; font-size:13px; font-weight:600; margin-top:4px;">
+          Password is required (minimum 6 characters).
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 mt-3">
+        <button type="submit" class="btn btn-primary" style="flex:2;">Validate &amp; Submit</button>
+        <button type="button" id="c1-reset-btn" class="btn btn-outline" style="flex:1;">Clear</button>
+      </div>
+    </form>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const form = document.getElementById('c1-form');
+  const user = document.getElementById('c1-user');
+  const pwd = document.getElementById('c1-pwd');
+  const uErr = document.getElementById('c1-user-err');
+  const pErr = document.getElementById('c1-pwd-err');
+  const out = document.getElementById('c1-output-div');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    if (!user.value.trim()) {
+      user.classList.add('is-invalid');
+      uErr.classList.add('show');
+      valid = false;
+    } else {
+      user.classList.remove('is-invalid');
+      uErr.classList.remove('show');
+    }
+
+    if (!pwd.value || pwd.value.length < 6) {
+      pwd.classList.add('is-invalid');
+      pErr.classList.add('show');
+      valid = false;
+    } else {
+      pwd.classList.remove('is-invalid');
+      pErr.classList.remove('show');
+    }
+
+    if (valid) {
+      out.className = 'status-alert alert-success show';
+      out.innerHTML = '<strong>Validation Passed:</strong> Welcome, ' + user.value.trim() + '. Logged in successfully!';
+    } else {
+      out.className = 'status-alert alert-danger show';
+      out.innerHTML = '<strong>Validation Failed:</strong> Please fix the red error messages indicated above.';
+    }
+  });
+
+  document.getElementById('c1-reset-btn').addEventListener('click', () => {
+    form.reset();
+    user.classList.remove('is-invalid');
+    pwd.classList.remove('is-invalid');
+    uErr.classList.remove('show');
+    pErr.classList.remove('show');
+    out.style.display = 'none';
+  });
+  </script>
+</body>
+</html>

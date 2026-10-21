@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login Form with Audio Guidance — Practical B.1 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>HTML5 Forms & Media</span> &gt; <span>Exercise B.1</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Student Login Form with Audio Guidance</h1>
+      <p class="text-muted small mb-0">Student Login with username/email, password, Remember Me, radio buttons, Forgot Password, Create Account, Login, Clear, and audio guidance.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:500px; margin:0 auto; background:#fff; padding:2rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+      <h3 style="margin:0; color:#0f2b48;">Student Portal Login</h3>
+      <button type="button" id="btn-audio-guide" class="btn btn-outline btn-sm">🔊 Audio Guidance</button>
+    </div>
+
+    <div id="login-out" class="status-alert" role="alert"></div>
+
+    <form id="lab-login-form" novalidate>
+      <div class="form-group">
+        <label class="form-label required">Role</label>
+        <div style="display:flex; gap:1.5rem; margin-top:0.25rem;">
+          <label><input type="radio" name="labRole" value="Student" checked> Student</label>
+          <label><input type="radio" name="labRole" value="Faculty"> Faculty</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="b1-user" class="form-label required">Username or Email</label>
+        <input type="text" id="b1-user" name="b1User" class="form-control" placeholder="e.g. aarav@campus.edu" required>
+        <div id="err-b1-user" class="error-feedback">Username or email is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="b1-pwd" class="form-label required">Password</label>
+        <input type="password" id="b1-pwd" name="b1Pwd" class="form-control" placeholder="••••••••" required>
+        <div id="err-b1-pwd" class="error-feedback">Password is required.</div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <label style="font-size:0.9rem;"><input type="checkbox" id="b1-remember"> Remember Me</label>
+        <a href="#" onclick="alert('Password reset link sent to demo account.'); return false;" style="font-size:0.85rem; color:#0d9488;">Forgot Password?</a>
+      </div>
+
+      <div style="display:flex; gap:1rem; margin-bottom:1rem;">
+        <button type="submit" class="btn btn-primary" style="flex:2;">Login</button>
+        <button type="button" id="btn-b1-clear" class="btn btn-outline" style="flex:1;">Clear</button>
+      </div>
+
+      <div style="text-align:center; font-size:0.875rem;">
+        New student? <a href="#" onclick="alert('Transferring to Create Account panel.'); return false;">Create New Account</a>
+      </div>
+    </form>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  document.getElementById('btn-audio-guide')?.addEventListener('click', () => {
+    CampusMedia.speakInstruction('Please choose Student or Faculty, then input your campus username or registered email and password to log in.');
+  });
+
+  const form = document.getElementById('lab-login-form');
+  const out = document.getElementById('login-out');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const u = document.getElementById('b1-user');
+    const p = document.getElementById('b1-pwd');
+    let valid = true;
+
+    if (!u.value.trim()) {
+      u.classList.add('is-invalid');
+      document.getElementById('err-b1-user').classList.add('show');
+      valid = false;
+    } else {
+      u.classList.remove('is-invalid');
+      document.getElementById('err-b1-user').classList.remove('show');
+    }
+
+    if (!p.value) {
+      p.classList.add('is-invalid');
+      document.getElementById('err-b1-pwd').classList.add('show');
+      valid = false;
+    } else {
+      p.classList.remove('is-invalid');
+      document.getElementById('err-b1-pwd').classList.remove('show');
+    }
+
+    if (valid) {
+      out.className = 'status-alert alert-success show';
+      out.innerHTML = '<strong>Login Successful!</strong> Welcome to CampusConnect Pro.';
+    } else {
+      out.className = 'status-alert alert-danger show';
+      out.innerHTML = '<strong>Validation Error:</strong> Please fill in empty fields.';
+    }
+  });
+
+  document.getElementById('btn-b1-clear').addEventListener('click', () => {
+    form.reset();
+    out.style.display = 'none';
+    form.querySelectorAll('.error-feedback').forEach(e => e.classList.remove('show'));
+    form.querySelectorAll('.form-control').forEach(e => e.classList.remove('is-invalid'));
+  });
+  </script>
+</body>
+</html>

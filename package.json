@@ -1,0 +1,23 @@
+{
+  "name": "campusconnect-pro",
+  "version": "1.0.0",
+  "description": "Smart Campus & Web Technology Learning Portal — Full Multi-Page System and 38-Practical Lab",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node test-project.js",
+    "build:assets": "node generate_assets.js",
+    "build:lab": "node build-lab-basic-html.js && node build-lab-forms.js && node build-lab-validation.js && node build-lab-mouse-events.js && node build-lab-keyboard-events.js && node build-lab-bootstrap.js"
+  },
+  "keywords": [
+    "campus-management",
+    "web-technology",
+    "html5",
+    "css3",
+    "javascript",
+    "bootstrap5",
+    "academic-portal"
+  ],
+  "author": "CampusConnect Pro Engineering Team",
+  "license": "MIT"
+}

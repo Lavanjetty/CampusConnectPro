@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="swissSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bae6fd" />
+      <stop offset="100%" stop-color="#e0f2fe" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#swissSky)" />
+  <!-- Swiss Alps Peaks -->
+  <polygon points="40,320 200,80 340,320" fill="#64748b" />
+  <polygon points="150,150 200,80 250,150 220,165 200,155 180,165" fill="#ffffff" />
+  <polygon points="260,320 420,100 580,320" fill="#475569" />
+  <polygon points="370,170 420,100 470,170 445,185 420,175 395,185" fill="#ffffff" />
+  <!-- Green Rolling Hills -->
+  <path d="M0,280 Q200,240 400,280 T600,280 L600,400 L0,400 Z" fill="#15803d" />
+  <!-- Swiss Wooden Chalet -->
+  <rect x="250" y="280" width="90" height="60" fill="#854d0e" />
+  <polygon points="235,280 295,245 355,280" fill="#451a03" />
+  <rect x="285" y="305" width="20" height="35" fill="#ffffff" />
+  <rect x="0" y="350" width="600" height="50" fill="#166534" />
+  <text x="300" y="382" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="22" fill="#ffffff" text-anchor="middle">SWITZERLAND • THE ALPS</text>
+</svg>

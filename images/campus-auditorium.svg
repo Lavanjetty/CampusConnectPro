@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="audBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#311042" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#audBg)" />
+  <!-- Spotlights -->
+  <polygon points="100,0 20,380 220,380" fill="#a855f7" opacity="0.15" />
+  <polygon points="300,0 180,380 420,380" fill="#38bdf8" opacity="0.2" />
+  <polygon points="500,0 380,380 580,380" fill="#ec4899" opacity="0.15" />
+  <!-- Stage -->
+  <polygon points="80,260 520,260 580,380 20,380" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" />
+  <!-- Screen on stage -->
+  <rect x="160" y="80" width="280" height="150" rx="8" fill="#020617" stroke="#38bdf8" stroke-width="3" />
+  <text x="300" y="145" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="20" fill="#38bdf8" text-anchor="middle">TECH SYMPOSIUM 2026</text>
+  <text x="300" y="175" font-family="'Segoe UI', sans-serif" font-weight="600" font-size="13" fill="#cbd5e1" text-anchor="middle">NATIONAL INNOVATION SUMMIT</text>
+  <!-- Podium -->
+  <polygon points="280,240 320,240 325,290 275,290" fill="#475569" />
+  <circle cx="300" cy="225" r="10" fill="#e2e8f0" />
+</svg>

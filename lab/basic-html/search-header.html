@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Search Engine Header — Practical A.14 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Basic HTML</span> &gt; <span>Exercise A.14</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Dynamic Search Engine Header</h1>
+      <p class="text-muted small mb-0">Search engine header with search, category, and price controls.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:18px; display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+    <div style="flex-grow:1; min-width:200px;">
+      <label style="display:block; font-size:12px; font-weight:bold; color:#0f2b48; margin-bottom:4px;">Search Keyword</label>
+      <input type="text" id="sample-search" class="form-control" placeholder="Search academic resources...">
+    </div>
+    <div style="min-width:160px;">
+      <label style="display:block; font-size:12px; font-weight:bold; color:#0f2b48; margin-bottom:4px;">Category</label>
+      <select id="sample-cat" class="form-control">
+        <option value="all">All Categories</option>
+        <option value="cs">Computer Science</option>
+        <option value="ee">Electronics</option>
+        <option value="math">Mathematics</option>
+      </select>
+    </div>
+    <div style="min-width:140px;">
+      <label style="display:block; font-size:12px; font-weight:bold; color:#0f2b48; margin-bottom:4px;">Price Range</label>
+      <select id="sample-price" class="form-control">
+        <option value="all">Any Price</option>
+        <option value="low">Under ₹500</option>
+        <option value="mid">₹500 - ₹1000</option>
+        <option value="high">Above ₹1000</option>
+      </select>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" onclick="alert('Filtering criteria applied!')">Search Catalog</button>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  
+</body>
+</html>

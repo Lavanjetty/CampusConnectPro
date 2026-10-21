@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200" width="350" height="200">
+  <rect width="350" height="200" rx="8" fill="#180b2d" />
+  <circle cx="175" cy="90" r="50" fill="#831843" opacity="0.6" />
+  <polygon points="120,150 175,50 230,150" fill="#ec4899" opacity="0.8" />
+  <text x="175" y="175" font-family="'Impact', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">CYBER PROTOCOL 2088</text>
+</svg>

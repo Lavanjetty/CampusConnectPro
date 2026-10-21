@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authentication with Bootstrap Classes — Practical B.5 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>HTML5 Forms & Media</span> &gt; <span>Exercise B.5</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">User Authentication with Bootstrap Classes</h1>
+      <p class="text-muted small mb-0">Authentication interface leveraging Bootstrap 5 card, grid, form-label, form-control, and button classes.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-primary">
+        <div class="card-header bg-primary text-white">
+          <h4 class="h6 mb-0">Bootstrap 5 Login Panel</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="name@campus.edu">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="button" class="btn btn-primary w-100" onclick="alert('Bootstrap Login Clicked')">Sign In</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm border-success">
+        <div class="card-header bg-success text-white">
+          <h4 class="h6 mb-0">Bootstrap 5 Registration Panel</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Aarav Patel">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Campus Role</label>
+            <select class="form-select">
+              <option>Student</option>
+              <option>Faculty</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-success w-100" onclick="alert('Bootstrap Registration Clicked')">Create Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  
+</body>
+</html>

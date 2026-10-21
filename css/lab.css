@@ -1,0 +1,187 @@
+/* ==========================================================================
+   CampusConnect Pro - Practical Lab Stylesheet
+   ========================================================================== */
+
+.lab-banner {
+  background: linear-gradient(135deg, #091a2e 0%, #0d3859 60%, #0d9488 100%);
+  color: #fff;
+  padding: 3rem 1rem;
+  border-bottom: 3px solid var(--color-teal-500);
+}
+
+.lab-banner h1 {
+  color: #fff;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.lab-filter-bar {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: -2rem;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lab-search-input-wrap {
+  flex-grow: 1;
+  min-width: 260px;
+  position: relative;
+}
+.lab-search-input-wrap input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-slate-300);
+  font-size: 0.95rem;
+}
+.lab-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-slate-400);
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pill-btn {
+  background: var(--color-slate-100);
+  color: var(--color-navy-800);
+  border: 1px solid var(--border-light);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.pill-btn:hover, .pill-btn.active {
+  background: var(--color-teal-600);
+  color: #fff;
+  border-color: var(--color-teal-600);
+}
+
+/* Lab Item Card */
+.lab-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+.lab-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-teal-500);
+}
+
+.lab-card-category {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-teal-600);
+  margin-bottom: 0.4rem;
+}
+.lab-card-title {
+  font-size: 1.15rem;
+  color: var(--color-navy-900);
+  margin-bottom: 0.6rem;
+}
+.lab-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.lab-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--color-slate-500);
+}
+
+/* Exercise Demo Page Frame */
+.exercise-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.exercise-header {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.exercise-breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-slate-500);
+}
+.exercise-breadcrumb a {
+  color: var(--color-teal-600);
+}
+
+.exercise-body {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.output-console {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.25rem;
+  min-height: 50px;
+  border: 1px solid #1e293b;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.test-controls-bar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.code-snippet {
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #0f172a;
+  overflow-x: auto;
+  margin-top: 1rem;
+}

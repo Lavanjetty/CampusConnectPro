@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM PIN Entry (Numeric Only, Warnings, Enter) — Practical E.2 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Keyboard Events</span> &gt; <span>Exercise E.2</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">ATM PIN Entry (Numeric Only, Warnings, Enter)</h1>
+      <p class="text-muted small mb-0">Accepts numeric keys, shows “PIN Entry Started”, Enter displays “PIN Submitted Successfully”, and shows warnings for non-numeric input.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:500px; margin:0 auto; background:#fff; padding:2rem; border-radius:12px; border:1px solid #cbd5e1; box-shadow:0 10px 15px rgba(0,0,0,0.05);">
+    <div style="text-align:center; margin-bottom:1.5rem;">
+      <div style="width:48px; height:48px; border-radius:50%; background:#e0f2fe; color:#0284c7; display:inline-flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:0.5rem;">🏧</div>
+      <h3 style="color:#0f2b48; font-size:1.25rem; margin:0;">Secure ATM PIN Verification</h3>
+    </div>
+
+    <div class="form-group text-center">
+      <label for="atm-pin-input" class="form-label fw-bold">Enter 4-Digit Numeric PIN</label>
+      <input type="password" id="atm-pin-input" class="form-control text-center fs-3" maxlength="4" placeholder="••••" style="letter-spacing:10px; max-width:240px; margin:0 auto;">
+    </div>
+
+    <!-- Non-numeric warning banner -->
+    <div id="pin-warning" class="status-alert alert-danger" style="margin-top:1rem; font-size:0.9rem;" role="alert"></div>
+
+    <!-- PIN Status feedback -->
+    <div id="pin-status" class="status-alert alert-success" style="margin-top:1rem; font-size:0.9rem;" role="status"></div>
+
+    <div class="text-center mt-3">
+      <button type="button" id="btn-atm-submit" class="btn btn-primary btn-sm">Submit PIN (or press Enter)</button>
+      <button type="button" id="btn-atm-clear" class="btn btn-outline btn-sm">Clear</button>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const pinInput = document.getElementById('atm-pin-input');
+  const warn = document.getElementById('pin-warning');
+  const status = document.getElementById('pin-status');
+  let entryStarted = false;
+
+  pinInput.addEventListener('keydown', (e) => {
+    // Allowed control keys
+    if (['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.key)) {
+      return;
+    }
+
+    // Enter displays "PIN Submitted Successfully"
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      submitPin();
+      return;
+    }
+
+    // Check if numeric (0-9)
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      warn.className = 'status-alert alert-danger show';
+      warn.textContent = 'Warning: Non-numeric key "' + e.key + '" rejected. Only digits 0-9 are allowed.';
+      CampusMedia.synthesizeChime();
+    } else {
+      warn.style.display = 'none';
+      if (!entryStarted) {
+        entryStarted = true;
+        status.className = 'status-alert alert-success show';
+        status.textContent = 'PIN Entry Started';
+      }
+    }
+  });
+
+  function submitPin() {
+    if (pinInput.value.length === 4) {
+      warn.style.display = 'none';
+      status.className = 'status-alert alert-success show';
+      status.textContent = 'PIN Submitted Successfully';
+    } else {
+      warn.className = 'status-alert alert-danger show';
+      warn.textContent = 'Please enter a complete 4-digit PIN before submitting.';
+    }
+  }
+
+  document.getElementById('btn-atm-submit').addEventListener('click', submitPin);
+  document.getElementById('btn-atm-clear').addEventListener('click', () => {
+    pinInput.value = '';
+    entryStarted = false;
+    warn.style.display = 'none';
+    status.style.display = 'none';
+    pinInput.focus();
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Weather Panels (Sunny, Cloudy, Rainy) — Practical D.4 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Mouse Events</span> &gt; <span>Exercise D.4</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Interactive Weather Panels (Sunny, Cloudy, Rainy)</h1>
+      <p class="text-muted small mb-0">Hovering or clicking displays: Sunny = "Perfect Day!", Cloudy = "Cloudy Weather", Rainy = "Carry an Umbrella!".</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.25rem;">
+      <!-- Sunny Panel -->
+      <div id="panel-sunny" class="weather-box" data-msg="Sunny = Perfect Day!" style="background:linear-gradient(135deg, #fef08a, #f59e0b); color:#78350f; border-radius:12px; padding:2rem; text-align:center; cursor:pointer; transition:transform 0.25s ease;">
+        <div style="font-size:3rem; margin-bottom:0.5rem;">☀️</div>
+        <h4 style="margin:0; font-weight:800;">SUNNY</h4>
+      </div>
+
+      <!-- Cloudy Panel -->
+      <div id="panel-cloudy" class="weather-box" data-msg="Cloudy = Cloudy Weather" style="background:linear-gradient(135deg, #cbd5e1, #64748b); color:#0f172a; border-radius:12px; padding:2rem; text-align:center; cursor:pointer; transition:transform 0.25s ease;">
+        <div style="font-size:3rem; margin-bottom:0.5rem;">☁️</div>
+        <h4 style="margin:0; font-weight:800;">CLOUDY</h4>
+      </div>
+
+      <!-- Rainy Panel -->
+      <div id="panel-rainy" class="weather-box" data-msg="Rainy = Carry an Umbrella!" style="background:linear-gradient(135deg, #38bdf8, #0369a1); color:#ffffff; border-radius:12px; padding:2rem; text-align:center; cursor:pointer; transition:transform 0.25s ease;">
+        <div style="font-size:3rem; margin-bottom:0.5rem;">🌧️</div>
+        <h4 style="margin:0; font-weight:800;">RAINY</h4>
+      </div>
+    </div>
+
+    <!-- Output Banner -->
+    <div id="weather-banner" style="margin-top:2rem; background:#f8fafc; border:1px solid #cbd5e1; border-radius:8px; padding:1.25rem; text-align:center; font-size:1.3rem; font-weight:bold; color:#0f2b48;">
+      Hover or click any weather card above.
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const boxes = document.querySelectorAll('.weather-box');
+  const banner = document.getElementById('weather-banner');
+
+  boxes.forEach(box => {
+    box.addEventListener('mouseenter', () => {
+      box.style.transform = 'translateY(-6px)';
+      banner.textContent = box.getAttribute('data-msg');
+      if (box.id === 'panel-sunny') banner.style.color = '#b45309';
+      if (box.id === 'panel-cloudy') banner.style.color = '#334155';
+      if (box.id === 'panel-rainy') banner.style.color = '#0284c7';
+    });
+
+    box.addEventListener('mouseleave', () => {
+      box.style.transform = 'translateY(0)';
+    });
+
+    box.addEventListener('click', () => {
+      banner.textContent = 'Selected: ' + box.getAttribute('data-msg');
+    });
+  });
+  </script>
+</body>
+</html>

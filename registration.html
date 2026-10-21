@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student, Course &amp; Patient Registration — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .registration-section-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+      margin-bottom: 3rem;
+    }
+    .form-section-heading {
+      border-bottom: 2px solid var(--color-slate-100);
+      padding-bottom: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .pill-checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="registration.html" class="nav-link active">Registration</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="hospital.html" class="btn btn-outline btn-sm">Hospital Portal &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding">
+    <div class="text-center mb-5">
+      <span class="badge badge-teal mb-2">Academic &amp; Clinical Portals</span>
+      <h1 class="display-6 fw-bold" style="color:var(--color-navy-950);">Student, Course &amp; Patient Services</h1>
+      <p class="text-muted fs-5 mx-auto" style="max-width:760px;">
+        Comprehensive demonstration of client-side regular expressions, semantic HTML5 input controls, and dynamic confirmation feedback.
+      </p>
+    </div>
+
+    <!-- Quick Navigation Jump Pills -->
+    <div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+      <a href="#student-registration" class="btn btn-outline btn-sm">1. Student Registration</a>
+      <a href="#course-registration" class="btn btn-outline btn-sm">2. Course Registration</a>
+      <a href="#patient-registration" class="btn btn-outline btn-sm">3. Patient Registration (18 HTML5 Types)</a>
+    </div>
+
+    <!-- ==========================================================================
+         Section 1: Student Registration Form
+         ========================================================================== -->
+    <section id="student-registration" class="registration-section-card">
+      <div class="form-section-heading">
+        <span class="badge badge-teal mb-1">Module 1</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-900);">Student Technical Registration</h2>
+        <p class="text-muted small mb-0">
+          Enforces regular expression validation for Name and Email, gender selection, and technical skill checkboxes (HTML, CSS, JavaScript).
+        </p>
+      </div>
+
+      <!-- Status Alert Box -->
+      <div id="student-reg-status" class="status-alert" role="alert"></div>
+
+      <form id="student-registration-form" novalidate>
+        <div class="row g-3">
+          <!-- Student Name -->
+          <div class="col-md-6">
+            <label for="student-name" class="form-label required">Student Full Name</label>
+            <input type="text" id="student-name" name="studentName" class="form-control" placeholder="e.g. Aarav Patel" required>
+            <div id="studentNameError" class="error-feedback"></div>
+          </div>
+
+          <!-- Email ID -->
+          <div class="col-md-6">
+            <label for="student-email" class="form-label required">Student Email ID</label>
+            <input type="email" id="student-email" name="studentEmail" class="form-control" placeholder="e.g. aarav.patel@campus.edu" required>
+            <div id="studentEmailError" class="error-feedback"></div>
+          </div>
+
+          <!-- Gender Radio Buttons -->
+          <div class="col-md-6">
+            <label class="form-label required">Gender</label>
+            <div class="d-flex gap-4 mt-2">
+              <label class="radio-label">
+                <input type="radio" name="studentGender" value="Male"> Male
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="studentGender" value="Female"> Female
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="studentGender" value="Other"> Other
+              </label>
+            </div>
+            <div id="studentGenderError" class="error-feedback"></div>
+          </div>
+
+          <!-- Technical Skills Checkboxes (HTML, CSS, JavaScript) -->
+          <div class="col-md-6">
+            <label class="form-label required">Technical Skills (Check at least one)</label>
+            <div class="pill-checkbox-group">
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="studentSkills" value="HTML"> HTML5
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="studentSkills" value="CSS"> CSS3
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="studentSkills" value="JavaScript"> JavaScript
+              </label>
+            </div>
+            <div id="studentSkillsError" class="error-feedback"></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="col-12 d-flex gap-3 mt-4">
+            <button type="submit" class="btn btn-primary">Submit Student Registration</button>
+            <button type="reset" id="btn-student-reset" class="btn btn-outline">Reset Form</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==========================================================================
+         Section 2: Course Registration Form
+         ========================================================================== -->
+    <section id="course-registration" class="registration-section-card">
+      <div class="form-section-heading">
+        <span class="badge badge-blue mb-1">Module 2</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-900);">Course Academic Registration</h2>
+        <p class="text-muted small mb-0">
+          Validates student name via regex, academic department dropdown (CSE, IT, ECE, EEE), and multiple-select programming languages.
+        </p>
+      </div>
+
+      <!-- Result Display Container -->
+      <div id="course-display-container"></div>
+
+      <form id="course-registration-form" novalidate>
+        <div class="row g-3">
+          <!-- Student Name -->
+          <div class="col-md-6">
+            <label for="course-student-name" class="form-label required">Student Full Name</label>
+            <input type="text" id="course-student-name" name="courseStudentName" class="form-control" placeholder="Letters only (e.g. Priya Sharma)" required>
+            <div id="courseNameError" class="error-feedback"></div>
+          </div>
+
+          <!-- Department Dropdown (CSE, IT, ECE, EEE) -->
+          <div class="col-md-6">
+            <label for="course-department" class="form-label required">Academic Department</label>
+            <select id="course-department" name="department" class="form-control" required>
+              <option value="">-- Select Department --</option>
+              <option value="CSE">Computer Science &amp; Engineering (CSE)</option>
+              <option value="IT">Information Technology (IT)</option>
+              <option value="ECE">Electronics &amp; Communication (ECE)</option>
+              <option value="EEE">Electrical &amp; Electronics (EEE)</option>
+            </select>
+            <div id="courseDeptError" class="error-feedback"></div>
+          </div>
+
+          <!-- Multiple Selection Programming Languages (Java, Python, JavaScript, C++) -->
+          <div class="col-12">
+            <label for="course-languages" class="form-label required">
+              Programming Languages (Hold Ctrl/Cmd to select multiple)
+            </label>
+            <select id="course-languages" name="programmingLanguages" multiple class="form-control" style="height:120px;" required>
+              <option value="Java">Java (Enterprise &amp; Android Systems)</option>
+              <option value="Python">Python (Data Science, AI &amp; Scripting)</option>
+              <option value="JavaScript">JavaScript (Modern Web &amp; Node.js)</option>
+              <option value="C++">C++ (High-Performance Systems &amp; Game Dev)</option>
+            </select>
+            <div id="courseLangError" class="error-feedback"></div>
+            <div class="form-text">Choose at least one required programming language course.</div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="col-12 d-flex gap-3 mt-4">
+            <button type="submit" class="btn btn-primary">Enroll In Courses</button>
+            <button type="reset" id="btn-course-reset" class="btn btn-outline">Reset Details</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==========================================================================
+         Section 3: Patient Registration (All HTML5 Input Types)
+         ========================================================================== -->
+    <section id="patient-registration" class="registration-section-card" style="border: 2px solid #0284c7;">
+      <div class="form-section-heading">
+        <span class="badge badge-teal mb-1">Module 3 &bull; Comprehensive Controls</span>
+        <h2 class="h3 fw-bold" style="color:var(--color-navy-900);">Campus Health Center &bull; Patient Registration</h2>
+        <p class="text-muted small mb-0">
+          Implements every specified HTML5 input control type with semantic validation. Clearly marked as an academic laboratory demonstration.
+        </p>
+      </div>
+
+      <!-- Important Notice -->
+      <div class="alert alert-warning d-flex align-items-center gap-2 mb-4" role="alert">
+        <span>⚠️</span>
+        <div class="small">
+          <strong>Academic Demonstration Form:</strong> This interface is an educational showcase of HTML5 input types. It does not connect to a real clinical medical database or collect confidential HIPAA health records.
+        </div>
+      </div>
+
+      <!-- Patient Form Status Alert -->
+      <div id="patient-form-status" class="status-alert" role="alert"></div>
+
+      <form id="patient-registration-form" novalidate>
+        <!-- Hidden Patient ID -->
+        <input type="hidden" name="hiddenPatientId" value="PID-2026-9982">
+
+        <div class="row g-3">
+          <!-- 1. Patient Name: text -->
+          <div class="col-md-6">
+            <label for="pat-name" class="form-label required">1. Patient Name (type="text")</label>
+            <input type="text" id="pat-name" name="patientName" class="form-control" placeholder="Full name of patient" required>
+            <div id="err-pat-name" class="error-feedback">Patient Name is required.</div>
+          </div>
+
+          <!-- 2. Email Address: email -->
+          <div class="col-md-6">
+            <label for="pat-email" class="form-label required">2. Email Address (type="email")</label>
+            <input type="email" id="pat-email" name="patientEmail" class="form-control" placeholder="patient@healthcare.org" required>
+            <div id="err-pat-email" class="error-feedback">Valid email address required.</div>
+          </div>
+
+          <!-- 3. Password: password -->
+          <div class="col-md-6">
+            <label for="pat-pwd" class="form-label required">3. Portal Password (type="password")</label>
+            <input type="password" id="pat-pwd" name="patientPassword" class="form-control" placeholder="Min 6 characters" required>
+            <div id="err-pat-pwd" class="error-feedback">Password is required (min 6 characters).</div>
+          </div>
+
+          <!-- 4. Contact Number: tel -->
+          <div class="col-md-6">
+            <label for="pat-tel" class="form-label required">4. Contact Number (type="tel")</label>
+            <input type="tel" id="pat-tel" name="patientTel" class="form-control" placeholder="10-digit emergency number" required>
+            <div id="err-pat-tel" class="error-feedback">10-digit contact number required.</div>
+          </div>
+
+          <!-- 5. Age: number -->
+          <div class="col-md-4">
+            <label for="pat-age" class="form-label required">5. Age in Years (type="number")</label>
+            <input type="number" id="pat-age" name="patientAge" class="form-control" min="1" max="120" value="20" required>
+            <div id="err-pat-age" class="error-feedback">Valid age (1-120) required.</div>
+          </div>
+
+          <!-- 6. Date of Birth: date -->
+          <div class="col-md-4">
+            <label for="pat-dob" class="form-label required">6. Date of Birth (type="date")</label>
+            <input type="date" id="pat-dob" name="patientDob" class="form-control" required>
+            <div id="err-pat-dob" class="error-feedback">Please choose date of birth.</div>
+          </div>
+
+          <!-- 7. Appointment Time: time -->
+          <div class="col-md-4">
+            <label for="pat-time" class="form-label required">7. Appointment Time (type="time")</label>
+            <input type="time" id="pat-time" name="appointmentTime" class="form-control" value="10:30" required>
+            <div id="err-pat-time" class="error-feedback">Preferred time required.</div>
+          </div>
+
+          <!-- 8. Appointment Date & Time: datetime-local -->
+          <div class="col-md-6">
+            <label for="pat-datetime" class="form-label required">8. Appointment Schedule (type="datetime-local")</label>
+            <input type="datetime-local" id="pat-datetime" name="appointmentDateTime" class="form-control" value="2026-11-15T10:30" required>
+            <div id="err-pat-datetime" class="error-feedback">Appointment date &amp; time required.</div>
+          </div>
+
+          <!-- 9. Personal Website/Reference: url -->
+          <div class="col-md-6">
+            <label for="pat-url" class="form-label">9. Personal Health Record Portal / Ref URL (type="url")</label>
+            <input type="url" id="pat-url" name="patientUrl" class="form-control" placeholder="https://healthrecords.org/ref">
+          </div>
+
+          <!-- 10. Search Doctor: search -->
+          <div class="col-md-6">
+            <label for="pat-search" class="form-label">10. Search Doctor / Speciality (type="search")</label>
+            <input type="search" id="pat-search" name="searchDoctor" class="form-control" placeholder="Search Dr. Thorne, Cardiology, General Medicine...">
+          </div>
+
+          <!-- 11. Consultation Color Theme: color -->
+          <div class="col-md-3">
+            <label for="pat-color" class="form-label">11. Consultation Theme (type="color")</label>
+            <input type="color" id="pat-color" name="themeColor" class="form-control form-control-color w-100" value="#0d9488">
+          </div>
+
+          <!-- 12. Pain Level: range -->
+          <div class="col-md-3">
+            <label for="pat-range" class="form-label">12. Pain Level: <span id="pain-val" class="fw-bold text-danger">3 / 10</span> (type="range")</label>
+            <input type="range" id="pat-range" name="painLevel" class="form-range" min="0" max="10" value="3">
+          </div>
+
+          <!-- 13. Medical Record Upload: file -->
+          <div class="col-md-6">
+            <label for="pat-file" class="form-label required">13. Medical Report Upload (type="file")</label>
+            <input type="file" id="pat-file" name="medicalFile" class="form-control" accept=".pdf,.png,.jpg,.jpeg">
+            <div id="err-pat-file" class="error-feedback">Please select a report file if required.</div>
+          </div>
+
+          <!-- 14. Blood Group: select -->
+          <div class="col-md-6">
+            <label for="pat-blood" class="form-label required">14. Blood Group (select dropdown)</label>
+            <select id="pat-blood" name="bloodGroup" class="form-control" required>
+              <option value="">-- Choose Blood Group --</option>
+              <option value="O+">O Positive (O+)</option>
+              <option value="O-">O Negative (O-)</option>
+              <option value="A+">A Positive (A+)</option>
+              <option value="A-">A Negative (A-)</option>
+              <option value="B+">B Positive (B+)</option>
+              <option value="B-">B Negative (B-)</option>
+              <option value="AB+">AB Positive (AB+)</option>
+              <option value="AB-">AB Negative (AB-)</option>
+            </select>
+            <div id="err-pat-blood" class="error-feedback">Please select your blood group.</div>
+          </div>
+
+          <!-- 15. Gender: radio -->
+          <div class="col-md-6">
+            <label class="form-label required">15. Patient Gender (type="radio")</label>
+            <div class="d-flex gap-4 mt-1">
+              <label class="radio-label">
+                <input type="radio" name="patientGenderRadio" value="Male" checked> Male
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="patientGenderRadio" value="Female"> Female
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="patientGenderRadio" value="Other"> Other
+              </label>
+            </div>
+          </div>
+
+          <!-- 16. Known Allergies: checkbox -->
+          <div class="col-md-6">
+            <label class="form-label">16. Known Allergies (type="checkbox")</label>
+            <div class="pill-checkbox-group">
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="allergies" value="Penicillin"> Penicillin
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="allergies" value="Aspirin"> Aspirin
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="allergies" value="Pollen"> Pollen
+              </label>
+              <label class="d-flex align-items-center gap-2">
+                <input type="checkbox" name="allergies" value="None"> None
+              </label>
+            </div>
+          </div>
+
+          <!-- 17. Address: textarea -->
+          <div class="col-12">
+            <label for="pat-address" class="form-label required">17. Residential Address (&lt;textarea&gt;)</label>
+            <textarea id="pat-address" name="patientAddress" class="form-control" rows="3" placeholder="Enter residential street, city, pin code..." required></textarea>
+            <div id="err-pat-address" class="error-feedback">Address is required.</div>
+          </div>
+
+          <!-- 18. Image input button example for confirmation/payment demonstration -->
+          <div class="col-12 mt-4 p-3 border rounded bg-light">
+            <label class="form-label fw-bold d-block mb-2">
+              18. Confirmation / Copay Image Button (type="image" demonstration):
+            </label>
+            <p class="text-muted small mb-2">Clicking this graphical image button submits the form for appointment scheduling:</p>
+            <div class="d-flex align-items-center gap-3">
+              <input type="image" src="images/submit-btn.png" alt="Confirm and Pay Consultation" id="img-submit-btn" style="height:44px; cursor:pointer;">
+              <span class="small text-muted">&larr; Custom &lt;input type="image"&gt; control</span>
+            </div>
+          </div>
+
+          <!-- Standard Submit & Reset Buttons -->
+          <div class="col-12 d-flex gap-3 mt-3">
+            <button type="submit" class="btn btn-primary px-4">Register Patient Record</button>
+            <button type="reset" id="btn-patient-reset" class="btn btn-outline px-4">Reset Patient Form</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Unified Academic &amp; Clinical Services.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Portal Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Student Registration Handler
+      const studentForm = document.getElementById('student-registration-form');
+      studentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        CampusValidation.validateStudentRegistration('student-registration-form', 'student-reg-status');
+      });
+      document.getElementById('btn-student-reset').addEventListener('click', () => {
+        document.getElementById('student-reg-status').style.display = 'none';
+        studentForm.querySelectorAll('.error-feedback').forEach(el => el.classList.remove('show'));
+        studentForm.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+      });
+
+      // 2. Course Registration Handler
+      const courseForm = document.getElementById('course-registration-form');
+      courseForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        CampusValidation.validateCourseRegistration('course-registration-form', 'course-display-container');
+      });
+      document.getElementById('btn-course-reset').addEventListener('click', () => {
+        document.getElementById('course-display-container').innerHTML = '';
+        courseForm.querySelectorAll('.error-feedback').forEach(el => el.classList.remove('show'));
+        courseForm.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+      });
+
+      // 3. Patient Form Range Slider Label
+      const rangeEl = document.getElementById('pat-range');
+      const painVal = document.getElementById('pain-val');
+      rangeEl.addEventListener('input', () => {
+        painVal.textContent = `${rangeEl.value} / 10`;
+      });
+
+      // 4. Patient Registration Submission
+      const patientForm = document.getElementById('patient-registration-form');
+      const patStatus = document.getElementById('patient-form-status');
+
+      function validatePatientForm() {
+        let valid = true;
+        const check = (id, errId, msg) => {
+          const el = document.getElementById(id);
+          const err = document.getElementById(errId);
+          if (!el || !el.value.trim()) {
+            if (err) { err.textContent = msg; err.classList.add('show'); }
+            if (el) el.classList.add('is-invalid');
+            valid = false;
+          } else {
+            if (err) { err.textContent = ''; err.classList.remove('show'); }
+            if (el) el.classList.remove('is-invalid');
+          }
+        };
+
+        check('pat-name', 'err-pat-name', 'Patient Name is required.');
+        check('pat-email', 'err-pat-email', 'Valid email address is required.');
+        check('pat-pwd', 'err-pat-pwd', 'Password is required (min 6 chars).');
+        check('pat-tel', 'err-pat-tel', 'Contact number is required.');
+        check('pat-dob', 'err-pat-dob', 'Date of birth is required.');
+        check('pat-blood', 'err-pat-blood', 'Please select a blood group.');
+        check('pat-address', 'err-pat-address', 'Residential address is required.');
+
+        if (valid) {
+          const patName = document.getElementById('pat-name').value;
+          const appointDate = document.getElementById('pat-datetime').value;
+          const blood = document.getElementById('pat-blood').value;
+          const hidId = patientForm.querySelector('[name="hiddenPatientId"]').value;
+
+          patStatus.className = 'status-alert alert-success show';
+          patStatus.innerHTML = `
+            <h4 style="color:#065f46; margin-bottom:0.5rem;">🏥 Patient Registration Successful!</h4>
+            <p>Demonstration health record registered for <strong>${patName}</strong> (ID: <code>${hidId}</code>).</p>
+            <div style="background:#fff; padding:0.75rem; border-radius:6px; border:1px solid #a7f3d0; font-size:0.875rem;">
+              <div><strong>Scheduled Slot:</strong> ${appointDate.replace('T', ' at ')}</div>
+              <div><strong>Blood Group:</strong> ${blood}</div>
+              <div><strong>Demonstration Copay Status:</strong> Confirmed</div>
+            </div>
+          `;
+          patStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          patStatus.className = 'status-alert alert-danger show';
+          patStatus.innerHTML = '<strong>Validation Error:</strong> Please fill in all required clinical form fields highlighted below.';
+        }
+        return valid;
+      }
+
+      patientForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        validatePatientForm();
+      });
+
+      document.getElementById('btn-patient-reset').addEventListener('click', () => {
+        patStatus.style.display = 'none';
+        patientForm.querySelectorAll('.error-feedback').forEach(el => el.classList.remove('show'));
+        patientForm.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Gallery Keys (N, P, Spacebar) — Practical E.6 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Keyboard Events</span> &gt; <span>Exercise E.6</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Travel Gallery Keys (N, P, Spacebar)</h1>
+      <p class="text-muted small mb-0">N for next destination, P for previous destination, Spacebar displays current destination name. Scoped to avoid typing conflict.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:650px; margin:0 auto; background:#0f172a; padding:1.5rem; border-radius:12px; color:#fff;">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h3 id="lab-trav-title" class="h5 text-white mb-0">Tokyo &amp; Mount Fuji, Japan</h3>
+      <span id="lab-trav-counter" class="badge badge-amber">1 / 4</span>
+    </div>
+
+    <div style="height:320px; display:flex; align-items:center; justify-content:center; background:#020617; border-radius:8px; overflow:hidden; margin:1rem 0;">
+      <img id="lab-trav-img" src="../../images/travel-japan.svg" alt="Destination" style="max-height:100%; max-width:100%; object-fit:contain;">
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div id="lab-trav-status" class="badge badge-teal" style="display:none; font-size:0.9rem; padding:0.4rem 0.8rem;"></div>
+      <div class="d-flex gap-2">
+        <button type="button" id="lab-trav-prev" class="btn btn-sm btn-outline-white">P (Previous)</button>
+        <button type="button" id="lab-trav-space" class="btn btn-sm btn-outline-white">Space (Show Name)</button>
+        <button type="button" id="lab-trav-next" class="btn btn-sm btn-outline-white">N (Next)</button>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const spots = [
+    { src: '../../images/travel-japan.svg', title: 'Tokyo & Mount Fuji, Japan' },
+    { src: '../../images/travel-switzerland.svg', title: 'The Alps & Geneva, Switzerland' },
+    { src: '../../images/travel-canada.svg', title: 'Banff National Park, Canada' },
+    { src: '../../images/travel-paris.svg', title: 'Paris & the Seine Boulevard, France' }
+  ];
+  let curT = 0;
+  const imgT = document.getElementById('lab-trav-img');
+  const titleT = document.getElementById('lab-trav-title');
+  const countT = document.getElementById('lab-trav-counter');
+  const statT = document.getElementById('lab-trav-status');
+
+  function renderT() {
+    imgT.src = spots[curT].src;
+    titleT.textContent = spots[curT].title;
+    countT.textContent = (curT + 1) + ' / ' + spots.length;
+  }
+
+  function showStatusT(text) {
+    statT.textContent = text;
+    statT.style.display = 'inline-block';
+  }
+
+  function nextT() { curT = (curT + 1) % spots.length; renderT(); }
+  function prevT() { curT = (curT - 1 + spots.length) % spots.length; renderT(); }
+
+  document.getElementById('lab-trav-next').addEventListener('click', () => { nextT(); showStatusT('Next: Key N'); });
+  document.getElementById('lab-trav-prev').addEventListener('click', () => { prevT(); showStatusT('Prev: Key P'); });
+  document.getElementById('lab-trav-space').addEventListener('click', () => { showStatusT('Current Destination: ' + spots[curT].title); });
+
+  window.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+    if (e.key === 'n' || e.key === 'N') { nextT(); showStatusT('Navigated: Next Destination (Key N)'); }
+    if (e.key === 'p' || e.key === 'P') { prevT(); showStatusT('Navigated: Previous Destination (Key P)'); }
+    if (e.key === ' ' || e.code === 'Space') {
+      e.preventDefault();
+      showStatusT('Current Destination: ' + spots[curT].title);
+    }
+  });
+  </script>
+</body>
+</html>

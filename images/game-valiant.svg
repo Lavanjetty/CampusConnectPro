@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200" width="350" height="200">
+  <rect width="350" height="200" rx="8" fill="#082f49" />
+  <polygon points="175,30 220,120 130,120" fill="#0284c7" />
+  <circle cx="175" cy="80" r="20" fill="#38bdf8" />
+  <text x="175" y="175" font-family="'Impact', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">VALIANT STRIKE TACTICAL</text>
+</svg>

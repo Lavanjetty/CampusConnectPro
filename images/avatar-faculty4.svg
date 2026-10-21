@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+    <circle cx="100" cy="100" r="95" fill="#831843" stroke="#f43f5e" stroke-width="4" />
+    <!-- Head & Shoulders -->
+    <circle cx="100" cy="75" r="38" fill="#fed7aa" />
+    <!-- Hair -->
+    <path d="M62,75 Q100,28 138,75 Q100,50 62,75 Z" fill="#f43f5e" />
+    <!-- Body -->
+    <path d="M40,175 C45,130 70,120 100,120 C130,120 155,130 160,175 Z" fill="#1e293b" />
+    <!-- Tie/Collar -->
+    <polygon points="90,120 110,120 100,145" fill="#f8fafc" />
+    <polygon points="97,125 103,125 100,165" fill="#f43f5e" />
+  </svg>

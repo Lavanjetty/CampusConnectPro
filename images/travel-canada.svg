@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="canSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="60%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#bae6fd" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#canSky)" />
+  <!-- Rocky Mountains -->
+  <polygon points="60,260 250,90 420,260" fill="#334155" />
+  <polygon points="200,135 250,90 300,135 270,145 250,140 230,145" fill="#f8fafc" />
+  <!-- Emerald Lake Banff -->
+  <path d="M0,250 L600,250 L600,400 L0,400 Z" fill="#0d9488" />
+  <!-- Pine Trees reflection and bank -->
+  <g fill="#064e3b">
+    <polygon points="40,250 55,200 70,250" />
+    <polygon points="80,255 100,190 120,255" />
+    <polygon points="130,252 145,210 160,252" />
+    <polygon points="480,255 500,190 520,255" />
+    <polygon points="530,250 545,205 560,250" />
+  </g>
+  <!-- Canoe -->
+  <ellipse cx="300" cy="310" rx="45" ry="10" fill="#dc2626" />
+  <text x="300" y="380" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="22" fill="#ffffff" text-anchor="middle">CANADA • BANFF NATIONAL PARK</text>
+</svg>

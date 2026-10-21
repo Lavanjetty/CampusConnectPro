@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science and Technology — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="science.html" class="nav-link active">Science &amp; Tech</a></li>
+          <li><a href="travel.html" class="nav-link">Travel Bucket List</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="index.html" class="btn btn-outline btn-sm">&larr; Main Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding" style="max-width:920px;">
+    <!-- Syllabus Practical Header Callout -->
+    <div class="card p-3 mb-4" style="background:#f0fdfa; border-left:4px solid var(--color-teal-600);">
+      <span class="badge badge-teal mb-1 align-self-start">HTML Text Formatting &amp; Heading Hierarchy Lab</span>
+      <p class="mb-0 small text-muted">
+        Demonstrates required inline text semantics: bold, italic, underline, mark, subscript, superscript, nested unordered lists, and strict h1–h6 heading hierarchy.
+      </p>
+    </div>
+
+    <article class="card p-4 p-md-5 shadow-sm" style="background:#fff; border-radius:var(--radius-lg); line-height:1.8;">
+      <!-- Main Heading: Science and Technology (h1) -->
+      <h1 class="display-5 fw-bold mb-3" style="color:var(--color-navy-950);">Science and Technology</h1>
+
+      <!-- Introductory Paragraph with Required Formatting Tags:
+           - Science in bold: <b>Science</b>
+           - Innovation in italics: <i>Innovation</i>
+           - Scientific Research underlined: <u>Scientific Research</u>
+           - Essential highlighted: <mark>Essential</mark>
+           - Chemical formula CO₂ using subscript: CO<sub>2</sub>
+           - Mathematical expression a³ + b³ using superscript: a<sup>3</sup> + b<sup>3</sup>
+      -->
+      <p class="fs-5 text-dark mb-4" style="background:#f8fafc; padding:1.25rem 1.5rem; border-radius:8px; border:1px solid #e2e8f0;">
+        Modern society is fundamentally shaped by advances in <b>Science</b> and perpetual technological <i>Innovation</i>. Across universities and corporate laboratories worldwide, <u>Scientific Research</u> is recognized as <mark>Essential</mark> for economic resilience, climate monitoring of atmospheric greenhouse gases like <strong>CO<sub>2</sub></strong>, and developing quantum cryptographic algorithms derived from cubic polynomials such as <strong>a<sup>3</sup> + b<sup>3</sup></strong>.
+      </p>
+
+      <!-- Correct Heading Hierarchy Demonstration: h2 -> h3 -> h4 -> h5 -> h6 -->
+      <section class="mt-4 mb-4">
+        <!-- h2 -->
+        <h2 class="h3 fw-bold mb-3" style="color:var(--color-navy-900); border-bottom:2px solid var(--color-slate-100); padding-bottom:0.5rem;">
+          Demonstration of Semantic Heading Hierarchy (H1 through H6)
+        </h2>
+        <p class="text-muted small mb-3">
+          Accessible HTML documents preserve logical heading progression without skipping levels:
+        </p>
+
+        <!-- h3 -->
+        <h3 class="h4 fw-bold text-primary mb-2">
+          Level 3 Heading: Foundations of Natural Philosophy &amp; Computing
+        </h3>
+        <p class="text-muted small mb-3">
+          Level 3 defines major thematic subsets within the overarching science topic.
+        </p>
+
+        <!-- h4 -->
+        <h4 class="h5 fw-bold text-secondary mb-2">
+          Level 4 Heading: Atmospheric Chemistry &amp; Carbon Footprint
+        </h4>
+        <p class="text-muted small mb-3">
+          Level 4 details precise environmental metrics. For instance, photosynthetic conversion removes <strong>CO<sub>2</sub></strong> from the air and yields glucose and oxygen <strong>O<sub>2</sub></strong>.
+        </p>
+
+        <!-- h5 -->
+        <h5 class="h6 fw-bold mb-2" style="color:var(--color-teal-700);">
+          Level 5 Heading: Discrete Mathematics &amp; Binomial Expansions
+        </h5>
+        <p class="text-muted small mb-3">
+          Level 5 addresses mathematical identities such as factoring the sum of two cubes: <br>
+          <code style="font-size:1rem; color:#0f766e; background:#f1f5f9; padding:0.2rem 0.5rem; border-radius:4px;">
+            a<sup>3</sup> + b<sup>3</sup> = (a + b)(a<sup>2</sup> - ab + b<sup>2</sup>)
+          </code>
+        </p>
+
+        <!-- h6 -->
+        <h6 class="fw-bold text-uppercase mb-2" style="font-size:0.8rem; letter-spacing:1px; color:var(--color-slate-500);">
+          Level 6 Heading: Terminal Sub-topic Reference Index
+        </h6>
+        <p class="text-muted small mb-0">
+          Level 6 serves as fine-grained annotation or technical citations in academic papers.
+        </p>
+      </section>
+
+      <hr class="my-4">
+
+      <!-- Clear Example of a Nested Unordered List -->
+      <section class="mb-4">
+        <h2 class="h4 fw-bold mb-3" style="color:var(--color-navy-900);">
+          Comprehensive Nested Unordered List Demonstration
+        </h2>
+        <p class="text-muted small mb-3">
+          Demonstrating multi-tier semantic list nesting with distinct bullet styles:
+        </p>
+
+        <!-- Nested Unordered List -->
+        <ul style="line-height:2; font-size:1rem; color:var(--color-navy-900); padding-left:2rem;">
+          <li>
+            <strong>Core Engineering Disciplines</strong>
+            <ul style="padding-left:1.75rem; list-style-type:circle;">
+              <li>
+                Computer Science &amp; Information Technology
+                <ul style="padding-left:1.75rem; list-style-type:square;">
+                  <li>Distributed Web Architectures (HTML5, CSS3, JavaScript)</li>
+                  <li>Artificial Intelligence &amp; Autonomous Agents</li>
+                  <li>Cryptographic Data Encryption</li>
+                </ul>
+              </li>
+              <li>
+                Mechanical &amp; Aerospace Engineering
+                <ul style="padding-left:1.75rem; list-style-type:square;">
+                  <li>Aerodynamic Wind Tunnel Fluid Simulation</li>
+                  <li>Thermodynamics and Renewable Energy Harvest</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <li class="mt-2">
+            <strong>Global Academic Exchange Bucket List</strong>
+            <ul style="padding-left:1.75rem; list-style-type:circle;">
+              <li>
+                Countries to Visit:
+                <ul style="padding-left:1.75rem; list-style-type:square;">
+                  <li>Japan (High-speed Rail &amp; Robotics Research)</li>
+                  <li>Switzerland (CERN Particle Physics Collider)</li>
+                  <li>Canada (Environmental Ecology &amp; Lake Observatories)</li>
+                </ul>
+              </li>
+              <li>
+                Field Activities:
+                <ul style="padding-left:1.75rem; list-style-type:square;">
+                  <li>Alpine Trail Hiking</li>
+                  <li>Oceanographic Scuba Diving</li>
+                  <li>Digital Nature Photography</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <div class="d-flex gap-2 flex-wrap mt-4 pt-3 border-top">
+        <a href="travel.html" class="btn btn-primary btn-sm">Explore Travel Bucket List &rarr;</a>
+        <a href="lab/basic-html/headings-formatting.html" class="btn btn-outline btn-sm">View Independent Lab Practical</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Science and Technology Educational Resource.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Back to Portal Home</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

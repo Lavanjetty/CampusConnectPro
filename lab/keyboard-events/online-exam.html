@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Exam Interface (Click, Enter Submit, Hover Highlight) — Practical E.4 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Keyboard Events</span> &gt; <span>Exercise E.4</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Online Exam Interface (Click, Enter Submit, Hover Highlight)</h1>
+      <p class="text-muted small mb-0">Select and highlight an answer on click, Enter submits the selected answer, shows “Answer Submitted Successfully”, and highlights Submit button on mouse-over.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="max-width:600px; margin:0 auto; background:#fff; padding:2rem; border-radius:8px; border:1px solid #cbd5e1;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="badge badge-teal">Web Technology Exam 2026</span>
+      <span class="text-muted small">Question 1 of 1</span>
+    </div>
+
+    <h4 style="font-size:1.15rem; color:#0f2b48; margin-bottom:1.25rem;">
+      Q: Which semantic HTML5 element represents self-contained compositional content?
+    </h4>
+
+    <!-- Answer Options (Click to select & highlight) -->
+    <div class="d-flex flex-column gap-2 mb-4" id="exam-options">
+      <div class="exam-option" data-ans="A" style="padding:0.75rem 1rem; border:2px solid #e2e8f0; border-radius:6px; cursor:pointer; transition:all 0.2s ease;">
+        <strong>A)</strong> &lt;div&gt; container block
+      </div>
+      <div class="exam-option" data-ans="B" style="padding:0.75rem 1rem; border:2px solid #e2e8f0; border-radius:6px; cursor:pointer; transition:all 0.2s ease;">
+        <strong>B)</strong> &lt;article&gt; standalone syndicated entity
+      </div>
+      <div class="exam-option" data-ans="C" style="padding:0.75rem 1rem; border:2px solid #e2e8f0; border-radius:6px; cursor:pointer; transition:all 0.2s ease;">
+        <strong>C)</strong> &lt;span&gt; inline tag
+      </div>
+      <div class="exam-option" data-ans="D" style="padding:0.75rem 1rem; border:2px solid #e2e8f0; border-radius:6px; cursor:pointer; transition:all 0.2s ease;">
+        <strong>D)</strong> &lt;table&gt; data grid
+      </div>
+    </div>
+
+    <!-- Submit Button (Highlighted on mouse-over) -->
+    <div class="d-flex justify-content-between align-items-center">
+      <button type="button" id="btn-exam-submit" class="btn btn-primary" style="transition:all 0.25s ease;">
+        Submit Answer (Press Enter)
+      </button>
+      <span class="text-muted small">Tip: Click an option, then press Enter</span>
+    </div>
+
+    <!-- Output message: "Answer Submitted Successfully" -->
+    <div id="exam-result" class="status-alert" style="margin-top:1.5rem;" role="status"></div>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  <script>
+  const options = document.querySelectorAll('.exam-option');
+  const submitBtn = document.getElementById('btn-exam-submit');
+  const result = document.getElementById('exam-result');
+  let selectedOption = null;
+
+  // Click to select and highlight answer
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      options.forEach(o => {
+        o.style.borderColor = '#e2e8f0';
+        o.style.backgroundColor = '#ffffff';
+        o.style.color = '#0f172a';
+      });
+      opt.style.borderColor = '#0d9488';
+      opt.style.backgroundColor = '#f0fdfa';
+      opt.style.color = '#0f766e';
+      selectedOption = opt.getAttribute('data-ans');
+    });
+  });
+
+  // Highlight Submit button on mouse-over
+  submitBtn.addEventListener('mouseover', () => {
+    submitBtn.style.transform = 'scale(1.05)';
+    submitBtn.style.boxShadow = '0 0 15px rgba(13,148,136,0.6)';
+    submitBtn.style.backgroundColor = '#0f766e';
+  });
+  submitBtn.addEventListener('mouseleave', () => {
+    submitBtn.style.transform = 'scale(1)';
+    submitBtn.style.boxShadow = 'none';
+    submitBtn.style.backgroundColor = '';
+  });
+
+  function submitAnswer() {
+    if (!selectedOption) {
+      result.className = 'status-alert alert-danger show';
+      result.textContent = 'Please select an answer option first.';
+    } else {
+      result.className = 'status-alert alert-success show';
+      result.innerHTML = '<strong>Answer Submitted Successfully!</strong> Selected Choice: Option ' + selectedOption + (selectedOption === 'B' ? ' (Correct: &lt;article&gt;)' : '');
+    }
+  }
+
+  submitBtn.addEventListener('click', submitAnswer);
+
+  // Scoped Enter key submits answer
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      submitAnswer();
+    }
+  });
+  </script>
+</body>
+</html>

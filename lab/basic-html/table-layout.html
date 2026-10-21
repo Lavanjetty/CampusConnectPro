@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table-Based Website Layout — Practical A.7 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>Basic HTML</span> &gt; <span>Exercise A.7</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Table-Based Website Layout</h1>
+      <p class="text-muted small mb-0">Website layout constructed with a semantic HTML table containing header, navigation, content, sidebar, and footer.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div style="overflow-x:auto;">
+    <table border="1" cellpadding="12" cellspacing="0" style="width:100%; border-collapse:collapse; border-color:#cbd5e1; font-family:sans-serif;">
+      <!-- HEADER -->
+      <tr>
+        <td colspan="2" style="background:#0f2b48; color:#ffffff; text-align:center; padding:20px;">
+          <h2 style="margin:0; color:#fff;">CAMPUSCONNECT PRO PORTAL HEADER</h2>
+          <div style="font-size:13px; color:#38bdf8;">Academic Table Layout Architecture</div>
+        </td>
+      </tr>
+
+      <!-- NAVIGATION -->
+      <tr>
+        <td colspan="2" style="background:#0d9488; color:#ffffff; padding:10px 15px;">
+          <div style="display:flex; justify-content:center; gap:20px; font-weight:bold;">
+            <a href="../../index.html" style="color:#fff; text-decoration:none;">Home</a> |
+            <a href="../../departments.html" style="color:#fff; text-decoration:none;">Departments</a> |
+            <a href="../../events.html" style="color:#fff; text-decoration:none;">Events</a> |
+            <a href="../../services.html" style="color:#fff; text-decoration:none;">Library</a> |
+            <a href="../index.html" style="color:#fff; text-decoration:none;">Practical Lab</a>
+          </div>
+        </td>
+      </tr>
+
+      <!-- CONTENT & SIDEBAR -->
+      <tr style="height:250px;">
+        <!-- CONTENT -->
+        <td style="width:70%; vertical-align:top; padding:20px; background:#ffffff;">
+          <h3 style="color:#0f2b48; margin-top:0;">Main Page Content Area</h3>
+          <p style="color:#475569; line-height:1.7;">
+            This cell acts as the primary content container for articles, lecture schedules, and syllabus laboratory guides. Before modern CSS flexbox and grid emerged, HTML tables were universally used to achieve multi-column page arrangements.
+          </p>
+        </td>
+
+        <!-- SIDEBAR -->
+        <td style="width:30%; vertical-align:top; padding:20px; background:#f8fafc; border-left:1px solid #cbd5e1;">
+          <h4 style="color:#0f2b48; margin-top:0;">Right Sidebar</h4>
+          <ul style="padding-left:18px; line-height:1.8; color:#64748b; font-size:13px;">
+            <li>Announcements</li>
+            <li>Examination Timetable</li>
+            <li>Hostel Notices</li>
+            <li>Emergency Helpline (108)</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- FOOTER -->
+      <tr>
+        <td colspan="2" style="background:#1e293b; color:#cbd5e1; text-align:center; padding:15px; font-size:13px;">
+          &copy; 2026 CampusConnect Pro — Table-Based Website Layout Demonstration.
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  
+</body>
+</html>

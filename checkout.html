@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart &amp; Checkout — CampusConnect Pro</title>
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .checkout-nav-steps {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .checkout-step-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      color: var(--color-slate-600);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+    }
+    .checkout-step-pill.active {
+      background: var(--color-navy-900);
+      color: #ffffff;
+      border-color: var(--color-navy-900);
+    }
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--color-teal-600);
+      color: #ffffff;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checkout-panel-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    .payment-method-selector {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .payment-method-box {
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.75rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      background: #fff;
+    }
+    .payment-method-box:hover, input[type="radio"]:checked + .payment-method-box {
+      border-color: var(--color-teal-600);
+      background: #f0fdfa;
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      padding: 1rem;
+    }
+    .modal-dialog-box {
+      background: #ffffff;
+      max-width: 550px;
+      width: 100%;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-xl);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="departments.html" class="nav-link">Departments</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="checkout.html" class="nav-link active">Campus Store</a></li>
+          <li><a href="lab/index.html" class="nav-link">Practical Lab</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="dashboard.html" class="btn btn-outline btn-sm">Student Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section-padding">
+    <div class="text-center mb-4">
+      <span class="badge badge-teal mb-2">Campus Merchandise &amp; Academic Store</span>
+      <h1 class="display-6 fw-bold" style="color:var(--color-navy-950);">Shopping Cart &amp; Checkout System</h1>
+      <p class="text-muted fs-5 mx-auto" style="max-width:750px;">
+        Interactive multi-section checkout with dynamic totals calculation, conditional payment methods, and strict validation.
+      </p>
+    </div>
+
+    <!-- Demonstration Notice -->
+    <div class="alert alert-warning mb-4" role="alert">
+      <strong>Academic Demonstration Store:</strong> This checkout flow demonstrates client-side JavaScript arithmetic, quantity modifications, and conditional payment field rendering. <em>Never enter real credit card numbers or banking passwords.</em>
+    </div>
+
+    <!-- Navigation between separate Customer Details, Payment Details, and Cart Summary -->
+    <div class="checkout-nav-steps">
+      <a href="#customer-section" class="checkout-step-pill active">
+        <span class="step-number">1</span> Customer &amp; Delivery
+      </a>
+      <a href="#payment-section" class="checkout-step-pill">
+        <span class="step-number">2</span> Payment Method
+      </a>
+      <a href="#cart-summary-section" class="checkout-step-pill">
+        <span class="step-number">3</span> Cart Summary &amp; Place Order
+      </a>
+    </div>
+
+    <form id="checkout-form" novalidate>
+      <div class="row g-4">
+        <!-- Left Column: Customer & Payment Details -->
+        <div class="col-lg-7">
+          <!-- Section 1: Customer and Delivery -->
+          <div id="customer-section" class="checkout-panel-card">
+            <h2 class="h4 fw-bold mb-3" style="color:var(--color-navy-900); border-bottom:2px solid var(--color-slate-100); padding-bottom:0.75rem;">
+              👤 1. Customer and Delivery Details
+            </h2>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="cust-name" class="form-label required">Customer Full Name</label>
+                <input type="text" id="cust-name" name="customerName" class="form-control" placeholder="e.g. Aarav Patel" required>
+                <div id="err-cust-name" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cust-email" class="form-label required">Email Address</label>
+                <input type="email" id="cust-email" name="emailAddress" class="form-control" placeholder="e.g. student@campus.edu" required>
+                <div id="err-cust-email" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cust-phone" class="form-label required">Mobile Number</label>
+                <input type="tel" id="cust-phone" name="mobileNumber" class="form-control" placeholder="10-digit mobile number" required>
+                <div id="err-cust-phone" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="cust-date" class="form-label required">Preferred Delivery Date</label>
+                <input type="date" id="cust-date" name="deliveryDate" class="form-control" value="2026-10-28" required>
+                <div id="err-cust-date" class="error-feedback"></div>
+              </div>
+
+              <div class="col-12">
+                <label for="cust-address" class="form-label required">Delivery Street Address</label>
+                <input type="text" id="cust-address" name="deliveryAddress" class="form-control" placeholder="Hostel Block, Room #, Campus Avenue" required>
+                <div id="err-cust-address" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-5">
+                <label for="cust-city" class="form-label required">City</label>
+                <input type="text" id="cust-city" name="city" class="form-control" value="Vellore" required>
+                <div id="err-cust-city" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="cust-state" class="form-label required">State</label>
+                <select id="cust-state" name="state" class="form-control" required>
+                  <option value="">-- Select State --</option>
+                  <option value="Tamil Nadu" selected>Tamil Nadu</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Delhi">Delhi</option>
+                </select>
+                <div id="err-cust-state" class="error-feedback"></div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="cust-pin" class="form-label required">PIN Code</label>
+                <input type="text" id="cust-pin" name="pinCode" class="form-control" value="632014" required maxlength="6">
+                <div id="err-cust-pin" class="error-feedback"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Payment Details -->
+          <div id="payment-section" class="checkout-panel-card">
+            <h2 class="h4 fw-bold mb-3" style="color:var(--color-navy-900); border-bottom:2px solid var(--color-slate-100); padding-bottom:0.75rem;">
+              💳 2. Payment Method
+            </h2>
+
+            <!-- Radio Buttons for Payment: Credit Card, Debit Card, UPI, Net Banking, Cash on Delivery -->
+            <label class="form-label required mb-2">Select Payment Mode</label>
+            <div class="payment-method-selector">
+              <label class="d-block cursor-pointer">
+                <input type="radio" name="paymentMethod" value="credit" checked class="d-none">
+                <div class="payment-method-box">
+                  <div style="font-size:1.3rem;">💳</div>
+                  <div style="font-size:0.8rem; font-weight:700;">Credit Card</div>
+                </div>
+              </label>
+
+              <label class="d-block cursor-pointer">
+                <input type="radio" name="paymentMethod" value="debit" class="d-none">
+                <div class="payment-method-box">
+                  <div style="font-size:1.3rem;">🏦</div>
+                  <div style="font-size:0.8rem; font-weight:700;">Debit Card</div>
+                </div>
+              </label>
+
+              <label class="d-block cursor-pointer">
+                <input type="radio" name="paymentMethod" value="upi" class="d-none">
+                <div class="payment-method-box">
+                  <div style="font-size:1.3rem;">📱</div>
+                  <div style="font-size:0.8rem; font-weight:700;">UPI / QR</div>
+                </div>
+              </label>
+
+              <label class="d-block cursor-pointer">
+                <input type="radio" name="paymentMethod" value="netbanking" class="d-none">
+                <div class="payment-method-box">
+                  <div style="font-size:1.3rem;">🌐</div>
+                  <div style="font-size:0.8rem; font-weight:700;">Net Banking</div>
+                </div>
+              </label>
+
+              <label class="d-block cursor-pointer">
+                <input type="radio" name="paymentMethod" value="cod" class="d-none">
+                <div class="payment-method-box">
+                  <div style="font-size:1.3rem;">💵</div>
+                  <div style="font-size:0.8rem; font-weight:700;">Cash on Delivery</div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Conditional Card Fields (Credit / Debit Card) -->
+            <div id="card-fields-group">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="card-holder" class="form-label required">Card Holder Name</label>
+                  <input type="text" id="card-holder" name="cardHolderName" class="form-control" placeholder="Name printed on card" value="Aarav Patel">
+                  <div id="err-card-name" class="error-feedback"></div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="card-number" class="form-label required">Card Number</label>
+                  <input type="text" id="card-number" name="cardNumber" class="form-control" placeholder="16-digit card number" value="4532891234567890" maxlength="16">
+                  <div id="err-card-number" class="error-feedback"></div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="card-expiry" class="form-label required">Expiry Month &amp; Year</label>
+                  <input type="month" id="card-expiry" name="expiryMonth" class="form-control" value="2028-12">
+                  <div id="err-card-expiry" class="error-feedback"></div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="card-cvv" class="form-label required">CVV Security Code</label>
+                  <input type="password" id="card-cvv" name="cvv" class="form-control" placeholder="3-digit CVV" value="982" maxlength="4">
+                  <div id="err-card-cvv" class="error-feedback"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conditional UPI Fields -->
+            <div id="upi-fields-group" style="display:none;">
+              <div class="form-group mb-0">
+                <label for="upi-id-input" class="form-label required">Virtual Payment Address (UPI ID)</label>
+                <input type="text" id="upi-id-input" name="upiId" class="form-control" placeholder="e.g. username@okhdfcbank or phone@upi">
+                <div id="err-upi-id" class="error-feedback"></div>
+                <div class="form-text">A collect request will be sent to your UPI banking application.</div>
+              </div>
+            </div>
+
+            <!-- Conditional Net Banking Fields -->
+            <div id="netbanking-fields-group" style="display:none;">
+              <div class="form-group mb-0">
+                <label for="netbank-select" class="form-label required">Select Institutional Bank</label>
+                <select id="netbank-select" class="form-control">
+                  <option value="HDFC">HDFC Bank</option>
+                  <option value="SBI">State Bank of India</option>
+                  <option value="ICICI">ICICI Bank</option>
+                  <option value="Axis">Axis Bank</option>
+                  <option value="Canara">Canara Bank</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conditional Cash on Delivery Notice -->
+            <div id="cod-notice-group" style="display:none;" class="p-3 bg-light rounded border">
+              <strong>Cash on Delivery (Campus Pickup):</strong> Please keep the exact cash amount ready at the central campus delivery desk. Verification via Student ID is required upon delivery.
+            </div>
+
+            <!-- Terms and Conditions Checkbox -->
+            <div class="mt-4 pt-3 border-top">
+              <label class="d-flex align-items-start gap-2 cursor-pointer">
+                <input type="checkbox" id="terms-accept" name="termsAccept" required style="margin-top:0.25rem;">
+                <span class="small text-muted">
+                  I agree to the CampusConnect Pro Merchant Terms and Conditions, Refund Guidelines, and Student Code of Conduct.
+                </span>
+              </label>
+              <div id="err-terms" class="error-feedback"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Cart Summary Section -->
+        <div class="col-lg-5">
+          <div id="cart-summary-section" class="checkout-panel-card" style="position:sticky; top:90px;">
+            <h2 class="h4 fw-bold mb-3" style="color:var(--color-navy-900); border-bottom:2px solid var(--color-slate-100); padding-bottom:0.75rem;">
+              🛒 3. Cart Summary
+            </h2>
+
+            <!-- Items Table: Product Name, Quantity, Unit Price, Total Amount -->
+            <div class="table-responsive mb-3">
+              <table class="table table-sm align-middle mb-0" style="font-size:0.875rem;">
+                <thead class="table-light">
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-items-tbody">
+                  <!-- Injected dynamically by checkout.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Calculations Breakdown -->
+            <div style="background:#f8fafc; border-radius:var(--radius-md); padding:1rem; border:1px solid var(--border-light); margin-bottom:1.5rem;">
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Cart Subtotal:</span>
+                <span id="summary-subtotal" class="fw-bold">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">GST Demonstration (18%):</span>
+                <span id="summary-tax" class="fw-bold">₹0</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Campus Courier Delivery:</span>
+                <span id="summary-shipping" class="fw-bold text-success">FREE</span>
+              </div>
+              <div class="d-flex justify-content-between pt-2 border-top fs-5 fw-bold" style="color:var(--color-navy-900);">
+                <span>Grand Total:</span>
+                <span id="summary-total" style="color:var(--color-teal-700);">₹0</span>
+              </div>
+            </div>
+
+            <!-- Place Order & Cancel Buttons -->
+            <div class="d-grid gap-2">
+              <button type="submit" id="btn-place-order" class="btn btn-primary btn-lg">
+                🛍️ Place Demonstration Order
+              </button>
+              <button type="button" id="btn-cancel-checkout" class="btn btn-outline">
+                Cancel Order &amp; Reset Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <!-- Order Confirmation Modal -->
+  <div id="checkout-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog-box">
+      <div id="modal-order-summary"></div>
+      <div class="text-center">
+        <button type="button" id="btn-modal-close" class="btn btn-primary px-4">Continue Browsing</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2026 CampusConnect Pro — Electronic Commerce &amp; Student Merchant System.</div>
+        <div><a href="index.html" style="color:var(--color-teal-400);">Return to Home Portal</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new CampusCheckout();
+    });
+  </script>
+</body>
+</html>

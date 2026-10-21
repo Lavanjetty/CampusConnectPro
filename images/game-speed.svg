@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 200" width="350" height="200">
+  <rect width="350" height="200" rx="8" fill="#1c1917" />
+  <polygon points="70,140 280,140 250,70 100,70" fill="#e11d48" />
+  <ellipse cx="110" cy="140" rx="20" ry="20" fill="#44403c" />
+  <ellipse cx="240" cy="140" rx="20" ry="20" fill="#44403c" />
+  <text x="175" y="180" font-family="'Impact', sans-serif" font-size="18" fill="#f59e0b" text-anchor="middle">VELOCITY OVERDRIVE</text>
+</svg>

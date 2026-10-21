@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="cyberSky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090514" />
+      <stop offset="50%" stop-color="#190d36" />
+      <stop offset="100%" stop-color="#0a192f" />
+    </linearGradient>
+    <radialGradient id="neonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#cyberSky)" />
+  <circle cx="600" cy="300" r="350" fill="url(#neonGlow)" />
+  <!-- Cyber Grid -->
+  <g stroke="#38bdf8" stroke-width="0.8" opacity="0.3">
+    <line x1="0" y1="450" x2="1200" y2="450" />
+    <line x1="0" y1="490" x2="1200" y2="490" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="100" y1="420" x2="0" y2="600" />
+    <line x1="300" y1="420" x2="200" y2="600" />
+    <line x1="500" y1="420" x2="450" y2="600" />
+    <line x1="700" y1="420" x2="750" y2="600" />
+    <line x1="900" y1="420" x2="1000" y2="600" />
+    <line x1="1100" y1="420" x2="1200" y2="600" />
+  </g>
+  <!-- Futuristic Esports Arena Silhouette -->
+  <polygon points="400,420 600,200 800,420" fill="#1e1145" stroke="#ec4899" stroke-width="3" />
+  <polygon points="470,420 600,280 730,420" fill="#0d1b3e" stroke="#00f0ff" stroke-width="2" />
+  <circle cx="600" cy="240" r="15" fill="#f43f5e" />
+  <text x="600" y="380" font-family="'Impact', 'Segoe UI Black', sans-serif" font-size="44" fill="#ffffff" text-anchor="middle" letter-spacing="4">CAMPUS ESPORTS CHAMPIONSHIP</text>
+  <text x="600" y="415" font-family="'Segoe UI', sans-serif" font-weight="700" font-size="16" fill="#38bdf8" text-anchor="middle" letter-spacing="3">2026 NATIONAL INTER-COLLEGE TOURNAMENT</text>
+</svg>

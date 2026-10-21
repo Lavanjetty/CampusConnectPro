@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Input Button & File Upload Demos — Practical B.7 | CampusConnect Pro</title>
+  <link rel="stylesheet" href="../../vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/theme.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/lab.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-main">
+      <a href="../../index.html" class="brand-logo">
+        <img src="../../images/logo.svg" alt="CampusConnect Pro Logo" width="220" height="48">
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="../index.html" class="btn btn-outline btn-sm">📋 Lab Catalog</a>
+        <a href="../../index.html" class="btn btn-primary btn-sm">Portal Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercise-container">
+    <div class="exercise-header">
+      <div class="exercise-breadcrumb">
+        <a href="../index.html">Practical Lab</a> &gt; <span>HTML5 Forms & Media</span> &gt; <span>Exercise B.7</span>
+      </div>
+      <h1 class="h3 fw-bold" style="color:var(--color-navy-950);">Image Input Button & File Upload Demos</h1>
+      <p class="text-muted small mb-0">Demonstrating <input type="image"> graphical submit button and file upload input.</p>
+    </div>
+
+    <div class="exercise-body">
+      
+  <div class="card p-4">
+    <h4 class="h6 fw-bold mb-3">1. Image Input Button (&lt;input type="image"&gt;)</h4>
+    <p class="text-muted small">Clicking the image button submits coordinate and form data:</p>
+    <form onsubmit="event.preventDefault(); alert('Image button submitted form at coordinates (' + event.offsetX + ', ' + event.offsetY + ')');">
+      <input type="image" src="../../images/submit-btn.png" alt="Confirm and Pay" style="height:44px; cursor:pointer;">
+    </form>
+
+    <hr class="my-4">
+
+    <h4 class="h6 fw-bold mb-3">2. File Upload Demo (&lt;input type="file"&gt;)</h4>
+    <form onsubmit="event.preventDefault(); const f=document.getElementById('demo-file-input').files[0]; alert(f ? 'Attached: ' + f.name + ' (' + f.size + ' bytes)' : 'No file chosen');">
+      <input type="file" id="demo-file-input" class="form-control mb-2" accept=".pdf,.png,.jpg">
+      <button type="submit" class="btn btn-primary btn-sm">Inspect Uploaded File</button>
+    </form>
+  </div>
+  
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <a href="../index.html" class="btn btn-outline btn-sm">&larr; Back to Lab Directory</a>
+      <span class="text-muted small">&copy; 2026 CampusConnect Pro Web Tech Lab</span>
+    </div>
+  </main>
+
+  <script src="../../js/main.js"></script>
+  
+</body>
+</html>
